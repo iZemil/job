@@ -14,3 +14,4 @@
 -   [Общие вопросы](common.md)
 -   [Фронтенд](frontend.md)
 -   [Бекенд](backend.md)
+-   [Typescript](typescript.md)
