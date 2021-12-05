@@ -8,3 +8,9 @@
 4. Материалы практики
     - Песочница TS: https://replit.com/@EmilZaripovFL/Typescript
     - Песочница React TS: https://replit.com/@EmilZaripovFL/React-Typescript
+
+### Содержание
+
+-   [Общие вопросы](common.md)
+-   [Фронтенд](frontend.md)
+-   [Бекенд](backend.md)
