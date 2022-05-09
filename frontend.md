@@ -1,6 +1,12 @@
+# Frontend javascript interview
+
+-   [Junior level](#Junior-level)
+-   [Middle level](#Middle-level)
+-   [Senior level](#Senior-level)
+
 ## Junior level
 
--   Какие способы хранения информации есть на клиенте:
+### Ways to store data on client side:
 
     1. Cookies
     2. Web Storage API (localStorage, sessionStorage)
@@ -11,7 +17,11 @@
 
 ## Middle level
 
+###
+
 ## Senior level
+
+###
 
 Фронтенд
 HTML/CSS

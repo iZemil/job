@@ -1,37 +1,49 @@
+# Common javascript questions
+
+-   [Junior level](#Junior-level)
+-   [Middle level](#Middle-level)
+-   [Senior level](#Senior-level)
+
 ## Junior level
 
-### Базовые JS типы
+### Name base js types
 
--   undefined
--   null
--   boolean
--   string
--   number
--   bigint
--   symbol
--   object
+1.  undefined
+2.  null
+3.  boolean
+4.  string
+5.  number
+6.  bigint
+7.  symbol
+8.  object
 
-### Привести один тип к другому
+### Type converting
 
 ```javascript
 // 1 => '1'
+
 // '1' => 1
+
 // some => false
+
 // some => true
-// some => Nan что такое Nan и какой тип имеет
+
+// some => Nan, what is Nan and what its type
 ```
 
-### Для чего используется оператор "&&"?
+### What javascript operators you know?
 
-### Для чего используется оператор "||" (Логическое или)?
+-   Assignment operators
+-   Comparison operators (== vs ===)
+-   Arithmetic operators
+-   Logical operators (&&, ||, !)
+-   String operators
+-   Conditional (ternary) operator
+-   Others: in, delete, typeof, instanceof, void
 
-### В чем разница между операторами "==" и "==="?
+### Use cases of Map and Set objects
 
-### Для чего используется оператор "!!" (Логическое и)?
-
-### Что такое Map, Set и примеры использования
-
-### Что такое колбек функция, привести примеры
+### Use cases of callback fn
 
 ### var, let, const
 
@@ -47,13 +59,37 @@ function foo() {
 console.log(a); // 2
 ```
 
-### Что такое методы и свойства
+### Explain methods and properties
 
-### Для чего используется ключевое слово «new»?
+### Purpose of «new» keyword?
 
-### Способы перебора массивов
+### Ways to loop arrays
 
-### Условия в js
+```javascript
+const arr = [1, 2, 3, 4, 5];
+```
+
+### Ways of conditions
+
+### Arrow functions: what is and specifics
+
+-   Стрелочные функции не содержат собственный контекст this, а используют значение this окружающего контекста.
+-   Стрелочные функции не имеют собственного объекта arguments, поэтому в теле стрелочных функций arguments будет ссылаться на переменную в окружающей области.
+-   Стрелочные функции не могут быть использованы как конструктор и вызовут ошибку при использовании с new.
+-   Ключевое слово yield не может быть использовано в теле стрелочной функции. Как следствие стрелочные функции не могут быть использованы как генераторы.
+
+```javascript
+'use strict';
+var obj = {
+	i: 10,
+	b: () => console.log(this.i, this),
+	c: function () {
+		console.log(this.i, this);
+	},
+};
+obj.b(); // prints undefined, Window {...} (или глобальный объект)
+obj.c(); // prints 10, Object {...}
+```
 
 ## Middle level
 
@@ -69,17 +105,13 @@ function func() {
 var getPriv = func();
 ```
 
-### Реализовать Counter через функцию
+### Counter function as below
 
 ```javascript
 const counter = Counter();
 counter.inc();
 counter.dec();
-```
 
-Ответ:
-
-```javascript
 function Counter() {
 	let count = 0;
 
@@ -94,19 +126,31 @@ function Counter() {
 }
 ```
 
-### Использование Promises
+### Promises vs callback
 
-#### Какие состояния:
+Write wait functions based on callback and promise.
 
--   ожидание (pending): начальное состояние, не выполнено и не отклонено.
--   выполнено (fulfilled): операция завершена успешно.
--   отклонено (rejected): операция завершена с ошибкой.
+```javascript
+const waitPromise = (delay = new Promise((res) => setTimeout(() => res(), delay)));
+waitPromise(2000).then(() => console.log('finish'));
 
-#### Promise.all примеры использования
+const waitCb = (delay, cb) => setTimeout(() => cb(), delay);
+waitCb(2000, () => console.log('finish 2'));
+```
 
-### Как обрабатывать ошибки с Promise
+#### Promise conditions and how to work with them:
 
-### Работа с контекстом:
+-   pending: начальное состояние, не выполнено и не отклонено.
+-   fulfilled: операция завершена успешно.
+-   rejected: операция завершена с ошибкой.
+
+#### Promise.all usecase
+
+```javascript
+Promise.all([new Promise(), new Promise(), new Promise()]);
+```
+
+### Work with context
 
 ```javascript
 function fullName() {
@@ -153,37 +197,39 @@ counter.set(3);
 console.log(counter.increment()); // 4
 ```
 
-### Arrow functions: Что такое, какие особенности?
-
--   Стрелочные функции не содержат собственный контекст this, а используют значение this окружающего контекста.
--   Стрелочные функции не имеют собственного объекта arguments, поэтому в теле стрелочных функций arguments будет ссылаться на переменную в окружающей области.
--   Стрелочные функции не могут быть использованы как конструктор и вызовут ошибку при использовании с new.
--   Ключевое слово yield не может быть использовано в теле стрелочной функции. Как следствие стрелочные функции не могут быть использованы как генераторы.
-
-```javascript
-'use strict';
-var obj = {
-	i: 10,
-	b: () => console.log(this.i, this),
-	c: function () {
-		console.log(this.i, this);
-	},
-};
-obj.b(); // prints undefined, Window {...} (или глобальный объект)
-obj.c(); // prints 10, Object {...}
-```
-
-### Реализовать сортировку массива
+### Sort array below
 
 ```javascript
 const arr = [0, 3, 2, 43, 57, 6, 23, 1, 554, 5, 45, 3, 7, 8];
+
+arr.sort((a, b) => a - b);
+
+function sort(arr) {}
 ```
 
 ## Senior level
 
-### Что такое Proxy объект, привести пример использования
+### Function overloading typescript
 
-### Рассмотрим SOLID паттерн на практике. Какой принцип необходимо использовать в примере ниже:
+TypeScript provides the concept of function overloading. You can have multiple functions with the same name but different parameter types and return type.
+
+```typescript
+function add(a: string, b: string): string;
+function add(a: number, b: number): number;
+function add(a: any, b: any): any {
+	return a + b;
+}
+```
+
+### concurrency, parallel execution, multithreading, asynchrony
+
+https://ru.stackoverflow.com/questions/445768/%D0%9C%D0%BD%D0%BE%D0%B3%D0%BE%D0%BF%D0%BE%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B5-vs-%D0%B0%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5
+
+### Proxy object usecases
+
+### SOLID patterns #TODO: https://coder-question.com/cq-blog/529020 and https://duncan-mcardle.medium.com/solid-principle-2-open-closed-javascript-fc49b577a377#:~:text=The%20open%2Dclosed%20principle%20says,the%20need%20to%20modify%20it.
+
+#### What is using below?
 
 ```javascript
 class TodoList {
@@ -239,7 +285,7 @@ class DatabaseManager {
 }
 ```
 
-### ПРИНЦИП ОТКРЫТОСТИ/ЗАКРЫТОСТИ(программные сущности (классы, модули, функции и т. п.) должны быть открыты для расширения, но закрыты для изменения)
+#### ПРИНЦИП ОТКРЫТОСТИ/ЗАКРЫТОСТИ(программные сущности (классы, модули, функции и т. п.) должны быть открыты для расширения, но закрыты для изменения)
 
 ```javascript
 class Coder {
