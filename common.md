@@ -94,8 +94,36 @@ obj.c(); // prints 10, Object {...}
 ### what is the result
 
 ```javascript
-for (let i = 0; i <= 2; i++) {}
-console.log(i); // undefined
+var funcs = [];
+for (var i = 0; i < 3; i++) {
+	funcs[i] = function () {
+		console.log('My value: ' + i);
+	};
+}
+
+for (const f of funcs) {
+	f();
+}
+```
+
+And classical solution with closure:
+
+```javascript
+var funcs = [];
+function createfunc(i) {
+	return function () {
+		console.log('My value: ' + i);
+	};
+}
+
+for (var i = 0; i < 3; i++) {
+	funcs[i] = createfunc(i);
+}
+
+for (var j = 0; j < 3; j++) {
+	// and now let's run each one to see
+	funcs[j]();
+}
 ```
 
 ## Middle level

@@ -2,6 +2,8 @@ import { Logger } from '@nestjs/common';
 import * as express from 'express';
 import { NextFunction, Request, Response } from 'express';
 
+import { router } from './router';
+
 const logger = new Logger('ExpressServer');
 
 const middleware = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -14,6 +16,7 @@ export async function bootstrapExpress() {
 	const app = express();
 
 	app.use(middleware);
+	app.use('/birds', router);
 
 	app.get('/FizzBuzz', async (req, res) => {
 		const { x: xQuery } = req.query;

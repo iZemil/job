@@ -1,14 +1,21 @@
-import { Provider as ReduxProvider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+import styled from 'styled-components';
 
-import { GlobalStyles, SnackbarsProvider, ThemeProvider } from '@ui';
+import { Parent } from './view/components/Cb';
+import { GlobalStyles } from './view/components/GlobalStyles/GlobalStyles';
 
-import { persistor, store } from './store';
-import { theme } from './view/components/theme';
-import { Routing } from './view/pages/Routing';
+const Styled = {
+	$: styled.div`
+		padding: 20px;
+	`,
+};
 
 export function App() {
 	return (
-		<div>Interview</div>
+		<Styled.$>
+			<GlobalStyles />
+
+			<h1>Interview</h1>
+			<Parent />
+		</Styled.$>
 	);
 }
