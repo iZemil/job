@@ -91,7 +91,31 @@ obj.b(); // prints undefined, Window {...} (или глобальный объе
 obj.c(); // prints 10, Object {...}
 ```
 
+### what is the result
+
+```javascript
+for (let i = 0; i <= 2; i++) {}
+console.log(i); // undefined
+```
+
 ## Middle level
+
+### Heap data structure
+
+A heap is a tree-based data structure which is an almost complete tree that satisfies the heap property.
+
+There are two types of heaps, based on the heap property — MinHeap and MaxHeap.
+
+MinHeap: The parent node is always less than the child nodes.
+MaxHeap: The parent node is always greater than or equal to the child nodes.
+
+Heaps is primarily used for getting the minimum or the maximum value present in a heap in O(1) time.
+
+```javascript
+// Heap can be represent as arrays:
+const minHeap = [1, 20, 30, 24, 26, 32, 39];
+const maxHeap = [100, 80, 60, 77, 75, 58, 51];
+```
 
 ### Как создать приватную переменную в Javascript:
 
@@ -206,6 +230,29 @@ arr.sort((a, b) => a - b);
 
 function sort(arr) {}
 ```
+
+### OOP
+
+Basic concepts of OOP: classes and instances, inheritance, and encapsulation.
+
+#### Classes and instances
+
+In OOP, when we model a problem in terms of objects we create abstract definitions representing the types of object we want to have in our system.
+
+#### Inheritance
+
+```javascript
+class Proffesor extends Person {}
+class Student extends Person {}
+```
+
+This feature - when a method has the same name, but a different implementation in different classes - is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass overrides the version in the superclass.
+
+#### Encapsulation
+
+Objects provide an interface to other code that wants to use them, but maintain their own internal state. The object's internal state is kept private, meaning that it can only be accessed by the object's own methods, not from other objects. Keeping an object's internal state private, and in general making a clear division between its public interface and its private internal state, is called encapsulation.
+
+This is a useful feature because it enables the programmer to change the internal implementation of an object without having to find and update all the code that uses it: it creates a kind of firewall between this object and the rest of the system.
 
 ## Senior level
 

@@ -41,7 +41,68 @@ The mechanism of how nodejs javascript handle operations. JS has one single thre
 
 ## Senior level
 
+### Monolithic vs. Microservices Architecture
+
+#### Benefits of Monolithic Architecture
+
+-   Simple to develop.
+-   Simple to test. For example you can implement end-to-end testing by simply launching the application and testing the UI with Selenium.
+-   Simple to deploy. You just have to copy the packaged application to a server.
+-   Simple to scale horizontally by running multiple copies behind a load balancer.
+
+#### Drawbacks of Monolithic Architecture
+
+-   This simple approach has a limitation in size and complexity.
+-   Application is too large and complex to fully understand and made changes fast and correctly.
+-   The size of the application can slow down the start-up time.
+-   You must redeploy the entire application on each update.
+-   Impact of a change is usually not very well understood which leads to do extensive manual testing.
+-   Continuous deployment is difficult.
+-   Monolithic applications can also be difficult to scale when different modules have conflicting resource requirements.
+-   Another problem with monolithic applications is reliability. Bug in any module (e.g. memory leak) can potentially bring down the entire process. Moreover, since all instances of the application are identical, that bug will impact the availability of the entire application.
+-   Monolithic applications has a barrier to adopting new technologies. Since changes in frameworks or languages will affect an entire application it is extremely expensive in both time and cost.
+
+#### Microservice
+
+The idea is to split your application into a set of smaller, interconnected services instead of building a single monolithic application. The Microservice architecture pattern significantly impacts the relationship between the application and the database. Instead of sharing a single database schema with other services, each service has its own database schema. Mobile, desktop, web apps don't have direct access to services but they have access to API Gateway. It is responsible for tasks such as load balancing, caching, access control, API metering, and monitoring.
+
+#### Benefits of Microservices Architecture
+
+-   It tackles the problem of complexity by decomposing application into a set of manageable services which are much faster to develop, and much easier to understand and maintain.
+-   It enables each service to be developed independently by a team that is focused on that service.
+-   It reduces barrier of adopting new technologies since the developers are free to choose whatever technologies make sense for their service and not bounded to the choices made at the start of the project.
+-   Microservice architecture enables each microservice to be deployed independently. As a result, it makes continuous deployment possible for complex applications.
+-   Microservice architecture enables each service to be scaled independently.
+
+#### Drawbacks of Microservices Architecture
+
+-   Microservices architecture adding a complexity to the project just by the fact that a microservices application is a distributed system. You need to choose and implement an inter-process communication mechanism based on either messaging or RPC and write code to handle partial failure and take into account other fallacies of distributed computing.
+-   Microservices has the partitioned database architecture. Business transactions that update multiple business entities in a microservices-based application need to update multiple databases owned by different services. Using distributed transactions is usually not an option and you end up having to use an eventual consistency based approach, which is more challenging for developers.
+-   Testing a microservices application is also much more complex then in case of monolithic web application. For a similar test for a service you would need to launch that service and any services that it depends upon (or at least configure stubs for those services).
+-   It is more difficult to implement changes that span multiple services. In a monolithic application you could simply change the corresponding modules, integrate the changes, and deploy them in one go. In a Microservice architecture you need to carefully plan and coordinate the rollout of changes to each of the services.
+-   Deploying a microservices-based application is also more complex. A monolithic application is simply deployed on a set of identical servers behind a load balancer. In contrast, a microservice application typically consists of a large number of services. Each service will have multiple runtime instances. And each instance need to be configured, deployed, scaled, and monitored. In addition, you will also need to implement a service discovery mechanism. Manual approaches to operations cannot scale to this level of complexity and successful deployment a microservices application requires a high level of automation.
+
 ### DB Transactions and ACID
+
+#### Atomicity
+
+All changes to data are performed as if they are a single operation. That is, all the changes are performed, or none of them are.
+For example, in an application that transfers funds from one account to another, the atomicity property ensures that, if a debit is made successfully from one account, the corresponding credit is made to the other account.
+
+#### Consistency Согласованность
+
+Data is in a consistent state when a transaction starts and when it ends.
+For example, in an application that transfers funds from one account to another, the consistency property ensures that the total value of funds in both the accounts is the same at the start and end of each transaction.
+
+#### Isolation
+
+The intermediate state of a transaction is invisible to other transactions. As a result, transactions that run concurrently appear to be serialized.
+For example, in an application that transfers funds from one account to another, the isolation property ensures that another transaction sees the transferred funds in one account or the other, but not in both, nor in neither.
+
+#### Durability
+
+After a transaction successfully completes, changes to data persist and are not undone, even in the event of a system failure.
+For example, in an application that transfers funds from one account to another, the durability property ensures that the changes made to each account will not be reversed.
 
 ### SQL Exercises
 
