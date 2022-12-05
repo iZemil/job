@@ -1,27 +1,28 @@
-# Javascript Interview
+# Full Stack Javascript Interview
 
-```
+**Main goal is to estimate candidate level**
+
 > More Practice
+>
 > Less Words
-```
 
-Main goal to estimate candidate level
+## Candidate workflow
 
-## Plan
+1. Company Intro (Elevetor Pitch), Team, Tasks and Interview Format.
 
-1. Tell about company, team and interview format [INTRO](intro.md)
+2. Candidate Intro [example](./wiki/CANDIDATE_INTRO.md)
 
-2. Ask candidate to tell about himself [CV](cv.md)
+3. Programming Interview:
 
-3. Technical interview:
+    - Common Javascript [list](./wiki/JAVASCRIPT.md)
+    - Typescript [list](./wiki/TYPESCRIPT.md)
+    - ReactJS [list](./wiki/REACTJS.md)
+    - Common Backend [list](./wiki/BACKEND.md)
+    - Database [list](./wiki/DATABASE.md)
+    - NodeJS [list](./wiki/NODEJS.md)
+    - [list](eng.md)
 
-    - [COMMON JAVASCRIPT](common.md)
-    - [FRONTEND WITH REACT](frontend.md)
-    - [NODEJS BACKEND](backend.md)
-    - [TYPESCRIPT](typescript.md)
-    - [ENGLISH](eng.md)
-
-4. [FEEDBACK CANDIDATE](feedback.md)
+4. Finish [example](./wiki/FINISH.md)
 
 ### Practice sandbox:
 
