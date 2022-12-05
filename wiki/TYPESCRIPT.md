@@ -1,19 +1,37 @@
 # Typescript
 
-### What is TypeScript and why would I use it in place of JavaScript?
+---
 
-### Primitives
+#### What is TypeScript and why would I use it in place of JavaScript?
 
-### Arrays
+---
 
-### any
+#### Primitives
 
-### Create fn with object argument and return string
+---
 
-### Optional Properties
+#### Arrays
 
-### Interfaces vs Types
+---
 
-### Union types
+#### any
 
-### Values of object type
+---
+
+#### Create fn with object argument and return string
+
+---
+
+#### Optional Properties
+
+---
+
+#### Interfaces vs Types
+
+---
+
+#### Union types
+
+---
+
+#### Values of object type

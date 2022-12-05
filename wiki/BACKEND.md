@@ -1,12 +1,10 @@
-# Backend nodejs interview
+# BACKEND
 
 -   [Junior level](#Junior-level)
 -   [Middle level](#Middle-level)
 -   [Senior level](#Senior-level)
 
 ## Junior level
-
-### var, let, const
 
 ### В чем прикладное отличие Node.js от других платформ серверной разработки (Под какие задачи подходит, а под какие не подходит)?
 

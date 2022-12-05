@@ -1,4 +1,4 @@
-# CV
+# CANDIDATE INTRO
 
 Discover candidate's softskills
 
@@ -8,3 +8,7 @@ Discover candidate's softskills
 -   Ask about specific tasks and steps to handle with them
 -   Ask about complex tasks and steps to handle with them
 -   What candidate is loking for
+
+## HR intro
+
+## Programming intro
