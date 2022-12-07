@@ -8,6 +8,8 @@
 
 ## Candidate workflow
 
+0. [Review a candidate CV](./wiki/CV.md)
+
 1. Company Intro (Elevetor Pitch), Team, Tasks and Interview Format.
 
 2. Candidate Intro [Example](./wiki/CANDIDATE_INTRO.md)
@@ -18,6 +20,7 @@
         - Javascript [List](./wiki/JAVASCRIPT.md)
         - Typescript [List](./wiki/TYPESCRIPT.md)
         - Backend [List](./wiki/BACKEND.md)
+        - Algorithms [List](./wiki/ALGORITHMS.md)
     - ReactJS [List](./wiki/REACTJS.md)
     - NodeJS [List](./wiki/NODEJS.md)
     - Database [List](./wiki/DATABASE.md)

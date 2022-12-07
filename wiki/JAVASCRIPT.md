@@ -193,6 +193,10 @@ for (var j = 0; j < 3; j++) {
 
 ---
 
+#### What is Symbol type and its purpose?
+
+---
+
 #### Pure functions
 
 ---
@@ -425,6 +429,8 @@ https://ru.stackoverflow.com/questions/445768/%D0%9C%D0%BD%D0%BE%D0%B3%D0%BE%D0%
 ---
 
 #### SOLID patterns #TODO: https://coder-question.com/cq-blog/529020 and https://duncan-mcardle.medium.com/solid-principle-2-open-closed-javascript-fc49b577a377#:~:text=The%20open%2Dclosed%20principle%20says,the%20need%20to%20modify%20it.
+
+CHECK this: https://medium.com/webbdev/solid-4ffc018077da
 
 ---
 
