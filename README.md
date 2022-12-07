@@ -17,13 +17,14 @@
 3. Programming Interview:
 
     - Common
-        - Javascript [List](./wiki/JAVASCRIPT.md)
-        - Typescript [List](./wiki/TYPESCRIPT.md)
-        - Backend [List](./wiki/BACKEND.md)
-        - Algorithms [List](./wiki/ALGORITHMS.md)
-    - ReactJS [List](./wiki/REACTJS.md)
-    - NodeJS [List](./wiki/NODEJS.md)
-    - Database [List](./wiki/DATABASE.md)
+        - Programming [Wiki](./wiki/common/COMMON.md)
+        - Javascript [Wiki](./wiki/javascript/JAVASCRIPT.md)
+        - Typescript [Wiki](./wiki/typescript/TYPESCRIPT.md)
+        - Backend [Wiki](./wiki/backend/BACKEND.md)
+        - Algorithms [Wiki](./wiki/algorithms/ALGORITHMS.md)
+    - ReactJS [Wiki](./wiki/reactjs/REACTJS.md)
+    - NodeJS [Wiki](./wiki/nodejs/NODEJS.md)
+    - Database [Wiki](./wiki/databases/DATABASE.md)
 
 4. Finish interview process [Example](./wiki/FINISH.md)
 
