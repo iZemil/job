@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "tutorial-basics/congratulations.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "tutorial-basics/congratulations.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "tutorial-basics/congratulations.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "tutorial-basics/congratulations.md"
               }
             }
           }
@@ -147,5 +147,16 @@
     }
   },
   "active": "3efaff024baf8959",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "tutorial-basics/create-a-blog-post.md",
+    "tutorial-basics/create-a-document.md",
+    "tutorial-basics/create-a-page.md",
+    "tutorial-basics/deploy-your-site.md",
+    "tutorial-basics/congratulations.md",
+    "candidate_intro.md",
+    "cv.md",
+    "finish.md",
+    "README.md",
+    "wiki/finish.md"
+  ]
 }
