@@ -1,44 +1,41 @@
-# Full Stack Javascript Interview
+# Website
 
-**Main goal is to estimate candidate level**
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-> More Practice
->
-> Less Words
+### Installation
 
-## Candidate workflow
+```
+$ yarn
+```
 
-0. [Review a candidate CV](./wiki/CV.md)
+### Local Development
 
-1. Company Intro (Elevetor Pitch), Team, Tasks and Interview Format.
+```
+$ yarn start
+```
 
-2. Candidate Intro [Example](./wiki/CANDIDATE_INTRO.md)
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-3. Programming Interview:
+### Build
 
-    - Common
-        - Programming [Wiki](./wiki/common/COMMON.md)
-        - Javascript [Wiki](./wiki/javascript/JAVASCRIPT.md)
-        - Typescript [Wiki](./wiki/typescript/TYPESCRIPT.md)
-        - Backend [Wiki](./wiki/backend/BACKEND.md)
-        - Algorithms [Wiki](./wiki/algorithms/ALGORITHMS.md)
-    - ReactJS [Wiki](./wiki/reactjs/REACTJS.md)
-    - NodeJS [Wiki](./wiki/nodejs/NODEJS.md)
-    - Database [Wiki](./wiki/databases/DATABASE.md)
+```
+$ yarn build
+```
 
-4. Finish interview process [Example](./wiki/FINISH.md)
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Sandbox
+### Deployment
 
-    - Typescript: https://replit.com/@EmilZaripovFL/Typescript
-    - ReactJS: https://replit.com/@EmilZaripovFL/React-Typescript
+Using SSH:
 
-### Common Job Workflow:
+```
+$ USE_SSH=true yarn deploy
+```
 
-1. **Job Board** (linkedin, telegram channels, etc.)
-2. **Candidate Board Promos**
-3. **Candidate CVs**
-4. _Testing Task_
-5. **Softskill Interview**
-6. **Programming Interview**
-7. **Job Offer**
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
