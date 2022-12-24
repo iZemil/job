@@ -1,10 +1,11 @@
 ---
 sidebar_position: 1
+slug: /
 ---
 
 # Intro
 
-The main goal of this guide is to get the best job offer you can. And start with main steps of common job seeking process called __job workflow__.
+The main goal of this guide is to get the best job offer you can. And start with main steps of common job seeking process called **job workflow**.
 
 ## Job workflow
 
@@ -15,16 +16,17 @@ Usually, the job workflow consists of the next steps
 Example of CV and good structure you can see by [following link](https://emil.pw).
 
 The main points to look for:
-- title
-- description - the short summary about your status
-- career, focus on your achievements during role, mention tech stack
-- hobbies, specify it if you have something special
-- contact information
+
+-   title
+-   description - the short summary about your status
+-   career, focus on your achievements during role, mention tech stack
+-   hobbies, specify it if you have something special
+-   contact information
 
 If you don't know where\how to deploy CV, I recommend using any [static site generator](https://jamstack.org/generators/) and GitHub pages or the simplest way is Google Docs.
 
 > Also, don't forget to make a PDF version of the CV.
-> 
+>
 > It's better if you can make it as easy as you can, for example use button with one method `window.print();`
 
 ### CV pushing
@@ -45,7 +47,7 @@ Hooray! HR wrote to you - it's the first touch with company. In most cases, you 
 -   Ask about common daily tasks and steps to handle with them
 -   Ask about specific tasks and steps to handle with them
 -   Ask about complex tasks and steps to handle with them
--    What candidate is looking for
+-   What candidate is looking for
 
 ### Testing Task \*
 

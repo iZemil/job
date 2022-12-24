@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-	title: 'Javascript Interview',
-	tagline: 'Level Estimator',
+	title: 'Javascript Job',
+	tagline: 'JS Interview',
 	url: 'https://izemil.github.io',
 	baseUrl: '/javascript-interview/',
 	onBrokenLinks: 'throw',
@@ -33,6 +33,8 @@ const config = {
 			/** @type {import('@docusaurus/preset-classic').Options} */
 			({
 				docs: {
+					path: 'interview',
+					routeBasePath: 'interview',
 					sidebarPath: require.resolve('./sidebars.js'),
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
@@ -49,7 +51,7 @@ const config = {
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
 			navbar: {
-				title: 'Fullstack',
+				title: 'Job',
 				logo: {
 					alt: 'JS Site Logo',
 					src: 'img/logo.svg',
@@ -81,7 +83,7 @@ const config = {
 				// 		],
 				// 	},
 				// ],
-				copyright: `Copyright © ${new Date().getFullYear()} fullstack.js.org built by emil.`,
+				copyright: `Copyright © ${new Date().getFullYear()} job.js.org built by emil.`,
 			},
 			prism: {
 				theme: lightCodeTheme,

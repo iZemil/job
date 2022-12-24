@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hard Skills/javascript.md",
+                "file": "Tech/javascript.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Hard Skills/javascript.md",
+                "file": "Tech/javascript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hard Skills/javascript.md",
+                "file": "Tech/javascript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Hard Skills/javascript.md"
+                "file": "Tech/javascript.md"
               }
             }
           }
@@ -148,15 +148,15 @@
   },
   "active": "6084dfe72e61c786",
   "lastOpenFiles": [
-    "intro.md",
-    "tutorial-basics/create-a-blog-post.md",
-    "Hard Skills/javascript.md",
-    "Hard Skills/nodejs.md",
-    "Hard Skills/typescript.md",
-    "tutorial-basics/create-a-document.md",
+    "Tech/algorithms.md",
+    "Tech/database.md",
+    "Tech/javascript.md",
+    "Tech/solid.md",
+    "Tech/typescript.md",
+    "tutorial-basics/img/docsVersionDropdown.png",
+    "tutorial-basics/img/localeDropdown.png",
     "tutorial-basics/manage-docs-versions.md",
-    "Hard Skills/database.md",
-    "Hard Skills/reactjs.md",
-    "Hard Skills/backend.md"
+    "tutorial-basics/create-a-document.md",
+    "tutorial-basics/create-a-blog-post.md"
   ]
 }
