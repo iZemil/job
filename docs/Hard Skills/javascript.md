@@ -1,33 +1,29 @@
-# JAVASCRIPT
+---
+sidebar_position: 1
+---
 
--   [Junior Level](#Junior-Level)
--   [Middle Level](#Middle-Level)
--   [Senior Level](#Senior-Level)
+# Javascript
+
+### What is Javascript?
+
+JavaScript is a programming language that is commonly used to create interactive elements on websites. It is a client-side language, which means that the code is executed by the user's web browser rather than on a server. JavaScript can be used to create a wide variety of effects and features on a website, such as drop-down menus, form validation, and interactive maps. It is an essential component of modern web development and is supported by all major web browsers.
+
+### JS types
+
+In JavaScript, there are six primitive types:
+
+1.  Number: represents numeric values. In JavaScript, all numbers are considered to be floating-point values.
+2.  String: represents a sequence of characters, or text. Strings can be enclosed in single or double quotes.
+3.  Boolean: represents a logical value, either true or false.
+4.  Null: represents a null value, which indicates an absence of a value or a null reference.
+5.  Undefined: represents an undefined value, which indicates that a variable has been declared but has not been assigned a value.
+6.  Symbol: represents a unique, immutable value. Symbols are a relatively new addition to JavaScript and are used as a way to create unique, hidden keys for object properties.
+
+In addition to these primitive types, JavaScript also has a number of object types, including arrays, functions, and objects. Objects are a collection of properties, each of which has a name and a value, and can represent a wide variety of data types, including strings, numbers, and other objects. Functions are a special type of object that can be invoked to perform a specific task, and arrays are objects that can store a collection of values.
 
 ---
 
-## Junior Level
-
----
-
-#### What is Javascript?
-
----
-
-#### All JS Types
-
-1.  undefined
-2.  null
-3.  boolean
-4.  string
-5.  number
-6.  bigint
-7.  symbol
-8.  object
-
----
-
-#### Type converting
+### Type converting
 
 ```js
 // 1 => '1'
@@ -43,7 +39,7 @@
 
 ---
 
-#### JS Operators
+### JS Operators
 
 -   Assignment operators (=, +=, -=, \*=, /=), Logical Assignment operators (&&=, ||=, ??=)
 -   Comparison operators (== vs. ===)
@@ -54,21 +50,21 @@
 
 ---
 
-#### Usage of Map and Set Objects
+### Usage of Map and Set Objects
 
 ---
 
-#### Usage of WeakMap and WeakSet Objects
+### Usage of WeakMap and WeakSet Objects
 
 ---
 
-#### Usage of callback fn
+### Usage of callback fn
 
 Callback functions are fns that can be used as arguments (common examples: forEach, map, setTimeout)
 
 ---
 
-#### var vs. let vs. const
+### var vs. let vs. const
 
 ```js
 var a = 2;
@@ -84,19 +80,19 @@ console.log(a); // 2
 
 ---
 
-#### Explain methods and properties
+### Explain methods and properties
 
 OOP has object way of describing, so Objects have properties (like color, length, value, etc) that store states and methods (like run, read, update, etc) that can change properties of the object or other objects and execute other methods.
 
 ---
 
-#### Purpose of «new» keyword?
+### Purpose of «new» keyword?
 
 It is used to create an instance of an object
 
 ---
 
-#### How to execute string as function
+### How to execute string as function
 
 ```js
 const scriptStr = "console.log('hey');";
@@ -108,7 +104,7 @@ new Function(scriptStr)();
 
 ---
 
-#### Ways to loop arrays
+### Ways to loop arrays
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -118,7 +114,7 @@ const arr = [1, 2, 3, 4, 5];
 
 ---
 
-#### Ways of conditions
+### Ways of conditions
 
 ```js
 // if-else
@@ -130,7 +126,7 @@ const arr = [1, 2, 3, 4, 5];
 
 ---
 
-#### Arrow functions: what is and specifics
+### Arrow functions: what is and specifics
 
 -   Стрелочные функции не содержат собственный контекст this, а используют значение this окружающего контекста.
 -   Стрелочные функции не имеют собственного объекта arguments, поэтому в теле стрелочных функций arguments будет ссылаться на переменную в окружающей области.
@@ -152,7 +148,7 @@ obj.c(); // prints 10, Object {...}
 
 ---
 
-#### what is the result
+### what is the result
 
 ```js
 var funcs = [];
@@ -193,15 +189,15 @@ for (var j = 0; j < 3; j++) {
 
 ---
 
-#### What is Symbol type and its purpose?
+### What is Symbol type and its purpose?
 
 ---
 
-#### Pure functions
+### Pure functions
 
 ---
 
-#### Inheritance instanceof
+### Inheritance instanceof
 
 ```js
 class Person {}
@@ -220,7 +216,7 @@ console.log(programmer instanceof Chief);
 
 ---
 
-#### Heap data structure
+### Heap data structure
 
 A heap is a tree-based data structure which is an almost complete tree that satisfies the heap property.
 
@@ -239,7 +235,7 @@ const maxHeap = [100, 80, 60, 77, 75, 58, 51];
 
 ---
 
-#### Как создать приватную переменную в Javascript:
+### Как создать приватную переменную в Javascript:
 
 ```js
 function func() {
@@ -253,7 +249,7 @@ var getPriv = func();
 
 ---
 
-#### Counter function as below
+### Counter function as below
 
 ```js
 const counter = Counter();
@@ -276,7 +272,7 @@ function Counter() {
 
 ---
 
-#### Promises vs. callback
+### Promises vs. callback
 
 Write wait functions based on callback and promise.
 
@@ -290,7 +286,7 @@ waitCb(2000, () => console.log('finish 2'));
 
 ---
 
-##### Promise conditions and how to work with them:
+#### Promise conditions and how to work with them:
 
 -   pending: начальное состояние, не выполнено и не отклонено.
 -   fulfilled: операция завершена успешно.
@@ -298,7 +294,7 @@ waitCb(2000, () => console.log('finish 2'));
 
 ---
 
-##### Promise.all usecase
+#### Promise.all usecase
 
 ```js
 Promise.all([new Promise(), new Promise(), new Promise()]);
@@ -306,7 +302,7 @@ Promise.all([new Promise(), new Promise(), new Promise()]);
 
 ---
 
-#### Work with context
+### Work with context
 
 ```js
 function fullName() {
@@ -325,7 +321,7 @@ console.log(fullName.bind(person)()); // => Hello this is Foo Bar
 
 ---
 
-#### IIFE
+### IIFE
 
 Immediately Invoked Function Expressions (IIFEs) — это синтаксическая конструкция, позволяющая вызвать функцию сразу же в месте ее определения.
 
@@ -357,7 +353,7 @@ console.log(counter.increment()); // 4
 
 ---
 
-#### Sort array below
+### Sort array below
 
 ```js
 const arr = [0, 3, 2, 43, 57, 6, 23, 1, 554, 5, 45, 3, 7, 8];
@@ -369,19 +365,19 @@ function sort(arr) {}
 
 ---
 
-#### OOP
+### OOP
 
 Basic concepts of OOP: classes and instances, inheritance, and encapsulation.
 
 ---
 
-##### Classes and instances
+#### Classes and instances
 
 In OOP, when we model a problem in terms of objects we create abstract definitions representing the types of object we want to have in our system.
 
 ---
 
-##### Inheritance
+#### Inheritance
 
 ```js
 class Proffesor extends Person {}
@@ -392,7 +388,7 @@ This feature - when a method has the same name, but a different implementation i
 
 ---
 
-##### Encapsulation
+#### Encapsulation
 
 Objects provide an interface to other code that wants to use them, but maintain their own internal state. The object's internal state is kept private, meaning that it can only be accessed by the object's own methods, not from other objects. Keeping an object's internal state private, and in general making a clear division between its public interface and its private internal state, is called encapsulation.
 
@@ -404,7 +400,7 @@ This is a useful feature because it enables the programmer to change the interna
 
 ---
 
-#### Function overloading typescript
+### Function overloading typescript
 
 TypeScript provides the concept of function overloading. You can have multiple functions with the same name but different parameter types and return type.
 
@@ -418,23 +414,23 @@ function add(a: any, b: any): any {
 
 ---
 
-#### concurrency, parallel execution, multithreading, asynchrony
+### concurrency, parallel execution, multithreading, asynchrony
 
 https://ru.stackoverflow.com/questions/445768/%D0%9C%D0%BD%D0%BE%D0%B3%D0%BE%D0%BF%D0%BE%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B5-vs.-%D0%B0%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5
 
 ---
 
-#### Proxy object usecases
+### Proxy object usecases
 
 ---
 
-#### SOLID patterns #TODO: https://coder-question.com/cq-blog/529020 and https://duncan-mcardle.medium.com/solid-principle-2-open-closed-javascript-fc49b577a377#:~:text=The%20open%2Dclosed%20principle%20says,the%20need%20to%20modify%20it.
+### SOLID patterns #TODO: https://coder-question.com/cq-blog/529020 and https://duncan-mcardle.medium.com/solid-principle-2-open-closed-javascript-fc49b577a377#:~:text=The%20open%2Dclosed%20principle%20says,the%20need%20to%20modify%20it.
 
 CHECK this: https://medium.com/webbdev/solid-4ffc018077da
 
 ---
 
-##### What is using below?
+#### What is using below?
 
 ```js
 class TodoList {
@@ -492,7 +488,7 @@ class DatabaseManager {
 
 ---
 
-##### ПРИНЦИП ОТКРЫТОСТИ/ЗАКРЫТОСТИ(программные сущности (классы, модули, функции и т. п.) должны быть открыты для расширения, но закрыты для изменения)
+#### ПРИНЦИП ОТКРЫТОСТИ/ЗАКРЫТОСТИ(программные сущности (классы, модули, функции и т. п.) должны быть открыты для расширения, но закрыты для изменения)
 
 ```js
 class Coder {
@@ -529,11 +525,11 @@ const filterByProp = (array, propName, value) => array.filter((element) => eleme
 
 ---
 
-#### Generators
+### Generators
 
 ---
 
-#### Amazon interview
+### Amazon interview
 
 ```
 Question: You are given a dictionary containing thousands of words and a sentence with no spaces.

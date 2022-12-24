@@ -1,8 +1,4 @@
-# Frontend javascript interview
-
--   [Junior level](#Junior-level)
--   [Middle level](#Middle-level)
--   [Senior level](#Senior-level)
+# ReactJS
 
 ## Junior level
 

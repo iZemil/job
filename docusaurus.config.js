@@ -49,9 +49,9 @@ const config = {
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
 			navbar: {
-				title: 'Javascript Interview',
+				title: 'Fullstack',
 				logo: {
-					alt: 'Javascript Interview Logo',
+					alt: 'JS Site Logo',
 					src: 'img/logo.svg',
 				},
 				items: [
@@ -59,7 +59,7 @@ const config = {
 						type: 'doc',
 						docId: 'intro',
 						position: 'left',
-						label: 'Guide',
+						label: 'Interview',
 					},
 					{
 						href: 'https://github.com/iZemil/javascript-interview',
@@ -70,18 +70,18 @@ const config = {
 			},
 			footer: {
 				style: 'dark',
-				links: [
-					{
-						title: 'Docs',
-						items: [
-							{
-								label: 'Tutorial',
-								to: '/docs/intro',
-							},
-						],
-					},
-				],
-				// copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+				// links: [
+				// 	{
+				// 		title: 'Docs',
+				// 		items: [
+				// 			{
+				// 				label: 'Tutorial',
+				// 				to: '/docs/intro',
+				// 			},
+				// 		],
+				// 	},
+				// ],
+				copyright: `Copyright © ${new Date().getFullYear()} fullstack.js.org built by emil.`,
 			},
 			prism: {
 				theme: lightCodeTheme,

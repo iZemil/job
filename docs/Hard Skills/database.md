@@ -1,4 +1,4 @@
-# DATABASE
+# Databases
 
 ## SQL
 

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3117c60b0deaacb6",
+        "id": "1abcf89a1a09d41a",
         "type": "tabs",
         "children": [
           {
-            "id": "3efaff024baf8959",
+            "id": "6084dfe72e61c786",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tutorial-basics/congratulations.md",
+                "file": "Hard Skills/javascript.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tutorial-basics/congratulations.md",
+                "file": "Hard Skills/javascript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tutorial-basics/congratulations.md",
+                "file": "Hard Skills/javascript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tutorial-basics/congratulations.md"
+                "file": "Hard Skills/javascript.md"
               }
             }
           }
@@ -146,17 +146,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3efaff024baf8959",
+  "active": "6084dfe72e61c786",
   "lastOpenFiles": [
+    "intro.md",
     "tutorial-basics/create-a-blog-post.md",
+    "Hard Skills/javascript.md",
+    "Hard Skills/nodejs.md",
+    "Hard Skills/typescript.md",
     "tutorial-basics/create-a-document.md",
-    "tutorial-basics/create-a-page.md",
-    "tutorial-basics/deploy-your-site.md",
-    "tutorial-basics/congratulations.md",
-    "candidate_intro.md",
-    "cv.md",
-    "finish.md",
-    "README.md",
-    "wiki/finish.md"
+    "tutorial-basics/manage-docs-versions.md",
+    "Hard Skills/database.md",
+    "Hard Skills/reactjs.md",
+    "Hard Skills/backend.md"
   ]
 }

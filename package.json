@@ -1,7 +1,7 @@
 {
-    "name": "docusaurus",
+    "name": "javascript-interview",
     "version": "0.0.0",
-    "private": true,
+    "private": false,
     "scripts": {
         "docusaurus": "docusaurus",
         "dev": "docusaurus start",
