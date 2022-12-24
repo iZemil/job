@@ -9,7 +9,7 @@ const config = {
 	title: 'Javascript Job',
 	tagline: 'JS Interview',
 	url: 'https://izemil.github.io',
-	baseUrl: '/javascript-interview/',
+	baseUrl: '/job/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
 	favicon: 'img/favicon.ico',
@@ -17,7 +17,7 @@ const config = {
 	// GitHub pages deployment config.
 	// If you aren't using GitHub pages, you don't need these.
 	organizationName: 'izemil', // Usually your GitHub org/user name.
-	projectName: 'javascript-interview', // Usually your repo name.
+	projectName: 'job', // Usually your repo name.
 
 	// Even if you don't use internalization, you can use this field to set useful
 	// metadata like html lang. For example, if your site is Chinese, you may want
@@ -38,7 +38,7 @@ const config = {
 					sidebarPath: require.resolve('./sidebars.js'),
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
-					editUrl: 'https://github.com/izemil/javascript-interview/edit/master/',
+					editUrl: 'https://github.com/izemil/job/edit/master/',
 				},
 				theme: {
 					customCss: require.resolve('./src/css/custom.css'),
@@ -64,7 +64,7 @@ const config = {
 						label: 'Interview',
 					},
 					{
-						href: 'https://github.com/iZemil/javascript-interview',
+						href: 'https://github.com/iZemil/job',
 						label: 'GitHub',
 						position: 'right',
 					},
