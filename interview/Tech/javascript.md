@@ -41,18 +41,37 @@ if (0) // never
 -   Others: `in, delete, typeof, instanceof, void`
 
 ### What are Map and Set objects?
+[`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) – is a collection of keyed values.
+[`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) – is a collection of unique values.
+Iteration over `Map` and `Set` is always in the insertion order, so we can’t say that these collections are unordered, but we can’t reorder elements or directly get an element by its number.
 
 ### What are WeakMap and WeakSet objects?
+[`WeakMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) is `Map`-like collection that allows only objects as keys and removes them together with associated value once they become inaccessible by other means.
+
+[`WeakSet`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) is `Set`-like collection that stores only objects and removes them once they become inaccessible by other means.
+
+Their main advantages are that they have weak reference to objects, so they can easily be removed by garbage collector.
+
+```js
+let obj = { value: 0 };
+const list = [obj];
+obj = null;
+list[0]; // => saved obj in memory and not garbage collected
+
+// but
+let obj1 = { value: 0 };
+const weakSet = new WeakSet(obj1);
+obj1 = null; // weakSet obj1 will be garbage collected
+```
 
 ### What is callback function?
 Callback functions are fns that can be used as arguments (common examples: forEach, map, setTimeout)
 
-### Arrow functions: what is and specifics
-
--   Стрелочные функции не содержат собственный контекст this, а используют значение this окружающего контекста.
--   Стрелочные функции не имеют собственного объекта arguments, поэтому в теле стрелочных функций arguments будет ссылаться на переменную в окружающей области.
--   Стрелочные функции не могут быть использованы как конструктор и вызовут ошибку при использовании с new.
--   Ключевое слово yield не может быть использовано в теле стрелочной функции. Как следствие стрелочные функции не могут быть использованы как генераторы.
+### Arrow functions: what is and specifics?
+- Do not contain their own this context, but use the value of this surrounding context.
+- Do not have their own arguments object, so arguments in the body of arrow functions will refer to a variable in the surrounding area.
+- Cannot be used as a constructor and will cause an error when used with new.
+- The yield keyword cannot be used in the body of an arrow function. As a consequence, arrow functions cannot be used as generators.
 
 ```js
 'use strict';
@@ -62,13 +81,20 @@ var obj = {
 	c: function () {
 		console.log(this.i, this);
 	},
+	d() {
+		console.log(this.i, this);
+	}
 };
 obj.b(); // prints undefined, Window {...} (или глобальный объект)
 obj.c(); // prints 10, Object {...}
+obj.d(); // same behavior as obj.c();
 ```
 
-
 ### var vs. let vs. const
+-   `var`: is used to declare a variable. Variables declared with `var` are function-scoped, which means that they are only accessible within the function in which they are declared or within the global scope if they are declared outside of any function. Variables declared with `var` can be **reassigned** and **redeclared** within their scope.
+-   `let`: Like `var`, `let` declares a variable, but it is block-scoped, which means that it is only accessible within the block in which it is declared. Variables declared with `let` can be **reassigned**, but they **cannot be redeclared** within their scope.
+-   `const`: is similar to `let`, but it declares a constant variable, which means that the value **cannot be reassigned**.
+In general, it is recommended to use `const` whenever possible to declare variables that will not be reassigned, and to use `let` for variables that will be reassigned.
 
 ```js
 var a = 2;
@@ -82,127 +108,15 @@ function foo() {
 console.log(a); // 2
 ```
 
-### Explain methods and properties
-
-OOP has object way of describing, so Objects have properties (like color, length, value, etc) that store states and methods (like run, read, update, etc) that can change properties of the object or other objects and execute other methods.
-
-### Purpose of «new» keyword?
-
-It is used to create an instance of an object
-
 ### How to execute string as function
-
 ```js
 const scriptStr = "console.log('hey');";
 
 eval(scriptStr);
-
 new Function(scriptStr)();
 ```
 
-### what is the result
-
-```js
-var funcs = [];
-for (var i = 0; i < 3; i++) {
-	funcs[i] = function () {
-		console.log('My value: ' + i);
-	};
-}
-
-for (const f of funcs) {
-	f();
-}
-```
-
-And classical solution with closure:
-
-```js
-var funcs = [];
-function createfunc(i) {
-	return function () {
-		console.log('My value: ' + i);
-	};
-}
-
-for (var i = 0; i < 3; i++) {
-	funcs[i] = createfunc(i);
-}
-
-for (var j = 0; j < 3; j++) {
-	// and now let's run each one to see
-	funcs[j]();
-}
-```
-
-### Pure functions
-
-### Inheritance instanceof
-
-```js
-class Person {}
-
-class Chief extends Person {}
-
-class Programmer extends Person {}
-
-const programmer = new Programmer();
-
-console.log(programmer instanceof Person);
-console.log(programmer instanceof Programmer);
-console.log(programmer instanceof Object);
-console.log(programmer instanceof Chief);
-```
-
-### Heap data structure
-
-A heap is a tree-based data structure which is an almost complete tree that satisfies the heap property.
-
-There are two types of heaps, based on the heap property — MinHeap and MaxHeap.
-
-MinHeap: The parent node is always less than the child nodes.
-MaxHeap: The parent node is always greater than or equal to the child nodes.
-
-Heaps is primarily used for getting the minimum or the maximum value present in a heap in O(1) time.
-
-```js
-// Heap can be represent as arrays:
-const minHeap = [1, 20, 30, 24, 26, 32, 39];
-const maxHeap = [100, 80, 60, 77, 75, 58, 51];
-```
-
-### Как создать приватную переменную в Javascript:
-
-```js
-function func() {
-	const priv = 'secret code';
-	return function () {
-		return priv;
-	};
-}
-var getPriv = func();
-```
-
-### Counter function as below
-
-```js
-const counter = Counter();
-counter.inc();
-counter.dec();
-
-function Counter() {
-	let count = 0;
-
-	return {
-		inc() {
-			return (count += 1);
-		},
-		dec() {
-			return (count -= 1);
-		},
-	};
-}
-```
+### What is pure function?
 
 ### Promises vs. callback
 
@@ -216,19 +130,14 @@ const waitCb = (delay, cb) => setTimeout(() => cb(), delay);
 waitCb(2000, () => console.log('finish 2'));
 ```
 
-#### Promise conditions and how to work with them:
-
--   pending: начальное состояние, не выполнено и не отклонено.
--   fulfilled: операция завершена успешно.
--   rejected: операция завершена с ошибкой.
-
+#### Promises
 #### Promise.all usecase
 
 ```js
 Promise.all([new Promise(), new Promise(), new Promise()]);
 ```
 
-### Work with context
+### bind vs apply vs call
 
 ```js
 function fullName() {
@@ -237,27 +146,28 @@ function fullName() {
 console.log(fullName()); // => Hello this is undefined undefined
 ```
 
-Ответ
-
 ```js
 // create a person object and pass its values to the fullName function
 const person = { first: 'Foo', last: 'Bar' };
-console.log(fullName.bind(person)()); // => Hello this is Foo Bar
+
+console.log(fullName.bind(person)(...args)); // => Hello this is Foo Bar
+console.log(fullName.call(person), ...args); // or
+console.log(fullName.apply(person), [...args]); // or
 ```
 
-### OOP
-
+## OOP
 Basic concepts of OOP: classes and instances, inheritance, and encapsulation.
+### Explain methods and properties
+OOP has object way of describing, so Objects have properties (like color, length, value, etc) that store states and methods (like run, read, update, etc) that can change properties of the object or other objects and execute other methods.
 
----
+### Purpose of «new» keyword?
+It is used to create an instance of an object
 
-#### Classes and instances
+### Classes and instances
 
 In OOP, when we model a problem in terms of objects we create abstract definitions representing the types of object we want to have in our system.
 
----
-
-#### Inheritance
+### Inheritance
 
 ```js
 class Proffesor extends Person {}
@@ -265,8 +175,6 @@ class Student extends Person {}
 ```
 
 This feature - when a method has the same name, but a different implementation in different classes - is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass overrides the version in the superclass.
-
----
 
 #### Encapsulation
 
