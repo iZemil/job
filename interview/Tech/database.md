@@ -1,5 +1,0 @@
-# Databases
-
-## SQL
-
-## NoSQL

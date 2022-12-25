@@ -1,16 +1,12 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # NodeJS
 
----
+### What is NodeJS?
 
-#### What is NodeJS?
-
----
-
-#### What is Event Loop?
+### What is Event Loop?
 
 ### В чем прикладное отличие Node.js от других платформ серверной разработки (Под какие задачи подходит, а под какие не подходит)?
 
@@ -27,8 +23,6 @@ sidebar_position: 3
 
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It uses libuv to handle asynchronous events.
 
-## Middle level
-
 ### SPA vs MPA
 
 ### Object.assign vs Spread
@@ -42,8 +36,6 @@ The mechanism of how nodejs javascript handle operations. JS has one single thre
 ### What is node.js streams?
 
 ### What is an Event Emitter in Node.js?
-
-## Senior level
 
 ### Monolithic vs. Microservices Architecture
 
@@ -85,32 +77,6 @@ The idea is to split your application into a set of smaller, interconnected serv
 -   Testing a microservices application is also much more complex then in case of monolithic web application. For a similar test for a service you would need to launch that service and any services that it depends upon (or at least configure stubs for those services).
 -   It is more difficult to implement changes that span multiple services. In a monolithic application you could simply change the corresponding modules, integrate the changes, and deploy them in one go. In a Microservice architecture you need to carefully plan and coordinate the rollout of changes to each of the services.
 -   Deploying a microservices-based application is also more complex. A monolithic application is simply deployed on a set of identical servers behind a load balancer. In contrast, a microservice application typically consists of a large number of services. Each service will have multiple runtime instances. And each instance need to be configured, deployed, scaled, and monitored. In addition, you will also need to implement a service discovery mechanism. Manual approaches to operations cannot scale to this level of complexity and successful deployment a microservices application requires a high level of automation.
-
-### DB Transactions and ACID
-
-#### Atomicity
-
-All changes to data are performed as if they are a single operation. That is, all the changes are performed, or none of them are.
-For example, in an application that transfers funds from one account to another, the atomicity property ensures that, if a debit is made successfully from one account, the corresponding credit is made to the other account.
-
-#### Consistency Согласованность
-
-Data is in a consistent state when a transaction starts and when it ends.
-For example, in an application that transfers funds from one account to another, the consistency property ensures that the total value of funds in both the accounts is the same at the start and end of each transaction.
-
-#### Isolation
-
-The intermediate state of a transaction is invisible to other transactions. As a result, transactions that run concurrently appear to be serialized.
-For example, in an application that transfers funds from one account to another, the isolation property ensures that another transaction sees the transferred funds in one account or the other, but not in both, nor in neither.
-
-#### Durability
-
-After a transaction successfully completes, changes to data persist and are not undone, even in the event of a system failure.
-For example, in an application that transfers funds from one account to another, the durability property ensures that the changes made to each account will not be reversed.
-
-### SQL Exercises
-
-https://pgexercises.com/questions/basic/where4.html
 
 ### Child process in nodejs
 

@@ -59,7 +59,7 @@ const config = {
 				items: [
 					{
 						type: 'doc',
-						docId: 'intro',
+						docId: 'workflow',
 						position: 'left',
 						label: 'Interview',
 					},
@@ -83,7 +83,7 @@ const config = {
 				// 		],
 				// 	},
 				// ],
-				copyright: `Copyright © ${new Date().getFullYear()} job.js.org built by emil.`,
+				copyright: `Copyright © ${new Date().getFullYear()} job.js.org built by zemil.`,
 			},
 			prism: {
 				theme: lightCodeTheme,
@@ -92,4 +92,5 @@ const config = {
 		}),
 };
 
+// docs: https://docusaurus.io/docs
 module.exports = config;

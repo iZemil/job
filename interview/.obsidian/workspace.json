@@ -10,28 +10,31 @@
           {
             "id": "6084dfe72e61c786",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tech/javascript.md",
+                "file": "questions/javascript.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "pinned": true
             }
           },
           {
-            "id": "7a4e01243559f8fb",
+            "id": "3a4ef2e87ebebb37",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tech/issues.md",
+                "file": "questions/frontend.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tech/javascript.md",
+                "file": "questions/frontend.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tech/javascript.md",
+                "file": "questions/frontend.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tech/javascript.md"
+                "file": "questions/frontend.md"
               }
             }
           }
@@ -158,17 +161,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6084dfe72e61c786",
+  "active": "3a4ef2e87ebebb37",
   "lastOpenFiles": [
-    "Tech/issues.md",
-    "Tech/javascript.md",
-    "Tech/algorithms.md",
-    "intro.md",
-    "Tech/database.md",
-    "Tech/solid.md",
-    "Tech/typescript.md",
-    "tutorial-basics/img/docsVersionDropdown.png",
-    "tutorial-basics/img/localeDropdown.png",
-    "tutorial-basics/manage-docs-versions.md"
+    "questions/javascript.md",
+    "questions/frontend.md",
+    "questions/typescript.md",
+    "tasks/issues.md",
+    "questions/nodejs.md",
+    "questions/_databases.md",
+    "questions/solid.md",
+    "questions/algorithms.md",
+    "workflow.md",
+    "Tech/javascript.md"
   ]
 }

@@ -64,10 +64,10 @@ const weakSet = new WeakSet(obj1);
 obj1 = null; // weakSet obj1 will be garbage collected
 ```
 
-### What is callback function?
+### What is a callback function?
 Callback functions are fns that can be used as arguments (common examples: forEach, map, setTimeout)
 
-### Arrow functions: what is and specifics?
+### What is an arrow function and its specifics?
 - Do not contain their own this context, but use the value of this surrounding context.
 - Do not have their own arguments object, so arguments in the body of arrow functions will refer to a variable in the surrounding area.
 - Cannot be used as a constructor and will cause an error when used with new.
@@ -90,7 +90,7 @@ obj.c(); // prints 10, Object {...}
 obj.d(); // same behavior as obj.c();
 ```
 
-### var vs. let vs. const
+### Tell about var vs. let vs. const
 -   `var`: is used to declare a variable. Variables declared with `var` are function-scoped, which means that they are only accessible within the function in which they are declared or within the global scope if they are declared outside of any function. Variables declared with `var` can be **reassigned** and **redeclared** within their scope.
 -   `let`: Like `var`, `let` declares a variable, but it is block-scoped, which means that it is only accessible within the block in which it is declared. Variables declared with `let` can be **reassigned**, but they **cannot be redeclared** within their scope.
 -   `const`: is similar to `let`, but it declares a constant variable, which means that the value **cannot be reassigned**.
@@ -108,55 +108,30 @@ function foo() {
 console.log(a); // 2
 ```
 
-### How to execute string as function
-```js
-const scriptStr = "console.log('hey');";
-
-eval(scriptStr);
-new Function(scriptStr)();
-```
-
-### What is pure function?
-
-### Promises vs. callback
-
-Write wait functions based on callback and promise.
+### What is a pure function?
+A **pure function** is a function which:
+-   Given the same input, always returns the same output.
+-   Produces no side effects.
 
 ```js
-const waitPromise = (delay = new Promise((res) => setTimeout(() => res(), delay)));
-waitPromise(2000).then(() => console.log('finish'));
-
-const waitCb = (delay, cb) => setTimeout(() => cb(), delay);
-waitCb(2000, () => console.log('finish 2'));
+const double = x => x * 2; // pure function
+const doubleWithSideEffect = x => {
+	console.log('start doubling:', x);
+	return x * 2;
+} // impure function
+const random = () => Math.random(); // impure because different outputs
+const log = x => console.log(x); // impure because must return value, not void
 ```
 
-#### Promises
-#### Promise.all usecase
+## Promises
 
+### Promise.all use cases
 ```js
 Promise.all([new Promise(), new Promise(), new Promise()]);
 ```
 
-### bind vs apply vs call
-
-```js
-function fullName() {
-	return 'Hello, this is ' + this.first + ' ' + this.last;
-}
-console.log(fullName()); // => Hello this is undefined undefined
-```
-
-```js
-// create a person object and pass its values to the fullName function
-const person = { first: 'Foo', last: 'Bar' };
-
-console.log(fullName.bind(person)(...args)); // => Hello this is Foo Bar
-console.log(fullName.call(person), ...args); // or
-console.log(fullName.apply(person), [...args]); // or
-```
-
 ## OOP
-Basic concepts of OOP: classes and instances, inheritance, and encapsulation.
+
 ### Explain methods and properties
 OOP has object way of describing, so Objects have properties (like color, length, value, etc) that store states and methods (like run, read, update, etc) that can change properties of the object or other objects and execute other methods.
 
@@ -164,29 +139,39 @@ OOP has object way of describing, so Objects have properties (like color, length
 It is used to create an instance of an object
 
 ### Classes and instances
-
 In OOP, when we model a problem in terms of objects we create abstract definitions representing the types of object we want to have in our system.
 
 ### Inheritance
-
 ```js
 class Proffesor extends Person {}
 class Student extends Person {}
 ```
-
 This feature - when a method has the same name, but a different implementation in different classes - is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass overrides the version in the superclass.
 
-#### Encapsulation
-
+### Encapsulation
 Objects provide an interface to other code that wants to use them, but maintain their own internal state. The object's internal state is kept private, meaning that it can only be accessed by the object's own methods, not from other objects. Keeping an object's internal state private, and in general making a clear division between its public interface and its private internal state, is called encapsulation.
 
 This is a useful feature because it enables the programmer to change the internal implementation of an object without having to find and update all the code that uses it: it creates a kind of firewall between this object and the rest of the system.
 
-### concurrency, parallel execution, multithreading, asynchrony
+### Explain differences between bind vs apply vs call
+```js
+function greet() {
+	return 'Hello, my name is ' + this.name;
+}
 
+const person = { name: 'John' }; // create a person context
+
+console.log(greet()); // => Hello, my name is undefined
+console.log(greet.bind(person)(...args)); // => Hello, my name is John
+console.log(greet.call(person), ...args); // as above
+console.log(greet.apply(person), [...args]); // as above
+```
+
+
+### concurrency, parallel execution, multithreading, asynchrony
 https://ru.stackoverflow.com/questions/445768/%D0%9C%D0%BD%D0%BE%D0%B3%D0%BE%D0%BF%D0%BE%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B5-vs.-%D0%B0%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5
 
-### Proxy object usecases
+### Explain Proxy object and its use cases
 
-### Generators
+### Explain Generator function and its use cases
 

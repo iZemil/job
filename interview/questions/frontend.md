@@ -1,23 +1,18 @@
-# ReactJS
+---
+sidebar_position: 3
+---
 
-## Junior level
+# Frontend
 
-### Ways to store data on client side:
+### Ways to store data on client?
+1. Cookies
+2. Web Storage API (local/session)
+3. IndexDB
+4. JS variables
+5. DOM Node Storage (dataset property or setAttribute(), getAttribute(), eg: someElement.dataset.store = ‘some value’)
+6. Cache API
 
-    1. Cookies
-    2. Web Storage API (localStorage, sessionStorage)
-    3. IndexDB
-    4. JS variables
-    5. DOM Node Storage (dataset property or setAttribute(), getAttribute(), eg: someElement.dataset.store = ‘some value’)
-    6. Cache API
-
-## Middle level
-
-###
-
-## Senior level
-
-###
+## ReactJS
 
 Фронтенд
 HTML/CSS

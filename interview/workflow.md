@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Intro
+# Workflow
 
 The main goal of this guide is to get the best job offer you can. And start with main steps of common job seeking process called **job workflow**.
 

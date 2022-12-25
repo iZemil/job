@@ -4,21 +4,14 @@ sidebar_position: 2
 
 # Typescript
 
----
-
 #### What is TypeScript and why would I use it in place of JavaScript?
 
 typings, error handling, type documentation, team coding
 
----
 
 #### void vs any
 
----
-
 #### Create fn with object argument and return string
-
----
 
 #### Optional Properties
 
@@ -30,8 +23,6 @@ interface IPerson {
 
 type TPersonUdate = Partial<IPerson>;
 ```
-
----
 
 #### Interfaces vs Types
 
@@ -90,19 +81,11 @@ interface Point {
 const point: Point = { x: 1, y: 2 };
 ```
 
----
-
 #### Union types
-
----
 
 #### Values of object type
 
----
-
 #### Generics
-
----
 
 ### Function overloading typescript
 

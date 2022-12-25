@@ -1,3 +1,7 @@
+---
+sidebar_position: 99
+---
+
 # SOLID
 
 https://coder-question.com/cq-blog/529020 and https://duncan-mcardle.medium.com/solid-principle-2-open-closed-javascript-fc49b577a377#:~:text=The%20open%2Dclosed%20principle%20says,the%20need%20to%20modify%20it.

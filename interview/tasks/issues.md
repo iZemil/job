@@ -1,5 +1,13 @@
 # Issues
 
+### How to execute string as function
+```js
+const scriptStr = "console.log('hey');";
+
+eval(scriptStr);
+new Function(scriptStr)();
+```
+
 ### what is the result
 
 ```js
