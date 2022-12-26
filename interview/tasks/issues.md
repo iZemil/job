@@ -1,4 +1,5 @@
 # Issues
+import BrowserWindow from '@site/src/components/BrowserWindow';
 
 ### How to execute string as function
 ```js
@@ -8,7 +9,10 @@ eval(scriptStr);
 new Function(scriptStr)();
 ```
 
-### what is the result
+### What is the result?
+```mdx-code-block
+<BrowserWindow>
+```
 
 ```js
 var funcs = [];
@@ -23,8 +27,11 @@ for (const f of funcs) {
 }
 ```
 
-And classical solution with closure:
+```mdx-code-block
+</BrowserWindow>
+```
 
+### And classical solution with closure:
 ```js
 var funcs = [];
 function createfunc(i) {
@@ -44,7 +51,6 @@ for (var j = 0; j < 3; j++) {
 ```
 
 ### Inheritance instanceof
-
 ```js
 class Person {}
 
@@ -61,7 +67,6 @@ console.log(programmer instanceof Chief);
 ```
 
 ### How to create a private variable?
-
 ```js
 function func() {
 	const priv = 'secret code';
@@ -73,7 +78,6 @@ var getPriv = func();
 ```
 
 ### Counter function as below
-
 ```js
 const counter = Counter();
 counter.inc();

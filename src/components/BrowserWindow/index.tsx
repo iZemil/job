@@ -13,10 +13,10 @@ import styles from './styles.module.css';
 interface Props {
 	children: ReactNode;
 	minHeight: number;
-	url: string;
+	url?: string;
 }
 
-export default function BrowserWindow({ children, minHeight, url = 'http://localhost:3000' }: Props): JSX.Element {
+export default function BrowserWindow({ children, minHeight, url }: Props): JSX.Element {
 	return (
 		<div className={styles.browserWindow} style={{ minHeight }}>
 			<div className={styles.browserWindowHeader}>
@@ -25,14 +25,7 @@ export default function BrowserWindow({ children, minHeight, url = 'http://local
 					<span className={styles.dot} style={{ background: '#fbbe3c' }} />
 					<span className={styles.dot} style={{ background: '#58cb42' }} />
 				</div>
-				<div className={clsx(styles.browserWindowAddressBar, 'text--truncate')}>{url}</div>
-				<div className={styles.browserWindowMenuIcon}>
-					<div>
-						<span className={styles.bar} />
-						<span className={styles.bar} />
-						<span className={styles.bar} />
-					</div>
-				</div>
+				{url && <div className={clsx(styles.browserWindowAddressBar, 'text--truncate')}>{url}</div>}
 			</div>
 
 			<div className={styles.browserWindowBody}>{children}</div>

@@ -20,8 +20,21 @@
               },
               "pinned": true
             }
+          },
+          {
+            "id": "0a86f4a7dd204708",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tasks/issues.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -87,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "questions/javascript.md",
+                "file": "tasks/issues.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "questions/javascript.md",
+                "file": "tasks/issues.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "questions/javascript.md"
+                "file": "tasks/issues.md"
               }
             }
           }
@@ -148,14 +161,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6084dfe72e61c786",
+  "active": "0a86f4a7dd204708",
   "lastOpenFiles": [
-    "questions/solid.md",
     "questions/javascript.md",
+    "tasks/issues.md",
+    "questions/solid.md",
     "questions/_algorithms.md",
     "questions/frontend.md",
     "questions/typescript.md",
-    "tasks/issues.md",
     "questions/nodejs.md",
     "questions/_databases.md",
     "workflow.md",

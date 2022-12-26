@@ -16,7 +16,7 @@
 	align-items: center;
 	background: var(--ifm-color-emphasis-200);
 	display: flex;
-	padding: 0.5rem 1rem;
+	padding: 0.3rem 0.6rem;
 }
 
 .row::after {
@@ -63,23 +63,11 @@
 	display: inline-block;
 }
 
-.browserWindowMenuIcon {
-	margin-left: auto;
-}
-
-.bar {
-	width: 17px;
-	height: 3px;
-	background-color: #aaa;
-	margin: 3px 0;
-	display: block;
-}
-
 .browserWindowBody {
 	background-color: var(--ifm-background-color);
 	border-bottom-left-radius: inherit;
 	border-bottom-right-radius: inherit;
-	padding: 1rem;
+	padding: 1.5rem;
 }
 
 .browserWindowBody > *:last-child {
