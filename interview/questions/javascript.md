@@ -4,6 +4,58 @@ sidebar_position: 1
 
 # Javascript
 
+---
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
+You can add a title to the code block by adding a `title` key after the language (leave a space between them).
+```mdx-code-block
+<BrowserWindow>
+```
+
+```jsx title="/src/components/HelloCodeTitle.js"
+function HelloCodeTitle(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+```mdx-code-block
+</BrowserWindow>
+```
+
+### Highlighting with comments {#highlighting-with-comments}
+
+You can use comments with `highlight-next-line`, `highlight-start`, and `highlight-end` to select which lines are highlighted.
+
+```js
+function HighlightSomeText(highlight) {
+  if (highlight) {
+    // highlight-next-line
+    return 'This text is highlighted!';
+  }
+  return 'Nothing highlighted';
+}
+function HighlightMoreText(highlight) {
+  // highlight-start
+  if (highlight) {
+    return 'This range is highlighted!';
+  }
+  // highlight-end
+  return 'Nothing highlighted';
+}
+```
+
+Supported commenting syntax:
+
+| Style      | Syntax                   |
+| ---------- | ------------------------ |
+| C-style    | `/* ... */` and `// ...` |
+| JSX-style  | `{/* ... */}`            |
+| Bash-style | `# ...`                  |
+| HTML-style | `<!-- ... -->`           |
+
+
+---
+
 ### What is Javascript?
 
 JavaScript is a programming language that is commonly used to create interactive elements on websites. It is a client-side language, which means that the code is executed by the user's web browser rather than on a server. JavaScript can be used to create a wide variety of effects and features on a website, such as drop-down menus, form validation, and interactive maps. It is an essential component of modern web development and is supported by all major web browsers.
