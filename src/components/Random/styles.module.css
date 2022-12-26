@@ -15,8 +15,11 @@
 }
 
 .topic {
-	font-size: 14px;
+	font-size: 16px;
+	text-align: center;
 	color: grey;
+	border: 0;
+	background: transparent;
 }
 
 .question {

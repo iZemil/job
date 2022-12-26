@@ -5,6 +5,7 @@ sidebar_position: 3
 # Frontend
 
 ### Ways to store data on client?
+
 1. Cookies
 2. Web Storage API (local/session)
 3. IndexDB
@@ -12,9 +13,12 @@ sidebar_position: 3
 5. DOM Node Storage (dataset property or setAttribute(), getAttribute(), eg: someElement.dataset.store = ‘some value’)
 6. Cache API
 
+### What is a SPA and how to make it SEO-friendly?
+
+### What is DOM?
+
 ## ReactJS
 
-Фронтенд
 HTML/CSS
 • Семантическая верстка
 • CSS селекторы
@@ -41,8 +45,7 @@ A Uncontrolled Component is one that stores its own state internally, and you qu
 
 Both Redux Thunk and Redux Saga take care of dealing with side effects. In most of the scenarios, Thunk uses Promises to deal with them, whereas Saga uses Generators. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them.
 • React Context API
-• Реализовать модальное окно, при нажатии вне, оно закрывается (лучше на порталах)
-https://replit.com/@EmilZaripovFL/React#src/components/Modal.tsx
+
 • Какие способы работы css and react знаешь и какой предпочтительный (className and css/scss/stylus/modules; inline styles; CSS-in-JS)
 • Рассказать о выбранных инструментах для создания одностраничного сайта с контактной формой
 • Использование Ref

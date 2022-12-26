@@ -22,12 +22,12 @@
             }
           },
           {
-            "id": "0a86f4a7dd204708",
+            "id": "61f055ea37dae85f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks/issues.md",
+                "file": "questions/frontend.md",
                 "mode": "source",
                 "source": false
               }
@@ -100,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tasks/issues.md",
+                "file": "questions/frontend.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tasks/issues.md",
+                "file": "questions/frontend.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,16 +140,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks/issues.md"
+                "file": "questions/frontend.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 421.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -161,14 +161,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0a86f4a7dd204708",
+  "active": "61f055ea37dae85f",
   "lastOpenFiles": [
     "questions/javascript.md",
+    "questions/typescript.md",
+    "questions/frontend.md",
     "tasks/issues.md",
     "questions/solid.md",
     "questions/_algorithms.md",
-    "questions/frontend.md",
-    "questions/typescript.md",
     "questions/nodejs.md",
     "questions/_databases.md",
     "workflow.md",

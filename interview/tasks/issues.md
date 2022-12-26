@@ -13,7 +13,6 @@ new Function(scriptStr)();
 ```mdx-code-block
 <BrowserWindow>
 ```
-
 ```js
 var funcs = [];
 for (var i = 0; i < 3; i++) {
@@ -26,7 +25,6 @@ for (const f of funcs) {
 	f();
 }
 ```
-
 ```mdx-code-block
 </BrowserWindow>
 ```
