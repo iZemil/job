@@ -1,11 +1,1 @@
-[
-    "#### What is TypeScript and why would I use it in place of JavaScript?",
-    "#### void vs any",
-    "#### Create fn with object argument and return string",
-    "#### Optional Properties",
-    "#### Interfaces vs Types",
-    "#### Union types",
-    "#### Values of object type",
-    "#### Generics",
-    "### Function overloading typescript"
-]
+[{"file":"frontend.md","path":"frontend","topic":"Frontend","data":["Ways to store data on client?","ReactJS"]},{"file":"javascript.md","path":"javascript","topic":"Javascript","data":["What is Javascript?","JS types","Type converting","JS Operators","What are Map and Set objects?","What are WeakMap and WeakSet objects?","What is a callback function?","What is an arrow function and its specifics?","Tell about var vs. let vs. const","What is a pure function?","Promises","Promise.all use cases","OOP","Explain methods and properties","Purpose of «new» keyword?","Classes and instances","Inheritance","Encapsulation","Explain differences between bind vs apply vs call","concurrency, parallel execution, multithreading, asynchrony","Explain Proxy object and its use cases","Explain Generator function and its use cases"]},{"file":"nodejs.md","path":"nodejs","topic":"NodeJS","data":["What is NodeJS?","What is Event Loop?","В чем прикладное отличие Node.js от других платформ серверной разработки (Под какие задачи подходит, а под какие не подходит)?","What is async\\sync operations and threading what is difference?","What is Node.js and how it works?","SPA vs MPA","Object.assign vs Spread","Public\\private\\protected","What is an event-loop in Node JS?","What is node.js streams?","What is an Event Emitter in Node.js?","Monolithic vs. Microservices Architecture","Benefits of Monolithic Architecture","Drawbacks of Monolithic Architecture","Microservice","Benefits of Microservices Architecture","Drawbacks of Microservices Architecture","Child process in nodejs","Clustering NodeJS"]},{"file":"solid.md","path":"solid","topic":"SOLID","data":["Single Responsibility Principle","Open-Closed Principle","Liskov Substitution Principle","Interface Segregation Principle","Dependency Inversion Principle"]},{"file":"typescript.md","path":"typescript","topic":"Typescript","data":["What is TypeScript and why would I use it in place of JavaScript?","void vs any","Create fn with object argument and return string","Optional Properties","Interfaces vs Types","Union types","Values of object type","Generics","Function overloading typescript"]}]

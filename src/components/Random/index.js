@@ -2,21 +2,30 @@ import React from 'react';
 import clsx from 'clsx';
 
 import styles from './styles.module.css';
-import data from '@site/static/questions.json';
+import questions from '@site/static/questions.json';
 
-const random = () => data[Math.floor(Math.random() * data.length)];
+const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const randomQuestion = () => {
+	const { data, ...rest } = random(questions);
+
+	return {
+		value: random(data),
+		...rest,
+	};
+};
 
 export const Random = () => {
-	const [question, setQuestion] = React.useState(random());
+	const [question, setQuestion] = React.useState(randomQuestion());
 
 	const handleClick = () => {
-		setQuestion(random());
+		setQuestion(randomQuestion());
 	};
 
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.title}>question</h2>
-			<h3 className={styles.question}>{question}</h3>
+			<h2 className={styles.topic}>{question.topic}</h2>
+			<div className={styles.question}>{question.value}</div>
 
 			<button className={clsx('button button--secondary button--lg', styles.nextButton)} onClick={handleClick}>
 				🎲 Next
