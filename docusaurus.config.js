@@ -60,7 +60,7 @@ const config = {
 				items: [
 					{
 						type: 'doc',
-						docId: 'workflow',
+						docId: 'getting-started',
 						position: 'left',
 						label: 'Interview',
 					},

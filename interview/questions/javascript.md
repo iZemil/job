@@ -73,7 +73,7 @@ console.log(y); // throws "ReferenceError: y is not defined"
 
 ### What is hoisting in JavaScript?
 
-hHoisting is the behavior of moving declarations to the top of a script or a function before code execution.
+Hoisting is the behavior of moving declarations to the top of a script or a function before code execution.
 
 ```js
 console.log(x); // logs "undefined"
@@ -88,6 +88,14 @@ let y = 2;
 In JavaScript, `this` is a keyword that refers to the current context of a function or method. It is used to access and modify properties of the current context, and its value is determined by how a function or method is called.
 
 For example, in the global context, `this` refers to the global object (e.g., `window` in the browser).
+
+### Why is the result of comparing two similar objects false?
+
+In JavaScript, the result of comparing two similar objects using the `==` or `===` operator is typically `false`, because these operators compare the references to the objects, rather than the contents of the objects themselves.
+
+### What is an arguments object?
+
+The arguments object is **a local variable available within all non-arrow functions**. You can refer to a function's arguments inside that function by using its arguments object. It has entries for each argument the function was called with, with the first entry's index at 0 .
 
 ### What is the difference between null, undefined and undeclared?
 
@@ -164,6 +172,10 @@ The event loop is responsible for checking the task queue and adding tasks to th
 
 -   takes other functions as arguments.
 -   returns a function as its result
+
+### What is Function Composition?
+
+Function composition is a technique that involves combining multiple functions to create a new function. Function composition allows you to create complex behavior by combining simple, reusable functions, and it can help to make the code more modular, composable, and reusable.
 
 ### What are Map and Set objects?
 

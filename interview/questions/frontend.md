@@ -19,6 +19,10 @@ sidebar_position: 3
 
 ### What is the difference between attributes and properties?
 
+6. Что такое распространение события (Event Propogation)?
+7. Что такое всплытие события (Event Bubbling)?
+8. Что такое погружение события (Event Capturing)?
+
 In JavaScript, attributes and properties are both used to store data in an object or an element, but they have some important differences.
 
 An attribute is a default value that is defined in the HTML code of an element, and it can be accessed using the `getAttribute()` method of the element. An attribute reflects the default value of an element, and it can be modified using the `setAttribute()` method.

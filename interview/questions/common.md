@@ -2,7 +2,9 @@
 sidebar_position: 99
 ---
 
-# SOLID
+# Common
+
+## What is SOLID?
 
 SOLID is a set of five principles of object-oriented software design. These principles were first proposed by Robert C. Martin in the early 2000s and have since become a widely accepted set of best practices for designing maintainable, scalable, and flexible software systems.
 
@@ -17,7 +19,7 @@ SOLID is a set of five principles of object-oriented software design. These prin
 By following the SOLID principles, developers can design software systems that are easier to understand, maintain, and extend over time.
 :::
 
-## Single Responsibility Principle
+### Single Responsibility Principle
 A class should be responsible for only one thing. If a class is responsible for several tasks, its subsystems, which implement these tasks, are related to each other. Changes in one such subsystem lead to changes in another.
 
 Below is an example that does not conform to the single responsibility principle:
@@ -79,7 +81,7 @@ class TodoDBManager {
 ```
 </details>
 
-## Open-Closed Principle
+### Open-Closed Principle
 Program entities (classes, modules, functions) must be open for extension, but not for modification.
 
 Let's continue with `TodoList` class, check code below and try to refactor it according open-closed principle:
@@ -131,7 +133,7 @@ class TodoList {
 ```
 </details>
 
-## Liskov Substitution Principle
+### Liskov Substitution Principle
 If you have a function, that works for a base type, it should work for a derived type.
 
 ```ts
@@ -163,7 +165,7 @@ class PendingTodoList extends TodoList {
 ```
 </details>
 
-## Interface Segregation Principle
+### Interface Segregation Principle
 Create highly specialized interfaces designed for a specific client. Customers should not be dependent on interfaces that they do not use.
 ```ts
 interface ITodoList {
@@ -190,7 +192,7 @@ class TodoList implements ITodoList {}
 ```
 </details>
 
-## Dependency Inversion Principle
+### Dependency Inversion Principle
 - Top-level modules should not depend on lower-level modules. Both types of modules should depend on abstractions.
 - Abstractions should not depend on parts. Parts should depend on abstractions.
 
@@ -250,3 +252,4 @@ class TodoList {
 }
 ```
 </details>
+
