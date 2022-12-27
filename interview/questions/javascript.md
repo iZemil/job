@@ -54,45 +54,123 @@ if (0) // never
 -   `const`: is similar to `let`, but it declares a constant variable, which means that the value **cannot be reassigned**.
 In general, it is recommended to use `const` whenever possible to declare variables that will not be reassigned, and to use `let` for variables that will be reassigned.
 
-### TODO:  What is the difference between undefined and is not defined?
+### What is the difference between undefined and is not defined?
+
+In JavaScript, `undefined` is a value that indicates that a variable or property has not been assigned a value.
+
+On the other hand, "is not defined" is a reference error that occurs when a variable or property is accessed before it has been declared or assigned a value. This error occurs because the variable or property is not defined in the current scope, and it cannot be accessed.
+
+Here is an example that illustrates the difference between `undefined` and "is not defined":
+```js
+let x;
+console.log(x);  // logs "undefined"
+
+console.log(y);  // throws "ReferenceError: y is not defined"
+```
 
 ### What is hoisting in JavaScript?
 
+hHoisting is the behavior of moving declarations to the top of a script or a function before code execution.
+
+```js
+console.log(x);  // logs "undefined"
+var x = 1;
+
+console.log(y);  // throws "ReferenceError: y is not defined"
+let y = 2;
+```
+
 ### What is this?
 
-### How does prototype inheritance work?
+In JavaScript, `this` is a keyword that refers to the current context of a function or method. It is used to access and modify properties of the current context, and its value is determined by how a function or method is called.
+
+For example, in the global context, `this` refers to the global object (e.g., `window` in the browser).
 
 ### What is the difference between null, undefined and undeclared?
 
+`null` and `undefined` are both values that can be assigned to variables, while `undeclared` refers to a variable or property that has not yet been declared or defined. Additionally, `null` and `undefined` are values that can be compared and tested for equality, while `undeclared` is a reference error that cannot be handled or tested for.
+
 ### Explain the difference between const person = Person() and const person = new Person() in function Person(){}
 
-### What is the difference between attributes and properties?
+```js
+function Person(){}
+
+const person = Person(); // declare variable with value of fn execution
+
+const person = new Person(); // declare variable with instance of Person object
+```
 
 ### Why is it better to leave the global scope "as is" and not touch it?
 
+The global scope in JavaScript is the default scope that is available to all scripts and functions, and it is represented by the global object (e.g., `window` in the browser).
+
+Modifying the global scope by adding or modifying variables and functions can lead to potential conflicts with existing variables and functions, as well as with future code that may depend on the original values of these variables and functions.
+
+Additionally, modifying the global scope can make the code more difficult to understand and maintain, as it can be harder to track the source and purpose of variables and functions that are added to the global scope.
+
+To avoid these problems, it is generally a good practice to use a local scope for variables and functions, and to avoid modifying the global scope whenever possible. This helps to keep the code organized, maintainable, and less prone to conflicts and errors.
+
 ### What tools do you use when debugging?
 
-### What language constructs do you use to traverse arrays and objects?
+There are a number of tools and techniques that can be used when debugging JavaScript code. Some common tools and techniques include:
+1.  The JavaScript console  
+2.  The debugger statement: The debugger statement is a built-in feature of JavaScript that can be used to pause the execution of code and inspect the current state of the program.
+3.  Debugger tools.
+4.  Linting tools: Linting tools are tools that analyze the code and check for potential errors, such as syntax errors, style issues, and logical errors.
+5.  Automated tests for the code.
 
 ### Explain the difference between mutable and immutable values
 
+Mutable can be changed or added to where immutable means something that cannot be changed or added.
+
+Primitive values in JavaScript cannot have anything added upon to them, they can only be re-assigned, and hence all primitive values in JavaScript are immutable.
+
+A few ways to create and use immutable objects in JavaScript:
+1.  Use the `Object.freeze()` method: The `Object.freeze()` method can be used to create an immutable object by freezing the object's state. A frozen object cannot be modified, and any attempts to modify it will be ignored. However, it is important to note that the `Object.freeze()` method only freezes the top-level properties of the object, and it does not recursively freeze the object's nested properties.
+2.  Use the `Object.seal()` method: The `Object.seal()` method can be used to create a sealed object, which is an object that cannot be modified or extended, but whose properties can be modified. A sealed object is similar to a frozen object, but it is not completely immutable.
+3.  Use a library or framework: There are several libraries and frameworks that provide tools for creating and working with immutable objects in JavaScript. For example, the `Immutable.js` library provides a set of data structures that are designed to be immutable, and it provides a set of methods for working with these data structures.
+4. Use object copy pattern with spread operator, Object.assign, etc.
+
+In general, it is a good practice to use immutable values whenever possible, as they can help to make the code more predictable and easier to understand.
+
 ### What is an event loop? What is the difference between a call stack and a task queue?
+
+In JavaScript, the event loop is a mechanism that is used to execute code asynchronously. It is a loop that continuously checks for and processes events that are added to the event queue.
+
+The event loop works in conjunction with the call stack and the task queue. The call stack is a data structure that is used to store the execution context of the code that is currently being executed. It is a stack of frames, with the most recently called function at the top of the stack.
+
+The task queue is a data structure that is used to store tasks that are waiting to be executed. Tasks are added to the task queue when they are created, and they are removed from the task queue and added to the call stack when they are ready to be executed.
+
+The event loop is responsible for checking the task queue and adding tasks to the call stack when they are ready to be executed. It runs continuously, and it processes tasks in the order in which they are added to the task queue.
 
 ### What is a higher-order function?
 
+- takes other functions as arguments.
+- returns a function as its result
+
 ### How do you handle errors in JavaScript?
+
+In JavaScript, there are a few ways to handle errors:
+
+1. Try-catch statement: The try-catch statement is a built-in feature of JavaScript that can be used to handle errors in the code. The try-catch statement consists of a try block that contains the code that may throw an error, and a catch block that contains the code that handles the error.
+2. Throwing custom errors: In JavaScript, you can throw custom errors by using the `throw` keyword and an instance of the `Error` class. This can be useful if you want to create and throw specific types of errors in the code.
+3. Using the `onerror` event handler: The `onerror` event handler is a built-in event handler that can be used to handle errors in JavaScript. It is called whenever an error occurs in the code, and it can be used to display an error message or to log the error.
+
+:::info
+Handling errors helps to prevent the code from breaking and to ensure that the code runs smoothly and efficiently. Also it allows you to provide meaningful feedback to the users of your code, and to identify and fix problems in the code.
+:::
 
 ### What are Map and Set objects?
 
-[`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) – is a collection of keyed values.
-[`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) – is a collection of unique values.
+`Map`  is a collection of keyed values.
+`Set`  is a collection of unique values.
 Iteration over `Map` and `Set` is always in the insertion order, so we can’t say that these collections are unordered, but we can’t reorder elements or directly get an element by its number.
 
 ### What are WeakMap and WeakSet objects?
 
-[`WeakMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) is `Map`-like collection that allows only objects as keys and removes them together with associated value once they become inaccessible by other means.
+`WeakMap` is `Map` like collection that allows only objects as keys and removes them together with associated value once they become inaccessible by other means.
 
-[`WeakSet`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) is `Set`-like collection that stores only objects and removes them once they become inaccessible by other means.
+`WeakSet` is `Set` like collection that stores only objects and removes them once they become inaccessible by other means.
 
 Their main advantages are that they have weak reference to objects, so they can easily be removed by garbage collector.
 
@@ -170,6 +248,53 @@ let innerFunc = outerFunction();
 innerFunc();  // logs 5
 ```
 
+### Explain Proxy object and its use cases
+
+The Proxy object in JavaScript is a special kind of object that acts as an intermediary between the original object and the code that accesses or modifies it. It allows developers to intercept and modify the behavior of property access, assignment, and method calls, as well as to define custom behavior for various operations.
+
+Proxies are often used to add functionality to an existing object, such as logging, caching, or validation, without modifying the object itself. They can also be used to create abstractions or to implement design patterns, such as the decorator pattern or the observer pattern.
+
+Here is an example of using a Proxy to log property accesses:
+
+```js
+let obj = {a: 1, b: 2};
+let proxy = new Proxy(obj, {
+  get(target, prop) {
+    console.log(`Accessing property ${prop}`);
+    return target[prop];
+  }
+});
+
+console.log(proxy.a);  // logs "Accessing property a"
+console.log(proxy.b);  // logs "Accessing property b"
+```
+
+### Explain Generator function and its use cases
+
+A generator function is a special kind of function in JavaScript that can be used to create an iterator, which is an object that produces a sequence of values one at a time, on demand. Generator functions are identified by the `*` symbol in their definition, and they use the `yield` keyword to produce values.
+
+Generator functions are useful for creating custom iterators, as well as for implementing the iterator and generator patterns. They can be used to create lazy sequences of values, where the values are only computed when they are needed, which can be more efficient and easier to work with than precomputing and storing all of the values in memory.
+
+Here is an example of a generator function that produces a sequence of numbers:
+
+```js
+function* range(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield i;
+  }
+}
+
+for (let i of range(1, 5)) {
+  console.log(i);
+}
+
+// logs "1"
+// logs "2"
+// logs "3"
+// logs "4"
+// logs "5"
+```
+
 ### How to clone an object? And Shallow Clone vs. Deep Clone
 
 In JavaScript, a "clone" is a copy of an object or an array. There are two main types of cloning: shallow cloning and deep cloning.
@@ -177,6 +302,7 @@ In JavaScript, a "clone" is a copy of an object or an array. There are two main 
 Shallow cloning involves creating a new object or array that contains the same values as the original object or array, but the new object or array does not contain copies of the nested objects or arrays. Instead, it contains references to the original nested objects or arrays. This means that if you modify a nested object or array in the cloned object or array, it will also be modified in the original object or array.
 
 Here is an example of shallow cloning in JavaScript:
+
 ```js
 let original = {a: 1, b: {c: 3}};
 let clone = Object.assign({}, original); // or with spread { ...original }
@@ -185,13 +311,46 @@ clone.b.c = 4;  // also modifies original.b.c
 ```
 
 Deep cloning involves creating a completely new object or array that contains copies of all the nested objects and arrays, as well as the top-level object or array. This means that if you modify a nested object or array in the cloned object or array, it will not be modified in the original object or array. And example of deep cloning:
+
 ```js
 let original = {a: 1, b: {c: 3}};
 let clone = JSON.parse(JSON.stringify(original));
 
 clone.b.c = 4;  // does not modify original.b.c
 ```
+
+:::caution  
 You should be careful using this way. A better way to implement deep cloning is to use external libraries.
+:::
+
+## What are the ways to parallelize calculations?
+
+There are several ways to parallelize calculations in JavaScript, depending on the specific requirements of the task at hand. Some of the most common approaches include:
+
+1.  Web Workers: Web Workers are a standard feature of modern web browsers that allow developers to run JavaScript code in a separate thread. This can be useful for parallelizing computationally intensive tasks, as it allows the main JavaScript thread to continue running without being blocked by the worker thread.
+2.  Async/await: The `async` and `await` keywords, introduced in ECMAScript 2017, provide a way to write asynchronous code in a synchronous style. This can make it easier to parallelize calculations by allowing multiple asynchronous operations to be executed in parallel and waited on as needed.
+3.  Promises: JavaScript promises provide a way to execute asynchronous operations and to chain them together in a more readable and concise way. Promises can be used to parallelize calculations by executing multiple asynchronous operations in parallel and waiting for all of them to complete using the `Promise.all()` function.
+4.  Map/Reduce: The `map()` and `reduce()` array methods can be used to parallelize calculations by applying a function to each element of an array in parallel and reducing the results to a single value.
+
+### What is Concurrency execution?
+
+It is the most general term, which does not say how this concurrency will be obtained - just more than one task will be solved in a certain period of time.
+
+### What is Parallel execution?
+
+Parallel execution (parallel computing) implies having more than one computing device (e.g., a processor) that will perform multiple tasks simultaneously.
+
+Parallel execution is a strict subset of competitive execution. This means that on a computer with one processor, parallel programming is impossible.
+
+### What is Multi-threaded execution?
+
+Multithreading is one way to implement competitive execution by abstracting a "worker thread". Threads "abstract" low-level details from the user and allow more than one job to run "in parallel".
+
+### What is Asynchronous execution?
+
+Asynchrony implies that an operation can be performed by someone on the side: a remote Web site, a server, or another device outside the current computing device.
+
+The main property of such operations is that the start of such an operation requires significantly less time than the main operation. This allows many asynchronous operations to be performed simultaneously, even on a device with a small number of computing devices.
 
 ## What is a promise, and how is it used?
 
@@ -247,29 +406,43 @@ OOP has object way of describing, so Objects have properties (like color, length
 
 ### Purpose of «new» keyword?
 
-It is used to create an instance of an object
+It is used to create an instance of an object.
 
 ### What is the difference between a class and an object?
 
-### Classes and instances
+A class is a template or blueprint for creating objects. It defines the properties and methods that objects created from the class will have, as well as the behavior of those properties and methods.
 
-In OOP, when we model a problem in terms of objects we create abstract definitions representing the types of object we want to have in our system.
+An object, on the other hand, is an instance of a class. It is a concrete representation of a class, with its own set of properties and methods. An object is created by calling a constructor function associated with a class, using the `new` keyword.
 
-### Inheritance
+### Explain term - Inheritance
 
-```js
-class Proffesor extends Person {}
-class Student extends Person {}
-```
-This feature - when a method has the same name, but a different implementation in different classes - is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass overrides the version in the superclass.
+Inheritance is a fundamental concept in object-oriented programming (OOP) that refers to the ability of a class to inherit properties and methods from another class. It allows developers to create a new class (the "subclass") that is based on an existing class (the "superclass"), and to extend or modify the behavior of the subclass as needed.
 
-### Encapsulation
+Inheritance is a way to reuse code and to create a hierarchical structure for organizing related classes. It helps to reduce redundancy in code and to make it easier to maintain and modify.
+
+In JavaScript, inheritance is implemented using prototypes. Every object in JavaScript has a prototype, which is another object that it inherits properties and methods from. When an object is created, it can inherit properties and methods from its prototype, and its prototype can in turn inherit from another prototype, and so on. This creates a chain of prototypes, known as the prototype chain, that determines which properties and methods an object has access to.
+
+### Explain term - Polymorphism
+
+Polymorphism is a fundamental concept in object-oriented programming (OOP) that refers to the ability of different objects to respond to the same method or property in different ways. In JavaScript, polymorphism can be achieved through a variety of techniques, including inheritance, method overriding, and function overloading.
+
+Inheritance and method overriding allow different objects to respond to the same method in different ways at runtime. This is known as runtime polymorphism or dynamic polymorphism.
+
+Function overloading allows multiple functions with the same name to be defined with different sets of arguments. This is known as compile-time polymorphism or static polymorphism.
+
+### Explain term - Encapsulation
 
 Objects provide an interface to other code that wants to use them, but maintain their own internal state. The object's internal state is kept private, meaning that it can only be accessed by the object's own methods, not from other objects. Keeping an object's internal state private, and in general making a clear division between its public interface and its private internal state, is called encapsulation.
 
 This is a useful feature because it enables the programmer to change the internal implementation of an object without having to find and update all the code that uses it: it creates a kind of firewall between this object and the rest of the system.
 
 ### Explain differences between bind vs apply vs call
+
+These methods apply to work with different context for given function.
+
+- `bind` - return the function with changed context
+- `apply` - executes the function with array argument
+- `call` - executes the function with arguments sequence
 
 ```js
 function greet() {
@@ -280,16 +453,7 @@ const person = { name: 'John' }; // create a person context
 
 console.log(greet()); // => Hello, my name is undefined
 console.log(greet.bind(person)(...args)); // => Hello, my name is John
-console.log(greet.call(person), ...args); // as above
 console.log(greet.apply(person), [...args]); // as above
+console.log(greet.call(person), ...args); // as above
 ```
-
-
-### concurrency, parallel execution, multithreading, asynchrony
-
-https://ru.stackoverflow.com/questions/445768/%D0%9C%D0%BD%D0%BE%D0%B3%D0%BE%D0%BF%D0%BE%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B5-vs.-%D0%B0%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5
-
-### Explain Proxy object and its use cases
-
-### Explain Generator function and its use cases
 
