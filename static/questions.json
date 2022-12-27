@@ -1,1 +1,122 @@
-[{"file":"frontend.md","path":"frontend","topic":"Frontend","data":["Ways to store data on client?","What is a SPA and how to make it SEO-friendly?","What is DOM?","What is the difference between attributes and properties?","ReactJS"]},{"file":"javascript.md","path":"javascript","topic":"Javascript","data":["What is JavaScript and what is it used for?","Tell about JS types","What is NaN? What type? How to define NaN value?","Tell about JS type converting","Tell about JS Operators","Tell about var vs. let vs. const","What is the difference between undefined and is not defined?","What is hoisting in JavaScript?","What is this?","What is the difference between null, undefined and undeclared?","Explain the difference between const person = Person() and const person = new Person() in function Person(){}","Why is it better to leave the global scope \"as is\" and not touch it?","What tools do you use when debugging?","Explain the difference between mutable and immutable values","What is an event loop? What is the difference between a call stack and a task queue?","What is a higher-order function?","How do you handle errors in JavaScript?","What are Map and Set objects?","What are WeakMap and WeakSet objects?","What is a callback function?","What is an arrow function and its specifics?","What is a pure function?","What is a closure in JavaScript? Give an example.","Explain Proxy object and its use cases","Explain Generator function and its use cases","How to clone an object? And Shallow Clone vs. Deep Clone","What are the ways to parallelize calculations?","What is Concurrency execution?","What is Parallel execution?","What is Multi-threaded execution?","What is Asynchronous execution?","What is a promise, and how is it used?","How to create promises?","What is promise chaining","How to handle promise errors?","What is async/await?","Tell about promise common pitfalls","What do you know about AJAX?","How to handle multiple asynchronous requests?","What is OOP?","Explain methods and properties","Purpose of «new» keyword?","What is the difference between a class and an object?","Explain term - Inheritance","Explain term - Polymorphism","Explain term - Encapsulation","Explain differences between bind vs apply vs call"]},{"file":"nodejs.md","path":"nodejs","topic":"NodeJS","data":["What is NodeJS?","What is Event Loop?","В чем прикладное отличие Node.js от других платформ серверной разработки (Под какие задачи подходит, а под какие не подходит)?","What is async\\sync operations and threading what is difference?","What is Node.js and how it works?","SPA vs MPA","Object.assign vs Spread","Public\\private\\protected","What is an event-loop in Node JS?","What is node.js streams?","What is an Event Emitter in Node.js?","Monolithic vs. Microservices Architecture","Benefits of Monolithic Architecture","Drawbacks of Monolithic Architecture","Microservice","Benefits of Microservices Architecture","Drawbacks of Microservices Architecture","Child process in nodejs","Clustering NodeJS"]},{"file":"solid.md","path":"solid","topic":"SOLID","data":["Single Responsibility Principle","Open-Closed Principle","Liskov Substitution Principle","Interface Segregation Principle","Dependency Inversion Principle"]},{"file":"typescript.md","path":"typescript","topic":"Typescript","data":["What is TypeScript and why would I use it in place of JavaScript?","void vs any","Create fn with object argument and return string","Optional Properties","Interfaces vs Types","Union types","Values of object type","Generics","Function overloading typescript"]}]
+[
+    {
+        "file": "frontend.md",
+        "path": "frontend",
+        "topic": "Frontend",
+        "data": [
+            "Ways to store data on client?",
+            "What is a SPA and how to make it SEO-friendly?",
+            "What is DOM?",
+            "What is the difference between attributes and properties?",
+            "ReactJS"
+        ]
+    },
+    {
+        "file": "javascript.md",
+        "path": "javascript",
+        "topic": "Javascript",
+        "data": [
+            "What is JavaScript and what is it used for?",
+            "Tell about JS types",
+            "What is NaN? What type? How to define NaN value?",
+            "Tell about JS type converting",
+            "Tell about JS Operators",
+            "Tell about var vs. let vs. const",
+            "What is the difference between undefined and is not defined?",
+            "What is hoisting in JavaScript?",
+            "What is this?",
+            "What is the difference between null, undefined and undeclared?",
+            "Explain the difference between const person = Person() and const person = new Person() in function Person(){}",
+            "Why is it better to leave the global scope \"as is\" and not touch it?",
+            "What tools do you use when debugging?",
+            "Explain the difference between mutable and immutable values",
+            "What is an event loop? What is the difference between a call stack and a task queue?",
+            "What is a higher-order function?",
+            "How do you handle errors in JavaScript?",
+            "What are Map and Set objects?",
+            "What are WeakMap and WeakSet objects?",
+            "What is a callback function?",
+            "What is an arrow function and its specifics?",
+            "What is a pure function?",
+            "What is a closure in JavaScript? Give an example.",
+            "Explain Proxy object and its use cases",
+            "Explain Generator function and its use cases",
+            "How to clone an object? And Shallow Clone vs. Deep Clone",
+            "What are the ways to parallelize calculations?",
+            "What is Concurrency execution?",
+            "What is Parallel execution?",
+            "What is Multi-threaded execution?",
+            "What is Asynchronous execution?",
+            "What is a promise, and how is it used?",
+            "How to create promises?",
+            "What is promise chaining",
+            "How to handle promise errors?",
+            "What is async/await?",
+            "Tell about promise common pitfalls",
+            "What do you know about AJAX?",
+            "How to handle multiple asynchronous requests?",
+            "What is OOP?",
+            "Explain methods and properties",
+            "Purpose of «new» keyword?",
+            "What is the difference between a class and an object?",
+            "What is Inheritance",
+            "What is Polymorphism",
+            "What is Encapsulation",
+            "Explain differences between bind vs apply vs call"
+        ]
+    },
+    {
+        "file": "nodejs.md",
+        "path": "nodejs",
+        "topic": "NodeJS",
+        "data": [
+            "What is NodeJS?",
+            "What is Event Loop?",
+            "В чем прикладное отличие Node.js от других платформ серверной разработки (Под какие задачи подходит, а под какие не подходит)?",
+            "What is async\\sync operations and threading what is difference?",
+            "What is Node.js and how it works?",
+            "SPA vs MPA",
+            "Object.assign vs Spread",
+            "Public\\private\\protected",
+            "What is an event-loop in Node JS?",
+            "What is node.js streams?",
+            "What is an Event Emitter in Node.js?",
+            "Monolithic vs. Microservices Architecture",
+            "Benefits of Monolithic Architecture",
+            "Drawbacks of Monolithic Architecture",
+            "Microservice",
+            "Benefits of Microservices Architecture",
+            "Drawbacks of Microservices Architecture",
+            "Child process in nodejs",
+            "Clustering NodeJS"
+        ]
+    },
+    {
+        "file": "solid.md",
+        "path": "solid",
+        "topic": "SOLID",
+        "data": [
+            "Single Responsibility Principle",
+            "Open-Closed Principle",
+            "Liskov Substitution Principle",
+            "Interface Segregation Principle",
+            "Dependency Inversion Principle"
+        ]
+    },
+    {
+        "file": "typescript.md",
+        "path": "typescript",
+        "topic": "Typescript",
+        "data": [
+            "What is TypeScript and why would I use it in place of JavaScript?",
+            "void vs any",
+            "Create fn with object argument and return string",
+            "Optional Properties",
+            "Interfaces vs Types",
+            "Union types",
+            "Values of object type",
+            "Generics",
+            "Function overloading typescript"
+        ]
+    }
+]

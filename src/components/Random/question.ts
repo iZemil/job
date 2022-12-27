@@ -25,7 +25,7 @@ export class Question {
 		return questions.map((q) => q.topic);
 	}
 
-	public static random(topic: string): Question {
+	public static random(topic: string, retryCount = 1): Question {
 		let section = questions.find((it) => it.topic === topic);
 		if (!section || topic === ANY_TOPIC) {
 			section = random(questions);
@@ -33,13 +33,17 @@ export class Question {
 
 		const { data, ...rest } = section;
 
+		if (data.length === retryCount) {
+			Question.clearCache();
+		}
+
 		const question = {
 			value: random(data),
 			...rest,
 		};
 
 		if (Question.isInCache(question)) {
-			return Question.random(topic);
+			return Question.random(topic, retryCount + 1);
 		}
 
 		return question;
@@ -55,6 +59,10 @@ export class Question {
 		return JSON.parse(localStorage.getItem(Question.LS_KEY)) || {};
 	}
 
+	public static clearCache() {
+		localStorage.setItem(Question.LS_KEY, null);
+	}
+
 	public static isInCache(question: Question): boolean {
 		const cache = Question.getCache();
 		const questionKey = Question.getLink(question);
@@ -67,10 +75,12 @@ export class Question {
 		const questionKey = Question.getLink(question);
 		const needRefreshCache = Object.keys(cache).length > 30;
 
-		const newCache = JSON.stringify(needRefreshCache ? {} : { ...cache, [questionKey]: 1 });
+		if (needRefreshCache) {
+			Question.clearCache();
+		} else {
+			const newCache = JSON.stringify({ ...cache, [questionKey]: 1 });
 
-		localStorage.setItem(Question.LS_KEY, newCache);
-
-		console.log(Question.getCache());
+			localStorage.setItem(Question.LS_KEY, newCache);
+		}
 	}
 }

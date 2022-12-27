@@ -11,13 +11,14 @@ JavaScript is a programming language that is commonly used to create interactive
 ### Tell about JS types
 
 In JavaScript, there are six primitive types:
+
 1.  `Number` represents numeric values. In JavaScript, all numbers are considered to be floating-point values.
 2.  `String` represents a sequence of characters, or text. Strings can be enclosed in single or double quotes.
 3.  `Boolean` represents a logical value, either true or false.
 4.  `null` represents a null value, which indicates an absence of a value or a null reference.
 5.  `undefined` represents an undefined value, which indicates that a variable has been declared but has not been assigned a value.
 6.  `Symbol` represents a unique, immutable value. Symbols are used as a way to create unique, hidden keys for object properties.
-In addition to these primitive types, JavaScript also has a number of object types, including arrays, functions, and objects. Objects are a collection of properties, each of which has a name and a value, and can represent a wide variety of data types, including strings, numbers, and other objects. Functions are a special type of object that can be invoked to perform a specific task, and arrays are objects that can store a collection of values.
+    In addition to these primitive types, JavaScript also has a number of object types, including arrays, functions, and objects. Objects are a collection of properties, each of which has a name and a value, and can represent a wide variety of data types, including strings, numbers, and other objects. Functions are a special type of object that can be invoked to perform a specific task, and arrays are objects that can store a collection of values.
 
 ### What is NaN? What type? How to define NaN value?
 
@@ -32,16 +33,17 @@ You can check if the value of a variable is `NaN` using the `isNaN()` function, 
 In JavaScript, type conversion refers to the process of converting a value from one data type to another. There are direct and indirect type conversion. The direct conversion is performed using the methods: String(), Number(), Boolean, parseInt(), parseFloat(), etc. And the indirect one is performed when we try to operate with different data types or with boolean converting without strict equity, example below:
 
 ```js
-1 + '1'
-'1' - true
-if (0) // never
-'true' == true
+1 + '1';
+'1' - true;
+if (0)
+	// never
+	'true' == true;
 ```
 
 ### Tell about JS Operators
 
 -   Arithmetic operators: `+, -, *, /`
--   Assignment operators: `=, +=, -=, \*=, /=` 
+-   Assignment operators: `=, +=, -=, \*=, /=`
 -   Logical operators: `&&, ||, !, ??, ternary ? true : false`
 -   Logical Assignment operators: `&&=, ||=, ??=`
 -   Comparison operators: `==(=), !=(=)`
@@ -52,7 +54,7 @@ if (0) // never
 -   `var`: is used to declare a variable. Variables declared with `var` are function-scoped, which means that they are only accessible within the function in which they are declared or within the global scope if they are declared outside of any function. Variables declared with `var` can be **reassigned** and **redeclared** within their scope.
 -   `let`: Like `var`, `let` declares a variable, but it is block-scoped, which means that it is only accessible within the block in which it is declared. Variables declared with `let` can be **reassigned**, but they **cannot be redeclared** within their scope.
 -   `const`: is similar to `let`, but it declares a constant variable, which means that the value **cannot be reassigned**.
-In general, it is recommended to use `const` whenever possible to declare variables that will not be reassigned, and to use `let` for variables that will be reassigned.
+    In general, it is recommended to use `const` whenever possible to declare variables that will not be reassigned, and to use `let` for variables that will be reassigned.
 
 ### What is the difference between undefined and is not defined?
 
@@ -61,11 +63,12 @@ In JavaScript, `undefined` is a value that indicates that a variable or property
 On the other hand, "is not defined" is a reference error that occurs when a variable or property is accessed before it has been declared or assigned a value. This error occurs because the variable or property is not defined in the current scope, and it cannot be accessed.
 
 Here is an example that illustrates the difference between `undefined` and "is not defined":
+
 ```js
 let x;
-console.log(x);  // logs "undefined"
+console.log(x); // logs "undefined"
 
-console.log(y);  // throws "ReferenceError: y is not defined"
+console.log(y); // throws "ReferenceError: y is not defined"
 ```
 
 ### What is hoisting in JavaScript?
@@ -73,10 +76,10 @@ console.log(y);  // throws "ReferenceError: y is not defined"
 hHoisting is the behavior of moving declarations to the top of a script or a function before code execution.
 
 ```js
-console.log(x);  // logs "undefined"
+console.log(x); // logs "undefined"
 var x = 1;
 
-console.log(y);  // throws "ReferenceError: y is not defined"
+console.log(y); // throws "ReferenceError: y is not defined"
 let y = 2;
 ```
 
@@ -90,10 +93,10 @@ For example, in the global context, `this` refers to the global object (e.g., `w
 
 `null` and `undefined` are both values that can be assigned to variables, while `undeclared` refers to a variable or property that has not yet been declared or defined. Additionally, `null` and `undefined` are values that can be compared and tested for equality, while `undeclared` is a reference error that cannot be handled or tested for.
 
-### Explain the difference between const person = Person() and const person = new Person() in function Person(){}
+### What is the difference between const person = Person() and const person = new Person()?
 
 ```js
-function Person(){}
+function Person() {}
 
 const person = Person(); // declare variable with value of fn execution
 
@@ -110,10 +113,23 @@ Additionally, modifying the global scope can make the code more difficult to und
 
 To avoid these problems, it is generally a good practice to use a local scope for variables and functions, and to avoid modifying the global scope whenever possible. This helps to keep the code organized, maintainable, and less prone to conflicts and errors.
 
+### How do you handle errors in JavaScript?
+
+In JavaScript, there are a few ways to handle errors:
+
+1. Try-catch statement: The try-catch statement is a built-in feature of JavaScript that can be used to handle errors in the code. The try-catch statement consists of a try block that contains the code that may throw an error, and a catch block that contains the code that handles the error.
+2. Throwing custom errors: In JavaScript, you can throw custom errors by using the `throw` keyword and an instance of the `Error` class. This can be useful if you want to create and throw specific types of errors in the code.
+3. Using the `onerror` event handler: The `onerror` event handler is a built-in event handler that can be used to handle errors in JavaScript. It is called whenever an error occurs in the code, and it can be used to display an error message or to log the error.
+
+:::info
+Handling errors helps to prevent the code from breaking and to ensure that the code runs smoothly and efficiently. Also it allows you to provide meaningful feedback to the users of your code, and to identify and fix problems in the code.
+:::
+
 ### What tools do you use when debugging?
 
 There are a number of tools and techniques that can be used when debugging JavaScript code. Some common tools and techniques include:
-1.  The JavaScript console  
+
+1.  The JavaScript console
 2.  The debugger statement: The debugger statement is a built-in feature of JavaScript that can be used to pause the execution of code and inspect the current state of the program.
 3.  Debugger tools.
 4.  Linting tools: Linting tools are tools that analyze the code and check for potential errors, such as syntax errors, style issues, and logical errors.
@@ -126,10 +142,11 @@ Mutable can be changed or added to where immutable means something that cannot b
 Primitive values in JavaScript cannot have anything added upon to them, they can only be re-assigned, and hence all primitive values in JavaScript are immutable.
 
 A few ways to create and use immutable objects in JavaScript:
+
 1.  Use the `Object.freeze()` method: The `Object.freeze()` method can be used to create an immutable object by freezing the object's state. A frozen object cannot be modified, and any attempts to modify it will be ignored. However, it is important to note that the `Object.freeze()` method only freezes the top-level properties of the object, and it does not recursively freeze the object's nested properties.
 2.  Use the `Object.seal()` method: The `Object.seal()` method can be used to create a sealed object, which is an object that cannot be modified or extended, but whose properties can be modified. A sealed object is similar to a frozen object, but it is not completely immutable.
 3.  Use a library or framework: There are several libraries and frameworks that provide tools for creating and working with immutable objects in JavaScript. For example, the `Immutable.js` library provides a set of data structures that are designed to be immutable, and it provides a set of methods for working with these data structures.
-4. Use object copy pattern with spread operator, Object.assign, etc.
+4.  Use object copy pattern with spread operator, Object.assign, etc.
 
 In general, it is a good practice to use immutable values whenever possible, as they can help to make the code more predictable and easier to understand.
 
@@ -145,25 +162,13 @@ The event loop is responsible for checking the task queue and adding tasks to th
 
 ### What is a higher-order function?
 
-- takes other functions as arguments.
-- returns a function as its result
-
-### How do you handle errors in JavaScript?
-
-In JavaScript, there are a few ways to handle errors:
-
-1. Try-catch statement: The try-catch statement is a built-in feature of JavaScript that can be used to handle errors in the code. The try-catch statement consists of a try block that contains the code that may throw an error, and a catch block that contains the code that handles the error.
-2. Throwing custom errors: In JavaScript, you can throw custom errors by using the `throw` keyword and an instance of the `Error` class. This can be useful if you want to create and throw specific types of errors in the code.
-3. Using the `onerror` event handler: The `onerror` event handler is a built-in event handler that can be used to handle errors in JavaScript. It is called whenever an error occurs in the code, and it can be used to display an error message or to log the error.
-
-:::info
-Handling errors helps to prevent the code from breaking and to ensure that the code runs smoothly and efficiently. Also it allows you to provide meaningful feedback to the users of your code, and to identify and fix problems in the code.
-:::
+-   takes other functions as arguments.
+-   returns a function as its result
 
 ### What are Map and Set objects?
 
-`Map`  is a collection of keyed values.
-`Set`  is a collection of unique values.
+`Map` is a collection of keyed values.
+`Set` is a collection of unique values.
 Iteration over `Map` and `Set` is always in the insertion order, so we can’t say that these collections are unordered, but we can’t reorder elements or directly get an element by its number.
 
 ### What are WeakMap and WeakSet objects?
@@ -192,10 +197,10 @@ Callback functions are fns that can be used as arguments (common examples: forEa
 
 ### What is an arrow function and its specifics?
 
-- Do not contain their own this context, but use the value of this surrounding context.
-- Do not have their own arguments object, so arguments in the body of arrow functions will refer to a variable in the surrounding area.
-- Cannot be used as a constructor and will cause an error when used with new.
-- The yield keyword cannot be used in the body of an arrow function. As a consequence, arrow functions cannot be used as generators.
+-   Do not contain their own this context, but use the value of this surrounding context.
+-   Do not have their own arguments object, so arguments in the body of arrow functions will refer to a variable in the surrounding area.
+-   Cannot be used as a constructor and will cause an error when used with new.
+-   The yield keyword cannot be used in the body of an arrow function. As a consequence, arrow functions cannot be used as generators.
 
 ```js
 'use strict';
@@ -207,7 +212,7 @@ var obj = {
 	},
 	d() {
 		console.log(this.i, this);
-	}
+	},
 };
 obj.b(); // prints undefined, Window {...} (или глобальный объект)
 obj.c(); // prints 10, Object {...}
@@ -217,17 +222,18 @@ obj.d(); // same behavior as obj.c();
 ### What is a pure function?
 
 A **pure function** is a function which:
+
 -   Given the same input, always returns the same output.
 -   Produces no side effects.
 
 ```js
-const double = x => x * 2; // pure function
-const doubleWithSideEffect = x => {
+const double = (x) => x * 2; // pure function
+const doubleWithSideEffect = (x) => {
 	console.log('start doubling:', x);
 	return x * 2;
-} // impure function
+}; // impure function
 const random = () => Math.random(); // impure because different outputs
-const log = x => console.log(x); // impure because must return value, not void
+const log = (x) => console.log(x); // impure because must return value, not void
 ```
 
 ### What is a closure in JavaScript? Give an example.
@@ -235,17 +241,18 @@ const log = x => console.log(x); // impure because must return value, not void
 In JavaScript, a closure is a function that has access to the variables and scope of its outer function, even after the outer function has returned. Closures are created whenever a function is defined within the scope of another function, and they allow inner functions to retain access to the variables and scope of their outer functions even after the outer functions have completed execution.
 
 Here is an example of a closure in JavaScript:
+
 ```js
 function outerFunction() {
-  let x = 5;
-  function innerFunction() {
-    console.log(x);  // 5
-  }
-  return innerFunction;
+	let x = 5;
+	function innerFunction() {
+		console.log(x); // 5
+	}
+	return innerFunction;
 }
 
 let innerFunc = outerFunction();
-innerFunc();  // logs 5
+innerFunc(); // logs 5
 ```
 
 ### Explain Proxy object and its use cases
@@ -257,16 +264,16 @@ Proxies are often used to add functionality to an existing object, such as loggi
 Here is an example of using a Proxy to log property accesses:
 
 ```js
-let obj = {a: 1, b: 2};
+let obj = { a: 1, b: 2 };
 let proxy = new Proxy(obj, {
-  get(target, prop) {
-    console.log(`Accessing property ${prop}`);
-    return target[prop];
-  }
+	get(target, prop) {
+		console.log(`Accessing property ${prop}`);
+		return target[prop];
+	},
 });
 
-console.log(proxy.a);  // logs "Accessing property a"
-console.log(proxy.b);  // logs "Accessing property b"
+console.log(proxy.a); // logs "Accessing property a"
+console.log(proxy.b); // logs "Accessing property b"
 ```
 
 ### Explain Generator function and its use cases
@@ -279,13 +286,13 @@ Here is an example of a generator function that produces a sequence of numbers:
 
 ```js
 function* range(start, end) {
-  for (let i = start; i <= end; i++) {
-    yield i;
-  }
+	for (let i = start; i <= end; i++) {
+		yield i;
+	}
 }
 
 for (let i of range(1, 5)) {
-  console.log(i);
+	console.log(i);
 }
 
 // logs "1"
@@ -304,19 +311,19 @@ Shallow cloning involves creating a new object or array that contains the same v
 Here is an example of shallow cloning in JavaScript:
 
 ```js
-let original = {a: 1, b: {c: 3}};
+let original = { a: 1, b: { c: 3 } };
 let clone = Object.assign({}, original); // or with spread { ...original }
 
-clone.b.c = 4;  // also modifies original.b.c
+clone.b.c = 4; // also modifies original.b.c
 ```
 
 Deep cloning involves creating a completely new object or array that contains copies of all the nested objects and arrays, as well as the top-level object or array. This means that if you modify a nested object or array in the cloned object or array, it will not be modified in the original object or array. And example of deep cloning:
 
 ```js
-let original = {a: 1, b: {c: 3}};
+let original = { a: 1, b: { c: 3 } };
 let clone = JSON.parse(JSON.stringify(original));
 
-clone.b.c = 4;  // does not modify original.b.c
+clone.b.c = 4; // does not modify original.b.c
 ```
 
 :::caution  
@@ -393,12 +400,21 @@ AJAX is implemented using a combination of JavaScript and XML (although other fo
 ### How to handle multiple asynchronous requests?
 
 There are several ways to handle multiple asynchronous requests in JavaScript, depending on the specific requirements of the task at hand. Here are a few options:
+
 1.  Callback functions: One option is to use callback functions to handle the results of individual asynchronous requests. This can be a simple way to handle multiple requests, but it can become unwieldy if there are a large number of requests or if the requests are nested.
 2.  Promises: Another option is to use JavaScript promises to handle multiple asynchronous requests. Promises allow developers to chain together asynchronous operations in a more readable and concise way, and they provide a built-in mechanism for handling errors.
 3.  Async/await: The `async` and `await` keywords, introduced in ECMAScript 2017, provide a way to write asynchronous code in a synchronous style. This can make it easier to handle multiple asynchronous requests in a more readable and intuitive way.
 4.  Parallel execution: If multiple requests can be made in parallel and the order of their completion does not matter, the `Promise.all()` function can be used to execute a group of promises in parallel and wait for all of them to complete.
 
 ## What is OOP?
+
+Object-oriented programming (OOP) is a programming paradigm that is based on the concept of "objects", which are data structures that contain data and behavior. In OOP, the focus is on creating objects that represent real-world entities and the relationships between them, rather than on writing code to perform specific tasks.
+
+OOP is based on the idea of encapsulation, which means that an object's data and behavior are bundled together and hidden from the outside world. This allows objects to be self-contained and modular, and it makes it easier to reuse and maintain the code.
+
+OOP also introduces the concepts of inheritance and polymorphism, which allow objects to inherit characteristics and behavior from other objects, and to exhibit different behavior in different contexts.
+
+OOP is widely used in modern programming languages, and it is a powerful paradigm that can help to structure and organize the code, and to make it more modular, reusable, and maintainable.
 
 ### Explain methods and properties
 
@@ -414,7 +430,7 @@ A class is a template or blueprint for creating objects. It defines the properti
 
 An object, on the other hand, is an instance of a class. It is a concrete representation of a class, with its own set of properties and methods. An object is created by calling a constructor function associated with a class, using the `new` keyword.
 
-### Explain term - Inheritance
+### What is Inheritance?
 
 Inheritance is a fundamental concept in object-oriented programming (OOP) that refers to the ability of a class to inherit properties and methods from another class. It allows developers to create a new class (the "subclass") that is based on an existing class (the "superclass"), and to extend or modify the behavior of the subclass as needed.
 
@@ -422,7 +438,7 @@ Inheritance is a way to reuse code and to create a hierarchical structure for or
 
 In JavaScript, inheritance is implemented using prototypes. Every object in JavaScript has a prototype, which is another object that it inherits properties and methods from. When an object is created, it can inherit properties and methods from its prototype, and its prototype can in turn inherit from another prototype, and so on. This creates a chain of prototypes, known as the prototype chain, that determines which properties and methods an object has access to.
 
-### Explain term - Polymorphism
+### What is Polymorphism?
 
 Polymorphism is a fundamental concept in object-oriented programming (OOP) that refers to the ability of different objects to respond to the same method or property in different ways. In JavaScript, polymorphism can be achieved through a variety of techniques, including inheritance, method overriding, and function overloading.
 
@@ -430,7 +446,7 @@ Inheritance and method overriding allow different objects to respond to the same
 
 Function overloading allows multiple functions with the same name to be defined with different sets of arguments. This is known as compile-time polymorphism or static polymorphism.
 
-### Explain term - Encapsulation
+### What is Encapsulation?
 
 Objects provide an interface to other code that wants to use them, but maintain their own internal state. The object's internal state is kept private, meaning that it can only be accessed by the object's own methods, not from other objects. Keeping an object's internal state private, and in general making a clear division between its public interface and its private internal state, is called encapsulation.
 
@@ -440,9 +456,9 @@ This is a useful feature because it enables the programmer to change the interna
 
 These methods apply to work with different context for given function.
 
-- `bind` - return the function with changed context
-- `apply` - executes the function with array argument
-- `call` - executes the function with arguments sequence
+-   `bind` - return the function with changed context
+-   `apply` - executes the function with array argument
+-   `call` - executes the function with arguments sequence
 
 ```js
 function greet() {
@@ -456,4 +472,3 @@ console.log(greet.bind(person)(...args)); // => Hello, my name is John
 console.log(greet.apply(person), [...args]); // as above
 console.log(greet.call(person), ...args); // as above
 ```
-
