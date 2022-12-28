@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjob=self.webpackChunkjob||[]).push([[786],{5705:s=>{s.exports=JSON.parse('{"title":"Tasks","slug":"/category/tasks","permalink":"/job/interview/category/tasks","navigation":{"previous":{"title":"Algorithms","permalink":"/job/interview/questions/algorithms"},"next":{"title":"Issues","permalink":"/job/interview/tasks/issues"}}}')}}]);
