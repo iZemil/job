@@ -52,11 +52,15 @@ export class Question {
 	public static getLink(question: Question): string {
 		const questionTo = `${question.value.split(' ').join('-').replace(/[?()]/gi, '')}`;
 
-		return `/job/interview/questions/${question.path}#${questionTo}`.toLowerCase();
+		return `/interview/questions/${question.path}#${questionTo}`.toLowerCase();
 	}
 
 	public static getCache() {
-		return JSON.parse(localStorage.getItem(Question.LS_KEY)) || {};
+		try {
+			return JSON.parse(localStorage.getItem(Question.LS_KEY)) || {};
+		} catch {
+			return {};
+		}
 	}
 
 	public static clearCache() {

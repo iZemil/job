@@ -29,8 +29,6 @@ Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It uses 
 
 ### Object.assign vs Spread
 
-### Public\private\protected
-
 ### What is an event-loop in Node JS?
 
 The mechanism of how nodejs javascript handle operations. JS has one single thread so only one thing can happen at a time. Also js has the call stack where all operations go. Operations may be blocking and non-blocking or sync and async. All blocking operations are handled one by one, top to bottom. But non-blocking/async operations are handled by the message queue or job queue (for promises). The loop gives priority to the call stack, and it first processes everything it finds in the call stack, and once there's nothing in there, it goes to pick up things in the message queue.

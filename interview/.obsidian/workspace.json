@@ -22,15 +22,17 @@
             }
           },
           {
-            "id": "bc4a8e631c43402f",
+            "id": "b242735d46d3e558",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "getting-started.md",
+                "file": "questions/nodejs.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "pinned": true
             }
           }
         ],
@@ -80,8 +82,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -101,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "getting-started.md",
+                "file": "questions/nodejs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "getting-started.md",
+                "file": "questions/nodejs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "getting-started.md"
+                "file": "questions/nodejs.md"
               }
             }
           }
@@ -162,17 +163,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bc4a8e631c43402f",
+  "active": "b242735d46d3e558",
   "lastOpenFiles": [
+    "questions/typescript.md",
+    "questions/nodejs.md",
+    "tasks/issues.md",
+    "getting-started.md",
     "questions/solid.md",
     "questions/common.md",
     "questions/_algorithms.md",
     "questions/_databases.md",
-    "getting-started.md",
-    "questions/nodejs.md",
     "questions/javascript.md",
-    "questions/frontend.md",
-    "questions/typescript.md",
-    "tasks/issues.md"
+    "questions/frontend.md"
   ]
 }

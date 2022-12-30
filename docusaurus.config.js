@@ -84,7 +84,7 @@ const config = {
 				// 		],
 				// 	},
 				// ],
-				copyright: `Copyright © ${new Date().getFullYear()} job.js.org built by zemil.`,
+				copyright: `Copyright © ${new Date().getFullYear()} job.js.org built by zemil 🐝`,
 			},
 			prism: {
 				theme: lightCodeTheme,
