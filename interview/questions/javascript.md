@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
+title: Javascript
 ---
 
-# Javascript
+# Javascript Questions
 
 ### What is JavaScript and what is it used for?
 

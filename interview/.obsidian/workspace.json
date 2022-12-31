@@ -20,23 +20,8 @@
               },
               "pinned": true
             }
-          },
-          {
-            "id": "b242735d46d3e558",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "questions/nodejs.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -102,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "questions/nodejs.md",
+                "file": "getting-started.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "questions/nodejs.md",
+                "file": "getting-started.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "questions/nodejs.md"
+                "file": "getting-started.md"
               }
             }
           }
@@ -163,17 +148,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b242735d46d3e558",
+  "active": "f414b1aa8b9ae5f0",
   "lastOpenFiles": [
-    "questions/typescript.md",
-    "questions/nodejs.md",
-    "tasks/issues.md",
     "getting-started.md",
-    "questions/solid.md",
+    "questions/nodejs.md",
+    "resume-example.md",
+    "assets/docusaurus-asset-example-banner.png.md",
     "questions/common.md",
-    "questions/_algorithms.md",
-    "questions/_databases.md",
+    "questions/typescript.md",
     "questions/javascript.md",
-    "questions/frontend.md"
+    "questions/frontend.md",
+    "tasks/issues.md",
+    "questions/solid.md"
   ]
 }

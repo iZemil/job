@@ -1,8 +1,9 @@
 ---
 sidebar_position: 4
+title: NodeJS
 ---
 
-# NodeJS
+# NodeJS Questions
 
 check: https://www.edureka.co/blog/interview-questions/top-node-js-interview-questions-2016/ and https://www.interviewbit.com/node-js-interview-questions/
 
@@ -24,10 +25,6 @@ check: https://www.edureka.co/blog/interview-questions/top-node-js-interview-que
 ### What is Node.js and how it works?
 
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It uses libuv to handle asynchronous events.
-
-### SPA vs MPA
-
-### Object.assign vs Spread
 
 ### What is an event-loop in Node JS?
 

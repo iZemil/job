@@ -1,8 +1,9 @@
 ---
 sidebar_position: 3
+title: Frontend
 ---
 
-# Frontend
+# Frontend Questions
 
 ### Ways to store data on client?
 
@@ -16,6 +17,8 @@ sidebar_position: 3
 ### What is a SPA and how to make it SEO-friendly?
 
 ### What is DOM?
+
+### SPA vs MPA
 
 ### What is the difference between attributes and properties?
 

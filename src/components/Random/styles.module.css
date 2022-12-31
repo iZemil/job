@@ -32,6 +32,9 @@
 
 .question a {
 	text-decoration: underline;
+	text-decoration-style: dashed;
+	text-decoration-color: grey;
+	line-height: 1.3;
 }
 
 .nextButton {

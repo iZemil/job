@@ -10,7 +10,7 @@ const config = {
 	title: 'Javascript Job',
 	tagline: 'JS Interview',
 	url: 'https://izemil.github.io',
-	baseUrl: process.env.NODE_ENV === 'development' ? '/job/' : '/',
+	baseUrl: '/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
 	favicon: 'img/favicon.ico',

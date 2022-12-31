@@ -21,11 +21,15 @@ const to = path.resolve('static/questions.json');
 				const data = await fs.readFile(fromPath, 'utf8');
 
 				const titles = data.match(/^#{1,4} .*/gim);
+				const topic = data
+					.match(/^title: .*/gim)
+					.find((it) => it.startsWith('title:'))
+					.split(': ')[1];
 
 				const item = {
 					file,
 					path: file.replace('.md', ''),
-					topic: trimTitleSymbols(titles.find((it) => it.startsWith('# '))),
+					topic,
 					data: titles.filter((it) => !it.startsWith('# ')).map((it) => trimTitleSymbols(it)),
 				};
 				console.log('item:', item);

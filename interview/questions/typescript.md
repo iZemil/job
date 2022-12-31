@@ -1,8 +1,9 @@
 ---
 sidebar_position: 2
+title: Typescript
 ---
 
-# Typescript
+# Typescript Questions
 
 ### What is TypeScript, and its benefits?
 
