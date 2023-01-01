@@ -91,6 +91,7 @@ const config = {
 				darkTheme: darkCodeTheme,
 			},
 		}),
+	themes: ['@docusaurus/theme-live-codeblock'],
 };
 
 // docs: https://docusaurus.io/docs

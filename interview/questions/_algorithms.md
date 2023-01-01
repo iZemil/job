@@ -7,6 +7,8 @@ sidebar_position: 999
 TODO: Main definitions
 TODO: Review and Classify the main algorithms
 
+Skip the algorithm lottery study. It’s called a lottery for a reason. What are the chances you’ll study the right algorithms? Besides, the best interviewers will also skip the lottery and instead ask you to demonstrate your ability to code and come up with solutions to common problems you’ll actually encounter on the real job.
+
 ### Big O
 
 ### Amazon interview

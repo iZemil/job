@@ -1,24 +1,18 @@
 {
   "main": {
-    "id": "a481758b8b4e474f",
+    "id": "27d8e269d284f58a",
     "type": "split",
     "children": [
       {
-        "id": "1abcf89a1a09d41a",
+        "id": "1bafa6ad9ebbb194",
         "type": "tabs",
         "children": [
           {
-            "id": "f414b1aa8b9ae5f0",
+            "id": "635bdf98d3511118",
             "type": "leaf",
-            "pinned": true,
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "getting-started.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -27,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "e8f15a7e716b8b3f",
+    "id": "85a4fca82d1838e2",
     "type": "split",
     "children": [
       {
-        "id": "6039eb9ceb93082b",
+        "id": "ddcbd45174dc0c74",
         "type": "tabs",
         "children": [
           {
-            "id": "5da853c18254e00e",
+            "id": "c4c2db04ad9de068",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -45,12 +39,12 @@
             }
           },
           {
-            "id": "431f957efed2e397",
+            "id": "528a18741bbe3abd",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": ":::",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -60,7 +54,7 @@
             }
           },
           {
-            "id": "b7e3c4bef6457786",
+            "id": "b1b1e550c9c8a594",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -74,20 +68,19 @@
     "width": 300
   },
   "right": {
-    "id": "678b9c55134a8909",
+    "id": "ee25e0d019f434ea",
     "type": "split",
     "children": [
       {
-        "id": "540833b13dd89406",
+        "id": "2313592c371d134d",
         "type": "tabs",
         "children": [
           {
-            "id": "3b60b2a75ec969f3",
+            "id": "e1963d8c98302238",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "getting-started.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,19 +92,18 @@
             }
           },
           {
-            "id": "f0d05650ea08eb86",
+            "id": "6f264e3912358018",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "getting-started.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "4ea8d095b7296cb8",
+            "id": "6468cba032febb4b",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -122,21 +114,19 @@
             }
           },
           {
-            "id": "15b331b585500d6d",
+            "id": "20f06ce3f7a92c28",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "getting-started.md"
-              }
+              "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 421.5
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,17 +138,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f414b1aa8b9ae5f0",
-  "lastOpenFiles": [
-    "interview/category/questions.md",
-    "getting-started.md",
-    "questions/_algorithms.md",
-    "questions/nodejs.md",
-    "resume-example.md",
-    "assets/docusaurus-asset-example-banner.png.md",
-    "questions/common.md",
-    "questions/typescript.md",
-    "questions/javascript.md",
-    "questions/frontend.md"
-  ]
+  "active": "635bdf98d3511118",
+  "lastOpenFiles": []
 }
