@@ -5,76 +5,214 @@ title: NodeJS
 
 # NodeJS Questions
 
-check: https://www.edureka.co/blog/interview-questions/top-node-js-interview-questions-2016/ and https://www.interviewbit.com/node-js-interview-questions/
-
 ### What is NodeJS?
+
+Node.js is a runtime environment for executing JavaScript code outside a browser. Node.js is built on top of the Google Chrome V8 JavaScript engine. It allows developers to run JavaScript on the server side with creating server-side applications.
+
+### Props and Cons of NodeJS?
+
+-   + Event-driven architecture and non-blocking I/O model make it easy to build high-performance servers that can handle many concurrent connections with a small number of threads - good performance for real-time applications (sockets, streams, video)
+-   + Easy scalability of using microservices and NPM packages as ready-made solutions library
+-   + Single language for frontend and backend development
+-   + Single language for cross-platform development (web, desktop, mobile)
+-   - Reduces performance when handling Heavy Computing Tasks
+-   - Frequent changes of main NodeJS API
+
+### What is libuv?
+
+libuv is a cross-platform C library that provides support for asynchronous I/O, based on event loops. It is used as the foundation of the Node.js runtime, providing the platform-specific code that powers the Node.js event loop and other asynchronous I/O features.
 
 ### What is Event Loop?
 
-### В чем прикладное отличие Node.js от других платформ серверной разработки (Под какие задачи подходит, а под какие не подходит)?
+In Node.js, the event loop is the mechanism that handles the execution of JavaScript code. It is the core of the Node.js runtime and is responsible for scheduling asynchronous operations, such as I/O operations and timers.
 
--   +Good perfomance for realtime applications (sockets, streams, video)
--   +Easy scalability of using microservices and npm packages
--   +One language for client and backend sides (Backend for frontend development)
--   +Cross-platforming (web, desktop, mobile)
--   -Reduces performance when handling Heavy Computing Tasks
--   -Frequent changes of main nodejs API
+The event loop works by continuously monitoring a queue of callback functions that are waiting to be executed. When an event occurs that triggers one of these callback functions, the event loop pushes the callback onto the call stack and executes it. Once the callback has finished executing, the event loop continues to process the next callback in the queue.
 
-### What is async\sync operations and threading what is difference?
+This process continues until there are no more callbacks left to be executed, at which point the event loop enters a "waiting" state, waiting for new events to occur. This allows Node.js to perform non-blocking I/O operations and to handle many concurrent connections with a small number of threads.
 
-### What is Node.js and how it works?
+Overall, the event loop is what enables Node.js to be efficient and lightweight, making it well-suited for building scalable network applications.
 
-Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It uses libuv to handle asynchronous events.
+### What is the difference between synchronous and asynchronous code in Node.js?
 
-### What is an event-loop in Node JS?
+Synchronous code is executed in a blocking manner, meaning that the program will pause at each synchronous line of code until the operation is complete. Asynchronous code, on the other hand, is executed in a non-blocking manner, allowing the program to continue running while the asynchronous operation is being performed.
 
-The mechanism of how nodejs javascript handle operations. JS has one single thread so only one thing can happen at a time. Also js has the call stack where all operations go. Operations may be blocking and non-blocking or sync and async. All blocking operations are handled one by one, top to bottom. But non-blocking/async operations are handled by the message queue or job queue (for promises). The loop gives priority to the call stack, and it first processes everything it finds in the call stack, and once there's nothing in there, it goes to pick up things in the message queue.
+### What is package.json?
 
-### What is node.js streams?
+package.json is a file that is used to define the properties of a Node.js package. It is typically located in the root directory of a Node.js project and it contains information such as the package's name, version, dependencies, scripts, and other metadata.
+
+The package.json file serves several purposes:
+-  It helps other developers understand what your package does, how it is structured, and how to use it.
+-  It allows you to specify the dependencies that your package needs in order to function. When someone installs your package, npm (the Node.js package manager) will automatically install all of the dependencies listed in package.json.
+-  It allows you to specify scripts that can be run to perform various tasks, such as testing, building, or deploying your package.
+
+### What is the role of the package-lock.json?
+
+It stores and guarantees the exact same version of every package.
+
+- `npm install` re-generates the lock file with installing updates
+- `npm ci` installs locked dependencies
+
+### What's the difference between tilde(~) and caret(^) in package.json?
+
+- `~version` - Approximately equivalent to version, i.e., only accept new **patch** versions 
+- `^version` - Compatible with version, i.e., accept new **minor and patch** versions 
+- `version` - Must match version exactly
+- `>version` - Must be greater than version (same logic with `>=version`, `<version`, `<=version`)
+- `1.2.x` - 1.2.0, 1.2.1, etc., but not 1.3.0
+- `*` - Matches any version
+- `latest` - Obtains latest release
+
+### Explain  REPL in the context of Node.js
+
+REPL stands for "Read-Eval-Print Loop". It is a simple, interactive programming environment that allows you to execute code snippets and see the results immediately.
+
+In the context of Node.js, the REPL provides a way to try out Node.js code snippets quickly and easily. It is built into the Node.js runtime and can be accessed by running the `node` command in a terminal or command prompt.
+
+When you start the REPL, you will see a command prompt, where you can enter Node.js code snippets. When you press Enter, the REPL will evaluate the code snippet and print the result to the console. You can then enter more code snippets and see the results immediately.
+
+The REPL is a useful tool for experimenting with Node.js code and testing out small code snippets. It is also a good way to learn the Node.js API and explore the various built-in objects and functions that are available.
+
+### What is middleware in NodeJS?
+
+In the context of Node.js, middleware refers to functions that have access to the request and response objects, and the next middleware function in the application's request-response cycle. These functions can perform tasks such as logging requests, parsing request bodies, adding response headers, and handling errors.
+
+Middleware functions are used to modify the request and response objects, or to perform additional tasks before or after the primary logic of the application. They are typically organized into a chain, with each middleware function being passed to the next function in the chain.
+
+In Node.js, middleware functions are commonly used in web frameworks such as Express.js to provide additional functionality to the application. For example, you might use middleware functions to handle authentication, compression, or caching, or to add CORS headers to the response.
+
+Here is an example of a simple middleware function in Node.js using the Express.js framework:
+
+```js
+function loggerMiddleware(req, res, next) {
+  console.log(`${req.method} ${req.url}`);
+  next();
+}
+
+app.use(loggerMiddleware);
+```
+
+This middleware function logs the HTTP method and URL of each request to the console. The `next` function is called to pass control to the next middleware function in the chain.
+
+### How do you handle errors in a Node.js application?
+ 
+In Node.js, errors can be handled using try-catch blocks or by listening for the 'error' event on an event emitter. It is also a good practice to use a global error-handling middleware function to catch unhandled errors.
+
+### What is the difference between spawn() and fork()?
+
+The `spawn()` and `fork()` methods in Node.js are both used to create new child processes, but they work in slightly different ways:
+-   The `spawn()` method launches a new process and returns a ChildProcess object, which allows you to communicate with the child process using standard input, output, and error streams. The `spawn()` method is generally used for running long-running processes, such as command-line utilities, and it is well-suited for streaming large amounts of data between the parent and child processes.
+-   The `fork()` method is similar to `spawn()`, but it is specifically designed to spawn new Node.js processes. It works by creating a new instance of the Node.js runtime, which allows you to execute a new instance of your application in a separate process. The `fork()` method is well-suited for scenarios where you want to run multiple instances of your application, or where you want to take advantage of multiple CPU cores.
+
+Overall, the `spawn()` method is generally more flexible and powerful, while the `fork()` method is easier to use and better optimized for Node.js applications. Which method you choose will depend on your specific needs and requirements.
+
+### Explain the concept of stub in Node.js
+
+In Node.js, stubs are basically the programs or functions that are used for stimulating the module or component behavior. During any test cases, stubs provide the canned answers of the functions
+
+### Differentiate between process.nextTick() and setImmediate()
+
+In Node.js, process.nextTick() and setImmediate(), both are functions of the Timers module which help in executing the code after a predefined period of time. But these functions differ in their execution. The process.nextTick function waits for the execution of action till the next pass around in the event loop or once the event loop is completed only then it will invoke the callback function. On the other hand, setImmediate() is used to execute a callback method on the next cycle of the event loop which eventually returns it to the event loop in order to execute the I/O operations.
+
+### What is NodeJS Buffer and how is it used?
+
+Buffer class in Node.js is used for storing the raw data in a similar manner of an array of integers. But it corresponds to a raw memory allocation that is located outside the V8 heap. It is a global class that is easily accessible can be accessed in an application without importing a buffer module. Buffer class is used because pure JavaScript is not compatible with binary data. So, when dealing with TCP streams or the file system, it’s necessary to handle octet streams.
+
+### What is NodeJS Stream?
+
+Streams in Node.js are the collection of data similar to arrays and strings. They are objects using which you can read data from a source or write data to a destination in a continuous manner. It might not be available at once and need not to have fit in the memory. These streams are especially useful for reading and processing a large set of data.
+
+In Node.js, there are four fundamental types of streams:
+1. _Readable:_ Used for reading large chunks of data from the source.
+2. _Writeable:_ Use for writing large chunks of data to the destination.
+3. _Duplex:_ Used for both the functions; read and write.
+4. _Transform:_ It is a duplex stream that is used for modifying the data.
+
+### List down the various timing features of Node.js.
+
+Node.js provides a Timers module which contains various functions for executing the code after a specified period of time.
+
+Below I have listed down the various functions provided by this module:
+- `setTimeout/clearTimeout` – schedule code execution after a designated amount of milliseconds
+- `setInterval/clearInterval` – execute a block of code multiple times every specified time period
+- `setImmediate/clearImmediate` – execute code at the end of the current event loop cycle
+- `process.nextTick` – schedule a callback function that needs to be invoked in the next iteration of the Event Loop
 
 ### What is an Event Emitter in Node.js?
 
-### Monolithic vs. Microservices Architecture
+EventEmitter is a Node.js class that includes all the objects that are capable of emitting events. These objects contain an eventEmitter.on() function through which more than one function can be attached to the named events that are emitted by the object. Whenever an EventEmitter object throws an event, all the attached functions to that specific event are invoked synchronously. Below code shows how to us the EventEmitter in your application:
 
-#### Benefits of Monolithic Architecture
+```js
+const EventEmitter = require('events');
+class MyEmitter extends EventEmitter { }
+const myEmitter = new MyEmitter();
+myEmitter.on('event', () =&amp;gt; {
+console.log('an event occurred!');
+});
+myEmitter.emit('event');
+```
 
--   Simple to develop.
--   Simple to test. For example you can implement end-to-end testing by simply launching the application and testing the UI with Selenium.
--   Simple to deploy. You just have to copy the packaged application to a server.
--   Simple to scale horizontally by running multiple copies behind a load balancer.
+### How do you structure a Node.js project?
 
-#### Drawbacks of Monolithic Architecture
+A Node.js project should have a clear and organized file and directory structure, with a well-defined entry point (usually a file called `index.js` or `server.js`). It should also have a `package.json` file that defines the dependencies and scripts for the project.
 
--   This simple approach has a limitation in size and complexity.
--   Application is too large and complex to fully understand and made changes fast and correctly.
--   The size of the application can slow down the start-up time.
--   You must redeploy the entire application on each update.
--   Impact of a change is usually not very well understood which leads to do extensive manual testing.
--   Continuous deployment is difficult.
--   Monolithic applications can also be difficult to scale when different modules have conflicting resource requirements.
--   Another problem with monolithic applications is reliability. Bug in any module (e.g. memory leak) can potentially bring down the entire process. Moreover, since all instances of the application are identical, that bug will impact the availability of the entire application.
--   Monolithic applications has a barrier to adopting new technologies. Since changes in frameworks or languages will affect an entire application it is extremely expensive in both time and cost.
+### How do you handle the performance of a Node.js application?
 
-#### Microservice
+There are several ways to improve the performance of a Node.js application, including optimizing the code, using caching, and using a load balancer to distribute incoming requests across multiple servers. It is also important to monitor the performance of the application and to profile it to identify any bottlenecks or inefficiencies.
 
-The idea is to split your application into a set of smaller, interconnected services instead of building a single monolithic application. The Microservice architecture pattern significantly impacts the relationship between the application and the database. Instead of sharing a single database schema with other services, each service has its own database schema. Mobile, desktop, web apps don't have direct access to services but they have access to API Gateway. It is responsible for tasks such as load balancing, caching, access control, API metering, and monitoring.
+### How do you test a Node.js application?
 
-#### Benefits of Microservices Architecture
+There are several ways to test a Node.js application, including using unit tests, integration tests, and end-to-end tests. Common testing frameworks for Node.js include Mocha, Jest, and Jasmine.
 
--   It tackles the problem of complexity by decomposing application into a set of manageable services which are much faster to develop, and much easier to understand and maintain.
--   It enables each service to be developed independently by a team that is focused on that service.
--   It reduces barrier of adopting new technologies since the developers are free to choose whatever technologies make sense for their service and not bounded to the choices made at the start of the project.
--   Microservice architecture enables each microservice to be deployed independently. As a result, it makes continuous deployment possible for complex applications.
--   Microservice architecture enables each service to be scaled independently.
+### What are some common pitfalls to be aware of when developing with Node.js?
 
-#### Drawbacks of Microservices Architecture
+Some common pitfalls to be aware of when developing with Node.js include the single-threaded nature of the event loop, the need to properly handle asynchronous code, and the need to be mindful of memory usage and performance. It is also important to be aware of the security risks associated with executing untrusted code, and to properly sanitize user input to prevent injection attacks.
 
--   Microservices architecture adding a complexity to the project just by the fact that a microservices application is a distributed system. You need to choose and implement an inter-process communication mechanism based on either messaging or RPC and write code to handle partial failure and take into account other fallacies of distributed computing.
--   Microservices has the partitioned database architecture. Business transactions that update multiple business entities in a microservices-based application need to update multiple databases owned by different services. Using distributed transactions is usually not an option and you end up having to use an eventual consistency based approach, which is more challenging for developers.
--   Testing a microservices application is also much more complex then in case of monolithic web application. For a similar test for a service you would need to launch that service and any services that it depends upon (or at least configure stubs for those services).
--   It is more difficult to implement changes that span multiple services. In a monolithic application you could simply change the corresponding modules, integrate the changes, and deploy them in one go. In a Microservice architecture you need to carefully plan and coordinate the rollout of changes to each of the services.
--   Deploying a microservices-based application is also more complex. A monolithic application is simply deployed on a set of identical servers behind a load balancer. In contrast, a microservice application typically consists of a large number of services. Each service will have multiple runtime instances. And each instance need to be configured, deployed, scaled, and monitored. In addition, you will also need to implement a service discovery mechanism. Manual approaches to operations cannot scale to this level of complexity and successful deployment a microservices application requires a high level of automation.
+### Child process in NodeJS
 
-### Child process in nodejs
+In Node.js, the `child_process` module provides an API for creating and managing child processes. Child processes are separate instances of the Node.js runtime that can be spawned from a parent process. They can be used to run long-running tasks or processes in parallel with the parent process, or to execute command-line utilities or other external programs.
 
-### Clustering NodeJS
+The `child_process` module provides four different methods for creating child processes:
+
+1.  `spawn()`: Launches a new process and returns a ChildProcess object, which allows you to communicate with the child process using standard input, output, and error streams.
+2.  `exec()`: Executes a command in a child process and buffers the output.
+3.  `execFile()`: Executes a command in a child process, providing the option to specify the encoding for the output.
+4.  `fork()`: Spawns a new Node.js process and returns a ChildProcess object, allowing the parent and child processes to communicate using inter-process communication (IPC).
+
+### How to create a clustering in NodeJS?
+
+Clustering in Node.js refers to the ability to create a group of child processes that can share server ports and work together to handle incoming requests. Clustering is a way to improve the performance and scalability of a Node.js application, by taking advantage of multiple CPU cores and distributing the workload across multiple processes.
+
+To create a cluster in Node.js, you can use the `cluster` module, which is part of the Node.js core. The `cluster` module allows you to create a master process that can spawn and manage a group of worker processes. Each worker process runs a separate instance of the application, and the master process distributes incoming requests to the workers using a round-robin algorithm.
+
+Here is an example of how to create a cluster in Node.js:
+
+```js
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
+
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
+
+  // Fork workers.
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
+} else {
+  // Workers can share any TCP connection
+  // In this case it is an HTTP server
+  http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('hello world\n');
+  }).listen(8000);
+
+  console.log(`Worker ${process.pid} started`);
+}
+```
+
+In this example, the master process creates a worker process for each CPU core, and each worker process runs an HTTP server that listens on port 8000. When an incoming request is received, the master process distributes it to one of the worker processes using a round-robin algorithm. This allows the application to handle multiple requests concurrently and improve its overall performance and scalability.
+
