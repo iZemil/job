@@ -12,7 +12,7 @@ If you are looking to find a job as a JavaScript developer, there are a few step
 
 ## Update Resume
 
-Make sure your resume is up-to-date and includes any relevant experience you have with JavaScript, as well as any other skills or experience that might be relevant to a JavaScript developer position.
+Make sure your resume is up-to-date and includes all relevant experience for a JavaScript developer position.
 
 Here are a few key points to consider when updating a resume:
 1. **Review your job history and accomplishments:** review your job history and think about your accomplishments and responsibilities in each role. This will help you identify any skills or experience that you can highlight on your resume.
@@ -24,7 +24,9 @@ Here are a few key points to consider when updating a resume:
 7. **Consider adding any additional skills or experience:** If you have gained any new skills or experience since you last updated your resume, consider adding this information to your resume (language skills, technical skills, or professional development courses).
 
 :::info
-If you don't know how to release your CV, you can check out any [static site generator](https://jamstack.org/generators/) or just use one Markdown file or HTML file. And deploy it with GitHub pages. Also as the simplest way is to use Google Docs.
+If you don't know how to release your CV, you can check out any [static site generator](https://jamstack.org/generators/) or just use one Markdown file or HTML file. And deploy it with GitHub pages.
+
+Also as the simplest way is to use Google Docs.
 :::
 
 The structure of your resume will depend on your individual circumstances and the job you are applying for. However, there are a few key elements that should be included in most resumes:
@@ -33,7 +35,7 @@ The structure of your resume will depend on your individual circumstances and th
 2. **Stack/Skills:** a list of your skills, such as technical skills, language skills, or soft skills.
 3. **Work experience:** a list of your previous jobs, including the job title, company name, tech stack, and dates of employment. You should also include a list of responsibilities and accomplishments for each role, *with a focus on your personal achievements*.
 :::tip
-If you have a short time experience in one company, it would be wise to combine it with another.
+If you have a short time experience in one company, it would be wise to combine it with another one.
 :::
 4. **Education:** your highest degree and the name of the institution where you earned it. You should also list any additional education or training you have received, such as professional development courses or certifications.
 5. **Additional information:** any additional information that you think is relevant to the job you are applying for, such as awards or honors, publications, or professional memberships, or hobbies (if you have something special).
@@ -73,11 +75,11 @@ There are a few key things you can do to present yourself well in an interview:
 2. **Show enthusiasm and smile:** It is important to show enthusiasm for the opportunity to interview and the position you are applying for. People who are confident and enthusiastic about a job opportunity tend to be happy and excited to participate in an interview.
 3. **Be prepared to answer questions:** Be prepared to answer common interview questions, as well as any specific questions related to the position or company.
 
-**_Here are some common soft skills questions that may be asked in an interview:_**
+## General soft skill questions
 
 ### Tell me about yourself
 
-Prepare a compelling, personalized story that you can share in a short amount of time (around 45 seconds) that highlights a unique aspect of your personality or experiences. Build an elevator pitch for your personal brand.
+Prepare a compelling, personalized story that you can share in a short amount of time (around 45 seconds) that highlights a unique aspect of your personality or experiences - _**build an elevator pitch for your personal brand**_.
 
 :::tip
 Avoid cliches. Be different. **Be bold.** Every single person who comes in as a _passionate, hard worker, excited about JavaScript_. This is your chance to _set yourself apart._ Don’t blow it.
