@@ -5,26 +5,34 @@ title: Frontend
 
 # Frontend Questions
 
-### Ways to store data on client?
+## What is DOM?
 
-1. Cookies
-2. Web Storage API (local/session)
-3. IndexDB
-4. JS variables
-5. DOM Node Storage (dataset property or setAttribute(), getAttribute(), eg: someElement.dataset.store = ‘some value’)
-6. Cache API
+The DOM (Document Object Model) is a representation of the structure and the content of a web page, as an object tree. It consists of a set of objects and properties that represent the elements, the attributes, and the content of a web page, and it is used to manipulate and access the content and the structure of a web page.
 
-### What is a SPA and how to make it SEO-friendly?
+### What is HTML?
 
-### What is DOM?
+HTML (HyperText Markup Language) is a markup language used to structure and format the content of web pages. It consists of a set of tags and attributes that define the structure and the formatting of the content, and it is used to create the layout and the appearance of web pages.
 
-### SPA vs MPA
+CSS (Cascading Style Sheets) is a stylesheet language used to style and format the content of web pages. It consists of a set of rules and declarations that define the styling of elements in a web page, and it is used to control the layout, the colors, the fonts, and the other visual aspects of web pages.
 
 ### What is the difference between attributes and properties?
 
-6. Что такое распространение события (Event Propogation)?
-7. Что такое всплытие события (Event Bubbling)?
-8. Что такое погружение события (Event Capturing)?
+### What is Event Propagation?
+
+Event propagation refers to the way that events are processed in an HTML document. When an event is triggered on an element, it can be processed in two ways:
+
+1. Capturing phase: The event starts at the top of the document and is propagated down to the element that triggered the event.
+2. Bubbling phase: The event starts at the element that triggered the event and is propagated up to the top of the document.
+
+### What is Event Bubbling?
+
+Event bubbling is a type of event propagation that occurs during the bubbling phase. When an event is triggered on an element, it is propagated up to its parent elements, until it reaches the top of the document. Event bubbling allows you to handle events on multiple elements that are nested inside each other.
+
+### What is Event Capturing?
+
+Event capturing is a type of event propagation that occurs during the capturing phase. When an event is triggered on an element, it is propagated down to its child elements, until it reaches the element that triggered the event. Event capturing allows you to handle events on multiple elements that are nested inside each other.
+
+### Difference between attributes and properties in DOM
 
 In JavaScript, attributes and properties are both used to store data in an object or an element, but they have some important differences.
 
@@ -55,73 +63,160 @@ In this example, the `input` element has a `value` attribute with the default va
 
 When the `getAttribute()` and `setAttribute()` methods are used, the `value` attribute is accessed and modified, while the `value` property remains unchanged. On the other hand, when the `value` property is modified using the dot notation, the `value` attribute.
 
-## ReactJS
+### Ways to store data in browser?
 
-HTML/CSS
-• Семантическая верстка
-• CSS селекторы
-• Какие существуют типы стилей css для html: inline css, external stylesheet, internal stylesheet
-• Типы графики в html: canvas and svg
-ReactJS
-• Кратко рассказать, что такое реакт:
-• Props vs State
-• Расскажи о преимуществах и недостатках реакта:
-• Что такое Virtual DOM:
-• Что такое JSX, для чего мы используем className, а не class:
-• Что такое Реакт Компонент:
-• State vs Props:
-Props get passed to the component similar to function parameters
-State is managed within the component similar to variables declared within a function.
-• Controlled vs Uncontrolled components:
+1. Cookies
+2. Web Storage API (local/session)
+3. IndexDB
+4. JS variables
+5. DOM Node Storage (dataset property or setAttribute(), getAttribute(), eg: someElement.dataset.store = ‘some value’)
+6. Cache API
+
+### What is SPA and how to make it SEO-friendly?
+
+A Single Page Application (SPA) is a web application that is designed to work as a single page. It is built using client-side technologies such as HTML, CSS, and JavaScript, and it is loaded in the browser as a single HTML document. SPAs use a combination of client-side rendering, data binding, and AJAX (Asynchronous JavaScript and XML) to update the content and the layout of the page without reloading the page. SPAs are fast and responsive, and they offer a seamless and immersive experience to the users.
+
+However, one of the challenges of building SPAs is making them SEO-friendly, as search engines rely on the HTML content of the pages to index and rank the web applications. Here are some tips on how to make a SPA SEO-friendly:
+
+1.  Use server-side rendering: Server-side rendering (SSR) is a technique that is used to generate and render the HTML content of the pages on the server, and to send the rendered HTML to the browser. SSR allows search engines to index and rank the content of the pages, as they can access and crawl the HTML content of the pages.
+2.  Use progressive enhancement: Progressive enhancement is a technique that is used to build web applications that are accessible and functional for all users, regardless of their devices and capabilities. Progressive enhancement allows you to use client-side technologies such as JavaScript and AJAX to enhance the functionality and the interactivity of the web application, but it also allows you to use HTML and CSS to structure and style the content and the layout of the web application. This ensures that the web application is accessible and functional for all users, including search engines.
+3.  Use prerendering: Prerendering is a technique that is used to generate and render the HTML content of the pages on the server, and to send the rendered HTML to the browser as a static snapshot. Prerendering allows search engines to index and rank the content of the pages, as they can access and crawl the HTML content of the pages. Prerendering also allows you to use client-side technologies such as JavaScript and AJAX to enhance the functionality and the interactivity of the web application, but it ensures that the web application is accessible and functional for all users, including search engines.
+4.  Use structured data and metadata: Structured data and metadata are tags and attributes that are used to mark up the content of the pages with semantic and contextual information. Structured data and metadata allow search engines to understand the content and the context of the pages, and to index and rank the pages accordingly. You should use structured data and metadata to mark up the content of the pages with information such as the titles, the descriptions, the images, the links, and the categories of the pages.
+5.  Use sitemaps and robots.txt: Sitemaps and robots.txt are files that are used to tell search engines which pages of the web application are allowed to be indexed and which pages are not allowed to be indexed. You should use sitemaps and robots.txt to specify the pages of the web application that you want to be indexed and ranked by search engines, and to exclude the pages that you do not want to be indexed and ranked.
+
+## What is CSS?
+
+CSS (Cascading Style Sheets) is a style sheet language that is used to describe the look and the formatting of a HTML document. CSS is used to control the layout, the colors, the fonts, the spacing, and the transitions of the elements in a web page or an application.
+
+### What is the difference between "display: block" and "display: inline" in CSS?
+
+### What is the difference between "display: inline-block" and "display: block" in CSS?
+
+### What is the difference between "display: none" and "visibility: hidden" and "opacity: 0" in CSS?
+
+display: none - hide element from view, but visibility/hidden make place empty.
+
+The main difference between opacity and visibility is that "opacity" affects the transparency of the element and its children, while "visibility" only affects the visibility of the element.
+
+### What is the difference between "padding" and "margin" in CSS?
+
+-   The "padding" and "margin" properties are used to control the space around the elements in an HTML document.
+
+"padding" is the space inside an element, between the element's content and its border. "padding" can be applied to all four sides of an element, or to specific sides, using the "padding-top", "padding-right", "padding-bottom", and "padding-left" properties.
+
+"margin" is the space outside an element, between the element's border and the next element. "margin" can be applied to all four sides of an element, or to specific sides, using the "margin-top", "margin-right", "margin-bottom", and "margin-left" properties.
+
+The main difference between "padding" and "margin" is the location of the space. "Padding" is inside the element, while "margin" is outside the element.
+
+### What are the different ways to apply CSS to an HTML document?
+
+The different ways to apply CSS to an HTML document are:
+- Inline styles: Inline styles are styles that are defined within the HTML element, using the "style" attribute. Inline styles apply to a single element, and they have the highest priority.
+- Embedded styles: Embedded styles are styles that are defined within the "style" element in the head of the HTML document. Embedded styles apply to all elements in the document, and they have a higher priority than external styles.
+- External styles: External styles are styles that are defined in a separate CSS file, and that are linked to the HTML document using the "link" element in the head of the document. External styles apply to all elements in the document, and they have the lowest priority.
+
+### What CSS style type do you prefer and why?
+
+className and css/scss/stylus/modules; inline styles; CSS-in-JS
+
+### What are the different types of CSS units, and how do they work?
+
+The different types of CSS units are:
+- Absolute units: Absolute units are fixed units that are not affected by the user's environment. Absolute units include pixels (px), points (pt), and inches (in).
+- Relative units: Relative units are flexible units that are based on the user's environment. Relative units include percentages (%), ems (em), and rems (rem).
+- Viewport units: Viewport units are units that are based on the size and the dimensions of the viewport. Viewport units include vh, vw, vmin, and vmax.
+- Flexible units: Flexible units are units that are based on the size and the dimensions of the parent element. Flexible units include fractions (fr).
+
+### rem vs em
+
+The "rem" (root em) and "em" (em) units are used in CSS to specify the size of the font and other elements in an HTML document. The main difference between "rem" and "em" is the way that they are calculated.
+
+"rem" is calculated based on the root element (html) of the document. The default font size of the root element is 16px, so "1rem" is equal to 16px. If the font size of the root element is changed, all "rem" values will be calculated based on the new font size.
+
+"em" is calculated based on the font size of the parent element. If the font size of the parent element is 16px, "1em" is equal to 16px. If the font size of the parent element is changed, all "em" values will be calculated based on the new font size.
+
+In general, "rem" is used to specify sizes that are independent of the font size of the parent element, while "em" is used to specify sizes that are relative to the font size of the parent element.
+
+For example, if you want to specify a font size that is independent of the font size of the parent element, you can use "rem" (e.g. "font-size: 1.5rem;"). If you want to specify a font size that is relative to the font size of the parent element, you can use "em" (e.g. "font-size: 1.5em;").
+
+### What is responsive design, and how do you implement it in CSS?
+
+Responsive design is a design approach that is used to create web sites and applications that are adaptable and flexible, and that work well on different devices and screen sizes. Responsive design is based on the concept of fluid grids, flexible images, and media queries.
+
+To implement responsive design in CSS, you can use the following techniques:
+- Use relative units, such as percentages or viewport units, to define the dimensions and the positions of the elements.
+- Use media queries to apply different styles based on the size and the dimensions of the viewport.
+- Use flexible layouts, such as block layout or flexbox layout, to create flexible and adaptable layouts that adjust to the size and the dimensions of the viewport.
+-  Use flexible images, by using the "max-width" property or the "object-fit" property, to make the images adapt to the size and the dimensions of the viewport.
+
+## What is ReactJS, its pros and cons?
+
+### Props vs State
+
+- Props get passed to the component similar to function parameters
+- State is managed within the component similar to variables declared within a function.
+
+### What is Virtual DOM?
+
+### What is JSX?
+
+### Why is it used className, neither class in React?
+
+### What is React Component?
+
+### Controlled vs Uncontrolled components
+
 A Controlled Component is one that takes its current value through props and notifies changes through callbacks like onChange. A parent component "controls" it by handling the callback and managing its own state and passing the new values as props to the controlled component. You could also call this a "dumb component".
-A Uncontrolled Component is one that stores its own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.
-• Описать работу React lifecycle:
 
-    • Описать работу с Redux, принципы (single source of truth, state is read-only (action creator, reducer), Changes are made with pure functions)
-    • Redux: mapStateToProps vs mapDispatchToProps
-    • What are the differences between redux-saga and redux-thunk?
+A Uncontrolled Component is one that stores its own state internally, and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML.
+
+### Describe a React Lifecycle
+
+### What is Redux and its principes?
+
+### Differences between redux-saga and redux-thunk?
 
 Both Redux Thunk and Redux Saga take care of dealing with side effects. In most of the scenarios, Thunk uses Promises to deal with them, whereas Saga uses Generators. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them.
-• React Context API
 
-• Какие способы работы css and react знаешь и какой предпочтительный (className and css/scss/stylus/modules; inline styles; CSS-in-JS)
-• Рассказать о выбранных инструментах для создания одностраничного сайта с контактной формой
-• Использование Ref
-• Синтетические события (SynteticEvent) что такое, зачем придумано
-• Routing
-• Functional components vs Class components:
-• React Hooks: Explain why and when would you use useMemo()?
-Answer
-Why:
-In the lifecycle of a component, React re-renders the component when an update is made. When React checks for any changes in a component, it may detect an unintended or unexpected change due to how JavaScript handles equality and shallow comparisons. This change in the React application will cause it to re-render unnecessarily.
+### Describe React Context API
 
-Additionally, if that re-rendering is an expensive operation, like a long for loop, it can hurt performance. Expensive operations can be costly in either time, memory, or processing.
+### What is Ref and why to use it?
 
-When:
-Optimal if the wrapped function is large and expensive.
+### What is SynteticEvent in React?
 
-How:
-Memoization is an optimization technique which passes a complex function to be memoized. In memoization, the result is “remembered” when the same parameters are passed-in subsequently.
+### Describe react routing
 
-const memoizedValue = React.useMemo(() => computeExpensiveValue(a, b), [a, b]);
-useMemo takes in a function and an array of dependencies. The dependency’s list are the elements useMemo watches: if there are no changes, the function result will stay the same. Otherwise, it will re-run the function. If they don’t change, it doesn’t matter if our entire component re-renders, the function won’t re-run but instead return the stored result.
-• Проблема следующего кода:
+### Functional components vs Class components
+
+### What is the problem with code below?
+
+```js
 this.setState({
-counter: this.state.counter + this.props.increment,
+	counter: this.state.counter + this.props.increment,
 });
-Answer
+```
+
 Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state. To fix it, use a second form of setState() that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
+
+```js
 // Correct
 this.setState((state, props) => ({
-counter: state.counter + props.increment
+	counter: state.counter + props.increment
 }));
-• Разница между useCallback и useMemo?
-With useCallback you memoize functions, useMemo memoizes any computed value:
+```
+
+### React useCallback vs useMemo?
+
+- `useCallback` memoizes a function
+- `useMemo` memoizes a computed value
+
+```js
 const fn = () => 42 // assuming expensive calculation here
 const memoFn = useCallback(fn, [dep]) // (1)
 const memoFnReturn = useMemo(fn, [dep]) // (2)
+```
+
 (1) will return a memoized version of fn - same reference across multiple renders, as long as dep is the same. But every time you invoke memoFn, that complex computation starts again.
 (2) will invoke fn every time dep changes and remember its returned value (42 here), which is then stored in memoFnReturn.
-• В
 
 

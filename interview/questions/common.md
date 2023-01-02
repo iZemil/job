@@ -7,11 +7,55 @@ title: Common
 
 ### What is code refactoring?
 
-### What are the pros and cons of monolithic vs microservice architectures?
+### What is CORS?
+
+CORS (Cross-Origin Resource Sharing) is a security mechanism that is used to restrict or allow the communication between web pages and servers that are hosted on different domains. It consists of a set of rules and headers that are used to specify the conditions under which a web page is allowed to make requests to a server, and to allow or deny the responses of the server to be accessed by the web page.
+
+CORS is implemented by the browser, and it is based on the HTTP headers that are sent with the requests and the responses. The browser checks the headers of the requests and the responses, and it compares the origin of the requests (the domain of the web page) with the origin of the responses (the domain of the server). If the origins match, the browser allows the requests and the responses to be sent and received, and if the origins do not match, the browser blocks the requests and the responses, and it sends an error message to the web page.
+
+CORS is used to prevent web pages from making requests to servers that are hosted on different domains, and to prevent servers from sending responses to web pages that are hosted on different domains. It is used to protect the privacy and the security of the users, and to prevent web pages from making malicious or unauthorized requests to servers.
+
+CORS is an important security mechanism in web development, and it is important to understand how it works and how to use it properly in your web applications. It is also important to be aware of the limitations and the potential issues that CORS can cause, and to know how to troubleshoot and debug CORS errors in your web applications.
+
+### SPA vs MPA
+
+Single Page Applications (SPAs) and Multiple Page Applications (MPAs) are two different architectures for building web applications.
+
+Single Page Applications (SPAs) are web applications that are designed to work as a single page. They are built using client-side technologies such as HTML, CSS, and JavaScript, and they are loaded in the browser as a single HTML document. SPAs use a combination of client-side rendering, data binding, and AJAX (Asynchronous JavaScript and XML) to update the content and the layout of the page without reloading the page. SPAs are fast and responsive, and they offer a seamless and immersive experience to the users.
+
+Multiple Page Applications (MPAs) are web applications that are built using server-side technologies such as PHP, ASP.NET, or Java, and that are composed of multiple pages that are served by the server. MPAs use a combination of server-side rendering, templates, and server-side logic to generate and update the content and the layout of the pages. MPAs are slower and less responsive than SPAs, as they require the reloading of the page to update the content and the layout.
+
+Here are some guidelines on when to use SPAs or MPAs:
+
+-   Use SPAs when you need fast and seamless navigation: SPAs are suitable for web applications that require fast and seamless navigation, such as online stores, social networks, or collaboration tools. SPAs offer a fast and responsive experience to the users, and they allow the users to navigate and interact with the web application without reloading the page.   
+-   Use MPAs when you need complex server-side logic or data processing: MPAs are suitable for web applications that require complex server-side logic or data processing, such as enterprise applications, reporting tools, or data-intensive applications. MPAs allow you to use server-side technologies and languages to process and manipulate data, and to generate and update the content and the layout of the pages. 
+-   Use SPAs when you need to optimize the performance and the scalability of the web application: SPAs are suitable for web applications that need to optimize the performance and the scalability, as they require fewer server resources and bandwidth, and they offer a faster and more efficient experience to the users. SPAs use client-side rendering and data binding to update the content and the layout of the page, and they use AJAX to communicate with the server asynchronously, without reloading the page.
+-   Use MPAs when you need to support legacy systems or technologies: MPAs are suitable for web applications that need to support legacy systems or technologies, as they allow you to use server-side technologies and languages to integrate with the legacy systems and the APIs. MPAs allow you to use server-side rendering and templates to generate and update the content and the layout of the pages, and they allow you to use server-side logic to manipulate and process data.
+
+### What is Memoization?
+
+Memoization is an optimization technique which passes a complex function to be memoized. In memoization, the result is “remembered” when the same parameters are passed-in subsequently.
+
+### What is monolithic architecture?
 
 A monolithic architecture means that your app is written as one cohesive unit of code whose components are designed to work together, sharing the same memory space and resources.
 
-A microservice architecture means that your app is made up of lots of smaller, independent applications capable of running in their own memory space and scaling independently from each other across potentially many separate machines.
+**Benefits of Monolithic Architecture:**
+-  Simple to develop.
+-  Simple to test. For example you can implement end-to-end testing by simply launching the application and testing the UI with Selenium.
+-  Simple to deploy. You just have to copy the packaged application to a server.
+-  Simple to scale horizontally by running multiple copies behind a load balancer.
+
+**Drawbacks of Monolithic Architecture:**
+-  This simple approach has a limitation in size and complexity.
+-  Application is too large and complex to fully understand and made changes fast and correctly.
+-  The size of the application can slow down the start-up time.
+-  You must redeploy the entire application on each update.
+-  Impact of a change is usually not very well understood which leads to do extensive manual testing.
+-  Continuous deployment is difficult.
+-  Monolithic applications can also be difficult to scale when different modules have conflicting resource requirements.
+-  Another problem with monolithic applications is reliability. Bug in any module (e.g. memory leak) can potentially bring down the entire process. Moreover, since all instances of the application are identical, that bug will impact the availability of the entire application.
+-  Monolithic applications has a barrier to adopting new technologies. Since changes in frameworks or languages will affect an entire application it is extremely expensive in both time and cost.
 
 Monolithic Pros: The major advantage of the monolithic architecture is that most apps typically have a large number of cross-cutting concerns, such as logging, rate limiting, and security features such audit trails and DOS protection.
 
@@ -23,34 +67,29 @@ Monolithic cons: Monolithic app services tend to get tightly coupled and entangl
 
 Monolithic architectures are also much harder to understand, because there may be dependencies, side-effects, and magic which are not obvious when you’re looking at a particular service or controller.
 
+### What is Microservice architecture?
+
+A microservice architecture means that your app is made up of lots of smaller, independent applications capable of running in their own memory space and scaling independently from each other across potentially many separate machines.
+
+The idea is to split your application into a set of smaller, interconnected services instead of building a single monolithic application. The Microservice architecture pattern significantly impacts the relationship between the application and the database. Instead of sharing a single database schema with other services, each service has its own database schema. Mobile, desktop, web apps don't have direct access to services but they have access to API Gateway. It is responsible for tasks such as load balancing, caching, access control, API metering, and monitoring.
+
+**Benefits of Microservices Architecture:**
+-   It tackles the problem of complexity by decomposing application into a set of manageable services which are much faster to develop, and much easier to understand and maintain.
+-   It enables each service to be developed independently by a team that is focused on that service.
+-   It reduces barrier of adopting new technologies since the developers are free to choose whatever technologies make sense for their service and not bounded to the choices made at the start of the project.
+-   Microservice architecture enables each microservice to be deployed independently. As a result, it makes continuous deployment possible for complex applications.
+-   Microservice architecture enables each service to be scaled independently.
+
+**Drawbacks of Microservices Architecture:**
+-   Microservices architecture adding a complexity to the project just by the fact that a microservices application is a distributed system. You need to choose and implement an inter-process communication mechanism based on either messaging or RPC and write code to handle partial failure and take into account other fallacies of distributed computing.
+-   Microservices has the partitioned database architecture. Business transactions that update multiple business entities in a microservices-based application need to update multiple databases owned by different services. Using distributed transactions is usually not an option and you end up having to use an eventual consistency based approach, which is more challenging for developers.
+-   Testing a microservices application is also much more complex then in case of monolithic web application. For a similar test for a service you would need to launch that service and any services that it depends upon (or at least configure stubs for those services).
+-   It is more difficult to implement changes that span multiple services. In a monolithic application you could simply change the corresponding modules, integrate the changes, and deploy them in one go. In a Microservice architecture you need to carefully plan and coordinate the rollout of changes to each of the services.
+-   Deploying a microservices-based application is also more complex. A monolithic application is simply deployed on a set of identical servers behind a load balancer. In contrast, a microservice application typically consists of a large number of services. Each service will have multiple runtime instances. And each instance need to be configured, deployed, scaled, and monitored. In addition, you will also need to implement a service discovery mechanism. Manual approaches to operations cannot scale to this level of complexity and successful deployment a microservices application requires a high level of automation.
+
 Microservice pros: Microservice architectures are typically better organized, since each microservice has a very specific job, and is not concerned with the jobs of other components. Decoupled services are also easier to recompose and reconfigure to serve the purposes of different apps (for example, serving both the web clients and public API).
 
-They can also have performance advantages depending on how they’re organized because it’s possible to isolate hot services and scale them independent of the rest of the app.
-
 Microservice cons: As you’re building a new microservice architecture, you’re likely to discover lots of cross-cutting concerns that you did not anticipate at design time. A monolithic app could establish shared magic helpers or middleware to handle such cross-cutting concerns without much effort.
-
-In a microservice architecture, you’ll either need to incur the overhead of separate modules for each cross-cutting concern, or encapsulate cross-cutting concerns in another service layer that all traffic gets routed through.
-
-Eventually, even monolthic architectures tend to route traffic through an outer service layer for cross-cutting concerns, but with a monolithic architecture, it’s possible to delay the cost of that work until the project is much more mature.
-
-Microservices are frequently deployed on their own virtual machines or containers, causing a proliferation of VM wrangling work. These tasks are frequently automated with container fleet management tools.
-
-Good to hear:
-
-- Positive attitudes toward microservices, despite the higher initial cost vs monolthic apps
-- Aware that microservices tend to perform and scale better in the long run.
-
-Practical about microservices vs monolithic apps. Structure the app so that services are independent from each other at the code level, but easy to bundle together as a monolithic app in the beginning. Microservice overhead costs can be delayed until it becomes more practical to pay the price.
-
-Red flags:
-
-- Unaware of the differences between monolithic and microservice architectures.
-- Unaware or impractical about the additional overhead of microservices.
-- Unaware of the additional performance overhead caused by IPC and network communication for microservices.
-
-Too negative about the drawbacks of microservices. Unable to articulate ways in which to decouple monolithic apps such that they’re easy to split into microservices when the time comes.
-
-Underestimates the advantage of independently scalable microservices.
 
 ## What is SOLID?
 
@@ -300,4 +339,3 @@ class TodoList {
 }
 ```
 </details>
-
