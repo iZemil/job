@@ -21,19 +21,25 @@ const to = path.resolve('static/questions.json');
 				const data = await fs.readFile(fromPath, 'utf8');
 
 				const titles = data.match(/^#{1,4} .*/gim);
-				const topic = data
+				const key = data
 					.match(/^title: .*/gim)
 					.find((it) => it.startsWith('title:'))
 					.split(': ')[1];
 
-				const item = {
+				const topic = {
 					file,
 					path: file.replace('.md', ''),
-					topic,
-					data: titles.filter((it) => !it.startsWith('# ')).map((it) => trimTitleSymbols(it)),
+					key,
+					data: titles
+						.filter((it) => !it.startsWith('# '))
+						.map((it) => trimTitleSymbols(it))
+						.map((question, index) => ({
+							id: index,
+							question,
+						})),
 				};
-				console.log('item:', item);
-				parsed.push(item);
+				console.log('topic:', topic);
+				parsed.push(topic);
 			}
 		}
 

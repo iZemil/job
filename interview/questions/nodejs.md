@@ -27,7 +27,7 @@ Node.js is a runtime environment for executing JavaScript code outside a browser
 
 libuv is a cross-platform C library and the foundation of the NodeJS runtime that provides support for asynchronous I/O, based on event loops.
 
-### What is Event Loop?
+### What is an Event Loop?
 
 In Node.js, the event loop is the mechanism that handles the execution of JavaScript code. It is the core of the Node.js runtime and is responsible for scheduling asynchronous operations, such as I/O operations and timers.
 
@@ -42,7 +42,6 @@ Overall, the event loop is what enables Node.js to be efficient and lightweight,
 Node.js provides a Timers module which contains various functions for executing the code after a specified period of time.
 
 Below I have listed down the various functions provided by this module:
-
 -   `setTimeout/clearTimeout` – schedule code execution after a designated amount of milliseconds
 -   `setInterval/clearInterval` – execute a block of code multiple times every specified time period
 -   `setImmediate/clearImmediate` – execute code at the end of the current event loop cycle
@@ -74,13 +73,14 @@ Asynchronous code is executed in a non-blocking manner, allowing the program to 
 
 ### What is package.json?
 
-package.json is a file that is used to define the properties of a Node.js package. It is typically located in the root directory of a Node.js project and it contains information such as the package's name, version, dependencies, scripts, and other metadata.
+package.json is a file that is used to define the properties of a Node.js package. It is typically located in the root directory of a project, and it contains information such as the package's name, version, dependencies, scripts, and other metadata.
 
 The package.json file serves several purposes:
-
 -   It helps other developers understand what your package does, how it is structured, and how to use it.
 -   It allows you to specify the dependencies that your package needs in order to function. When someone installs your package, npm (the Node.js package manager) will automatically install all of the dependencies listed in package.json.
 -   It allows you to specify scripts that can be run to perform various tasks, such as testing, building, or deploying your package.
+
+To create empty package.json you can use `npm init -y`
 
 ### What is the role of the package-lock.json?
 
@@ -89,7 +89,7 @@ It stores and guarantees the exact same version of every package.
 -   `npm install` re-generates the lock file with installing updates
 -   `npm ci` installs locked dependencies
 
-### What's the difference between tilde(~) and caret(^) in package.json?
+### What are tilde(~) and caret(^) in package.json?
 
 -   `~version` - Approximately equivalent to version, i.e., only accept new **patch** versions
 -   `^version` - Compatible with version, i.e., accept new **minor and patch** versions
@@ -109,7 +109,7 @@ When you start the REPL, you will see a command prompt, where you can enter Node
 
 The REPL is a useful tool for experimenting with Node.js code and testing out small code snippets. It is also a good way to learn the Node.js API and explore the various built-in objects and functions that are available.
 
-### What is middleware in NodeJS?
+### What is a middleware in NodeJS?
 
 In the context of Node.js, middleware refers to functions that have access to the request and response objects, and the next middleware function in the application's request-response cycle. These functions can perform tasks such as logging requests, parsing request bodies, adding response headers, and handling errors.
 
@@ -130,11 +130,11 @@ app.use(loggerMiddleware);
 
 This middleware function logs the HTTP method and URL of each request to the console. The `next` function is called to pass control to the next middleware function in the chain.
 
-### How do you handle errors in a Node.js application?
+### How do you handle errors in a NodeJS application?
 
 In Node.js, errors can be handled using try-catch blocks or by listening for the 'error' event on an event emitter. It is also a good practice to use a global error-handling middleware function to catch unhandled errors.
 
-### What is the difference between spawn() and fork()?
+### What is the diff between spawn and fork methods?
 
 The `spawn()` and `fork()` methods in Node.js are both used to create new child processes, but they work in slightly different ways:
 
@@ -143,26 +143,26 @@ The `spawn()` and `fork()` methods in Node.js are both used to create new child 
 
 Overall, the `spawn()` method is generally more flexible and powerful, while the `fork()` method is easier to use and better optimized for Node.js applications. Which method you choose will depend on your specific needs and requirements.
 
-### Explain the concept of stub in Node.js
+### Explain the concept of stub in NodeJS
 
 In Node.js, stubs are basically the programs or functions that are used for stimulating the module or component behavior. During any test cases, stubs provide the canned answers of the functions
 
-### What is NodeJS Buffer and how is it used?
+### What is a NodeJS Buffer?
 
-Buffer class in Node.js is used for storing the raw data in a similar manner of an array of integers. But it corresponds to a raw memory allocation that is located outside the V8 heap. It is a global class that is easily accessible can be accessed in an application without importing a buffer module. Buffer class is used because pure JavaScript is not compatible with binary data. So, when dealing with TCP streams or the file system, it’s necessary to handle octet streams.
+Buffer global class is used for storing the raw data in an array of integers. But it corresponds to a raw memory allocation that is located outside the V8 heap. Buffer class is used because pure JavaScript is not compatible with binary data. So, when dealing with TCP streams or the file system, it’s necessary to work with Buffers.
 
-### What is NodeJS Stream?
+### What is a NodeJS Stream?
 
-Streams in Node.js are the collection of data similar to arrays and strings. They are objects using which you can read data from a source or write data to a destination in a continuous manner. It might not be available at once and need not to have fit in the memory. These streams are especially useful for reading and processing a large set of data.
+Stream is the collection of data similar to arrays and strings. They are objects using which you can read data from a source or write data to a destination in a continuous manner. It might not be available at once and need not to have fit in the memory. These streams are especially useful for reading and processing a large set of data.
 
 In Node.js, there are four fundamental types of streams:
 
-1. *Readable:* Used for reading large chunks of data from the source.
-2. *Writeable:* Use for writing large chunks of data to the destination.
-3. *Duplex:* Used for both the functions; read and write.
+1. *Readable:* for reading large chunks of data from the source.
+2. *Writable:* for writing large chunks of data to the destination.
+3. *Duplex:* for both the functions - read and write.
 4. *Transform:* It is a duplex stream that is used for modifying the data.
 
-### What is an Event Emitter in Node.js?
+### What is an Event Emitter in NodeJS?
 
 The `EventEmitter` class is a built-in class in Node.js that allows objects to emit events and register listeners for those events. It is a useful way to implement a publish-subscribe pattern, where an object can publish events to which other objects can subscribe.
 
@@ -182,11 +182,15 @@ myEmitter.on('start', (start, end) => {
 myEmitter.emit('start', 1, 100);
 ```
 
-### How do you structure a Node.js project?
+### How do you structure a NodeJS project?
 
 A Node.js project should have a clear and organized file and directory structure, with a well-defined entry point (usually a file called `index.js` or `server.js`). It should also have a `package.json` file that defines the dependencies and scripts for the project.
 
-### How do you handle the performance of a Node.js application?
+:::tip
+For advanced answer, try to discover NestJS framework architecture
+:::
+
+### How do you handle the performance of a NodeJS application?
 
 There are several ways to improve the performance of a Node.js application, including optimizing the code, using caching, and using a load balancer to distribute incoming requests across multiple servers. It is also important to monitor the performance of the application and to profile it to identify any bottlenecks or inefficiencies.
 
@@ -194,7 +198,7 @@ There are several ways to improve the performance of a Node.js application, incl
 
 There are several ways to test a Node.js application, including using unit tests, integration tests, and end-to-end tests. Common testing frameworks for Node.js include Mocha, Jest, and Jasmine.
 
-### Child process in NodeJS
+### Describe child process in NodeJS
 
 In Node.js, the `child_process` module provides an API for creating and managing child processes. Child processes are separate instances of the Node.js runtime that can be spawned from a parent process. They can be used to run long-running tasks or processes in parallel with the parent process, or to execute command-line utilities or other external programs.
 

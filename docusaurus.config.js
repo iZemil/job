@@ -94,7 +94,7 @@ const config = {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
 			},
-			metadata: [{ name: 'og:image', content: '/img/logo.svg' }],
+			metadata: [{ name: 'og:image', content: 'https://job.js.org/img/logo.svg' }],
 		}),
 	themes: ['@docusaurus/theme-live-codeblock'],
 };

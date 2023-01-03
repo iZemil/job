@@ -5,7 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
 import styles from './index.module.css';
-import { Random } from '../components/Random';
+import { RandomQuestion } from '../components/RandomQuestion';
 
 function HomepageHeader() {
 	const { siteConfig } = useDocusaurusContext();
@@ -37,7 +37,7 @@ export default function Home() {
 			<HomepageHeader />
 
 			<main>
-				<Random />
+				<RandomQuestion />
 			</main>
 		</Layout>
 	);

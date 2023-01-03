@@ -2,12 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import queryString from 'query-string';
-import styles from './styles.module.css';
-
-import { Question, ANY_TOPIC } from './question';
 import { useHistory, useLocation } from '@docusaurus/router';
 
-export const Random = () => {
+import { Question, Store, ANY_TOPIC } from './question';
+
+import styles from './styles.module.css';
+
+export const RandomQuestion = () => {
 	const history = useHistory();
 	const location = useLocation();
 	const parsedSearch: { topic?: string } = queryString.parse(location.search);
@@ -15,8 +16,7 @@ export const Random = () => {
 	const [question, setQuestion] = React.useState(Question.random(topic));
 
 	const handleClickNext = () => {
-		Question.updateCache(question);
-		setQuestion(Question.random(topic));
+		setQuestion(Question.random(topic, true));
 	};
 
 	const handleChangeTopic = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -40,7 +40,7 @@ export const Random = () => {
 			</select>
 
 			<div className={styles.question}>
-				<Link to={Question.getLink(question)}>{question.value}</Link>
+				<Link to={Question.getLink(question)}>{question.data.question}</Link>
 			</div>
 
 			<button

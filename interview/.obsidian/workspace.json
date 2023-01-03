@@ -34,9 +34,21 @@
               },
               "pinned": true
             }
+          },
+          {
+            "id": "eef384c01622e1ea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "questions/javascript.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -102,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "questions/nodejs.md",
+                "file": "questions/javascript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "questions/nodejs.md",
+                "file": "questions/javascript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +154,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "questions/nodejs.md"
+                "file": "questions/javascript.md"
               }
             }
           }
@@ -163,13 +175,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5cd8e264e7c025bd",
+  "active": "eef384c01622e1ea",
   "lastOpenFiles": [
-    "questions/common.md",
     "questions/nodejs.md",
+    "questions/typescript.md",
+    "questions/common.md",
     "questions/frontend.md",
     "questions/javascript.md",
-    "questions/typescript.md",
     "_presentation.md",
     "getting-started.md",
     "interview/category/questions.md",
