@@ -9,18 +9,23 @@ title: NodeJS
 
 Node.js is a runtime environment for executing JavaScript code outside a browser. Node.js is built on top of the Google Chrome V8 JavaScript engine. It allows developers to run JavaScript on the server side with creating server-side applications.
 
-### Props and Cons of NodeJS?
+### Pros and Cons of NodeJS?
 
--   + Event-driven architecture and non-blocking I/O model make it easy to build high-performance servers that can handle many concurrent connections with a small number of threads - good performance for real-time applications (sockets, streams, video)
--   + Easy scalability of using microservices and NPM packages as ready-made solutions library
--   + Single language for frontend and backend development
--   + Single language for cross-platform development (web, desktop, mobile)
--   - Reduces performance when handling Heavy Computing Tasks
--   - Frequent changes of main NodeJS API
+**Pros:**
+
+-   Event-driven architecture and non-blocking I/O model make it easy to build high-performance servers that can handle many concurrent connections with a small number of threads - good performance for real-time applications (sockets, streams, video)
+-   Easy scalability of using microservices and NPM packages as ready-made solutions library
+-   Single language for frontend and backend development
+-   Single language for cross-platform development (web, desktop, mobile)
+
+**Cons:**
+
+-   Reduces performance when handling Heavy Computing Tasks
+-   Frequent changes of main NodeJS API
 
 ### What is libuv?
 
-libuv is a cross-platform C library that provides support for asynchronous I/O, based on event loops. It is used as the foundation of the Node.js runtime, providing the platform-specific code that powers the Node.js event loop and other asynchronous I/O features.
+libuv is a cross-platform C library and the foundation of the NodeJS runtime that provides support for asynchronous I/O, based on event loops.
 
 ### What is Event Loop?
 
@@ -32,35 +37,67 @@ This process continues until there are no more callbacks left to be executed, at
 
 Overall, the event loop is what enables Node.js to be efficient and lightweight, making it well-suited for building scalable network applications.
 
+### List down the various timing features of NodeJS
+
+Node.js provides a Timers module which contains various functions for executing the code after a specified period of time.
+
+Below I have listed down the various functions provided by this module:
+
+-   `setTimeout/clearTimeout` – schedule code execution after a designated amount of milliseconds
+-   `setInterval/clearInterval` – execute a block of code multiple times every specified time period
+-   `setImmediate/clearImmediate` – execute code at the end of the current event loop cycle
+-   `process.nextTick` – schedule a callback function that needs to be invoked in the next iteration of the Event Loop
+
+```js
+setTimeout(() => console.log('timeout'), 0);
+setImmediate(() => console.log('I run immediately'));
+process.nextTick(() => console.log('But I run before that'));
+console.log('current event loop');
+
+> current event loop
+> But I run before that
+> timeout
+> I run immediately
+```
+
+### What is the diff process.nextTick vs setImmediate
+
+The process.nextTick function waits for the execution of action till the next pass around in the event loop or once the event loop is completed only then it will invoke the callback function.
+
+On the other hand, setImmediate() is used to execute a callback method on the next cycle of the event loop which eventually returns it to the event loop in order to execute the I/O operations.
+
 ### What is the difference between synchronous and asynchronous code in Node.js?
 
-Synchronous code is executed in a blocking manner, meaning that the program will pause at each synchronous line of code until the operation is complete. Asynchronous code, on the other hand, is executed in a non-blocking manner, allowing the program to continue running while the asynchronous operation is being performed.
+Synchronous code is executed in a blocking manner, meaning that the program will pause at each synchronous line of code until the operation is complete.
+
+Asynchronous code is executed in a non-blocking manner, allowing the program to continue running while the asynchronous operation is being performed.
 
 ### What is package.json?
 
 package.json is a file that is used to define the properties of a Node.js package. It is typically located in the root directory of a Node.js project and it contains information such as the package's name, version, dependencies, scripts, and other metadata.
 
 The package.json file serves several purposes:
--  It helps other developers understand what your package does, how it is structured, and how to use it.
--  It allows you to specify the dependencies that your package needs in order to function. When someone installs your package, npm (the Node.js package manager) will automatically install all of the dependencies listed in package.json.
--  It allows you to specify scripts that can be run to perform various tasks, such as testing, building, or deploying your package.
+
+-   It helps other developers understand what your package does, how it is structured, and how to use it.
+-   It allows you to specify the dependencies that your package needs in order to function. When someone installs your package, npm (the Node.js package manager) will automatically install all of the dependencies listed in package.json.
+-   It allows you to specify scripts that can be run to perform various tasks, such as testing, building, or deploying your package.
 
 ### What is the role of the package-lock.json?
 
 It stores and guarantees the exact same version of every package.
 
-- `npm install` re-generates the lock file with installing updates
-- `npm ci` installs locked dependencies
+-   `npm install` re-generates the lock file with installing updates
+-   `npm ci` installs locked dependencies
 
 ### What's the difference between tilde(~) and caret(^) in package.json?
 
-- `~version` - Approximately equivalent to version, i.e., only accept new **patch** versions 
-- `^version` - Compatible with version, i.e., accept new **minor and patch** versions 
-- `version` - Must match version exactly
-- `>version` - Must be greater than version (same logic with `>=version`, `<version`, `<=version`)
-- `1.2.x` - 1.2.0, 1.2.1, etc., but not 1.3.0
-- `*` - Matches any version
-- `latest` - Obtains latest release
+-   `~version` - Approximately equivalent to version, i.e., only accept new **patch** versions
+-   `^version` - Compatible with version, i.e., accept new **minor and patch** versions
+-   `version` - Must match version exactly
+-   `>version` - Must be greater than version (same logic with `>=version`, `<version`, `<=version`)
+-   `1.2.x` - 1.2.0, 1.2.1, etc., but not 1.3.0
+-   `*` - Matches any version
+-   `latest` - Obtains latest release
 
 ### Explain  REPL in the context of Node.js
 
@@ -84,8 +121,8 @@ Here is an example of a simple middleware function in Node.js using the Express.
 
 ```js
 function loggerMiddleware(req, res, next) {
-  console.log(`${req.method} ${req.url}`);
-  next();
+	console.log(`${req.method} ${req.url}`);
+	next();
 }
 
 app.use(loggerMiddleware);
@@ -94,12 +131,13 @@ app.use(loggerMiddleware);
 This middleware function logs the HTTP method and URL of each request to the console. The `next` function is called to pass control to the next middleware function in the chain.
 
 ### How do you handle errors in a Node.js application?
- 
+
 In Node.js, errors can be handled using try-catch blocks or by listening for the 'error' event on an event emitter. It is also a good practice to use a global error-handling middleware function to catch unhandled errors.
 
 ### What is the difference between spawn() and fork()?
 
 The `spawn()` and `fork()` methods in Node.js are both used to create new child processes, but they work in slightly different ways:
+
 -   The `spawn()` method launches a new process and returns a ChildProcess object, which allows you to communicate with the child process using standard input, output, and error streams. The `spawn()` method is generally used for running long-running processes, such as command-line utilities, and it is well-suited for streaming large amounts of data between the parent and child processes.
 -   The `fork()` method is similar to `spawn()`, but it is specifically designed to spawn new Node.js processes. It works by creating a new instance of the Node.js runtime, which allows you to execute a new instance of your application in a separate process. The `fork()` method is well-suited for scenarios where you want to run multiple instances of your application, or where you want to take advantage of multiple CPU cores.
 
@@ -108,10 +146,6 @@ Overall, the `spawn()` method is generally more flexible and powerful, while the
 ### Explain the concept of stub in Node.js
 
 In Node.js, stubs are basically the programs or functions that are used for stimulating the module or component behavior. During any test cases, stubs provide the canned answers of the functions
-
-### Differentiate between process.nextTick() and setImmediate()
-
-In Node.js, process.nextTick() and setImmediate(), both are functions of the Timers module which help in executing the code after a predefined period of time. But these functions differ in their execution. The process.nextTick function waits for the execution of action till the next pass around in the event loop or once the event loop is completed only then it will invoke the callback function. On the other hand, setImmediate() is used to execute a callback method on the next cycle of the event loop which eventually returns it to the event loop in order to execute the I/O operations.
 
 ### What is NodeJS Buffer and how is it used?
 
@@ -122,33 +156,30 @@ Buffer class in Node.js is used for storing the raw data in a similar manner of 
 Streams in Node.js are the collection of data similar to arrays and strings. They are objects using which you can read data from a source or write data to a destination in a continuous manner. It might not be available at once and need not to have fit in the memory. These streams are especially useful for reading and processing a large set of data.
 
 In Node.js, there are four fundamental types of streams:
-1. _Readable:_ Used for reading large chunks of data from the source.
-2. _Writeable:_ Use for writing large chunks of data to the destination.
-3. _Duplex:_ Used for both the functions; read and write.
-4. _Transform:_ It is a duplex stream that is used for modifying the data.
 
-### List down the various timing features of Node.js.
-
-Node.js provides a Timers module which contains various functions for executing the code after a specified period of time.
-
-Below I have listed down the various functions provided by this module:
-- `setTimeout/clearTimeout` – schedule code execution after a designated amount of milliseconds
-- `setInterval/clearInterval` – execute a block of code multiple times every specified time period
-- `setImmediate/clearImmediate` – execute code at the end of the current event loop cycle
-- `process.nextTick` – schedule a callback function that needs to be invoked in the next iteration of the Event Loop
+1. *Readable:* Used for reading large chunks of data from the source.
+2. *Writeable:* Use for writing large chunks of data to the destination.
+3. *Duplex:* Used for both the functions; read and write.
+4. *Transform:* It is a duplex stream that is used for modifying the data.
 
 ### What is an Event Emitter in Node.js?
 
-EventEmitter is a Node.js class that includes all the objects that are capable of emitting events. These objects contain an eventEmitter.on() function through which more than one function can be attached to the named events that are emitted by the object. Whenever an EventEmitter object throws an event, all the attached functions to that specific event are invoked synchronously. Below code shows how to us the EventEmitter in your application:
+The `EventEmitter` class is a built-in class in Node.js that allows objects to emit events and register listeners for those events. It is a useful way to implement a publish-subscribe pattern, where an object can publish events to which other objects can subscribe.
+
+Here is an example of how to use the `EventEmitter` class in Node.js:
 
 ```js
 const EventEmitter = require('events');
-class MyEmitter extends EventEmitter { }
+
+class MyEmitter extends EventEmitter {}
+
 const myEmitter = new MyEmitter();
-myEmitter.on('event', () =&amp;gt; {
-console.log('an event occurred!');
+
+myEmitter.on('start', (start, end) => {
+	console.log(`started from ${start} to ${end}`);
 });
-myEmitter.emit('event');
+
+myEmitter.emit('start', 1, 100);
 ```
 
 ### How do you structure a Node.js project?
@@ -162,10 +193,6 @@ There are several ways to improve the performance of a Node.js application, incl
 ### How do you test a Node.js application?
 
 There are several ways to test a Node.js application, including using unit tests, integration tests, and end-to-end tests. Common testing frameworks for Node.js include Mocha, Jest, and Jasmine.
-
-### What are some common pitfalls to be aware of when developing with Node.js?
-
-Some common pitfalls to be aware of when developing with Node.js include the single-threaded nature of the event loop, the need to properly handle asynchronous code, and the need to be mindful of memory usage and performance. It is also important to be aware of the security risks associated with executing untrusted code, and to properly sanitize user input to prevent injection attacks.
 
 ### Child process in NodeJS
 
@@ -192,27 +219,26 @@ const http = require('http');
 const numCPUs = require('os').cpus().length;
 
 if (cluster.isMaster) {
-  console.log(`Master ${process.pid} is running`);
+	console.log(`Master ${process.pid} is running`);
 
-  // Fork workers.
-  for (let i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
+	// Fork workers.
+	for (let i = 0; i < numCPUs; i++) {
+		cluster.fork();
+	}
 
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} died`);
-  });
+	cluster.on('exit', (worker, code, signal) => {
+		console.log(`worker ${worker.process.pid} died`);
+	});
 } else {
-  // Workers can share any TCP connection
-  // In this case it is an HTTP server
-  http.createServer((req, res) => {
-    res.writeHead(200);
-    res.end('hello world\n');
-  }).listen(8000);
+	// Workers can share any TCP connection
+	// In this case it is an HTTP server
+	http.createServer((req, res) => {
+		res.writeHead(200);
+		res.end('hello world\n');
+	}).listen(8000);
 
-  console.log(`Worker ${process.pid} started`);
+	console.log(`Worker ${process.pid} started`);
 }
 ```
 
 In this example, the master process creates a worker process for each CPU core, and each worker process runs an HTTP server that listens on port 8000. When an incoming request is received, the master process distributes it to one of the worker processes using a round-robin algorithm. This allows the application to handle multiple requests concurrently and improve its overall performance and scalability.
-

@@ -20,8 +20,23 @@
               },
               "pinned": true
             }
+          },
+          {
+            "id": "5cd8e264e7c025bd",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "questions/nodejs.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -87,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "getting-started.md",
+                "file": "questions/nodejs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "getting-started.md",
+                "file": "questions/nodejs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "getting-started.md"
+                "file": "questions/nodejs.md"
               }
             }
           }
@@ -148,17 +163,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f414b1aa8b9ae5f0",
+  "active": "5cd8e264e7c025bd",
   "lastOpenFiles": [
-    "interview/category/questions.md",
-    "getting-started.md",
-    "questions/_algorithms.md",
-    "questions/nodejs.md",
-    "resume-example.md",
-    "assets/docusaurus-asset-example-banner.png.md",
     "questions/common.md",
-    "questions/typescript.md",
+    "questions/nodejs.md",
+    "questions/frontend.md",
     "questions/javascript.md",
-    "questions/frontend.md"
+    "questions/typescript.md",
+    "_presentation.md",
+    "getting-started.md",
+    "interview/category/questions.md",
+    "questions/_algorithms.md",
+    "resume-example.md"
   ]
 }

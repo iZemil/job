@@ -44,6 +44,10 @@ const config = {
 				theme: {
 					customCss: require.resolve('./src/css/custom.css'),
 				},
+				gtag: {
+					trackingID: 'G-STTJ9HV6X9',
+					anonymizeIP: true,
+				},
 			}),
 		],
 	],
@@ -90,6 +94,7 @@ const config = {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
 			},
+			metadata: [{ name: 'og:image', content: '/img/logo.svg' }],
 		}),
 	themes: ['@docusaurus/theme-live-codeblock'],
 };
