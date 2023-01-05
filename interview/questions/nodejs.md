@@ -65,13 +65,13 @@ The process.nextTick function waits for the execution of action till the next pa
 
 On the other hand, setImmediate() is used to execute a callback method on the next cycle of the event loop which eventually returns it to the event loop in order to execute the I/O operations.
 
-### What is the difference between synchronous and asynchronous code in Node.js?
+### What is the diff synchronous vs asynchronous code?
 
 Synchronous code is executed in a blocking manner, meaning that the program will pause at each synchronous line of code until the operation is complete.
 
 Asynchronous code is executed in a non-blocking manner, allowing the program to continue running while the asynchronous operation is being performed.
 
-### What is package.json?
+### What is the package.json?
 
 package.json is a file that is used to define the properties of a Node.js package. It is typically located in the root directory of a project, and it contains information such as the package's name, version, dependencies, scripts, and other metadata.
 
@@ -99,7 +99,7 @@ It stores and guarantees the exact same version of every package.
 -   `*` - Matches any version
 -   `latest` - Obtains latest release
 
-### Explain  REPL in the context of Node.js
+### Explain REPL in the context of NodeJS
 
 REPL stands for "Read-Eval-Print Loop". It is a simple, interactive programming environment that allows you to execute code snippets and see the results immediately.
 
@@ -190,13 +190,13 @@ A Node.js project should have a clear and organized file and directory structure
 For advanced answer, try to discover NestJS framework architecture
 :::
 
-### How do you handle the performance of a NodeJS application?
+### How do you improve the performance of a NodeJS application?
 
 There are several ways to improve the performance of a Node.js application, including optimizing the code, using caching, and using a load balancer to distribute incoming requests across multiple servers. It is also important to monitor the performance of the application and to profile it to identify any bottlenecks or inefficiencies.
 
-### How do you test a Node.js application?
+### How do you test an application?
 
-There are several ways to test a Node.js application, including using unit tests, integration tests, and end-to-end tests. Common testing frameworks for Node.js include Mocha, Jest, and Jasmine.
+There are several ways to test an application, including using unit tests, integration tests, and end-to-end tests. Common testing frameworks for Node.js include Mocha, Jest, and Jasmine.
 
 ### Describe child process in NodeJS
 

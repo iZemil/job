@@ -69,8 +69,8 @@ const config = {
 						label: 'Interview',
 					},
 					{
-						href: 'https://github.com/iZemil/job',
-						label: 'GitHub',
+						href: 'https://github.com/iZemil/job/discussions/1',
+						label: 'Contribute',
 						position: 'right',
 					},
 				],
@@ -94,7 +94,7 @@ const config = {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
 			},
-			metadata: [{ name: 'og:image', content: 'https://job.js.org/img/logo.svg' }],
+			metadata: [{ property: 'og:image', content: 'https://job.js.org/img/logo.png' }],
 		}),
 	themes: ['@docusaurus/theme-live-codeblock'],
 };

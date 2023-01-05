@@ -14,6 +14,7 @@ function HomepageHeader() {
 		<header className={clsx('hero hero--primary', styles.indexBanner)}>
 			<div className="container">
 				<h1 className={styles.index__title}>{siteConfig.title}</h1>
+				<div className={styles.index__slogan}>🌈 Be Better a Javascript Developer</div>
 
 				<div className={styles.buttons}>
 					<Link className="button button--secondary button--lg" to="/interview/getting-started">

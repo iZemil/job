@@ -159,16 +159,6 @@ A few ways to create and use immutable objects in JavaScript:
 
 In general, it is a good practice to use immutable values whenever possible, as they can help to make the code more predictable and easier to understand.
 
-### What is an event loop? What is the difference between a call stack and a task queue?
-
-In JavaScript, the event loop is a mechanism that is used to execute code asynchronously. It is a loop that continuously checks for and processes events that are added to the event queue.
-
-The event loop works in conjunction with the call stack and the task queue. The call stack is a data structure that is used to store the execution context of the code that is currently being executed. It is a stack of frames, with the most recently called function at the top of the stack.
-
-The task queue is a data structure that is used to store tasks that are waiting to be executed. Tasks are added to the task queue when they are created, and they are removed from the task queue and added to the call stack when they are ready to be executed.
-
-The event loop is responsible for checking the task queue and adding tasks to the call stack when they are ready to be executed. It runs continuously, and it processes tasks in the order in which they are added to the task queue.
-
 ### What is a higher-order function?
 
 -   takes other functions as arguments.
@@ -342,6 +332,121 @@ clone.b.c = 4; // does not modify original.b.c
 :::caution  
 You should be careful using this way. A better way to implement deep cloning is to use external libraries.
 :::
+
+## What is an Event Loop?
+
+In JavaScript, the event loop is a mechanism that is used to execute code asynchronously. It is a loop that continuously checks for and processes events that are added to the event queue.
+
+The event loop works in conjunction with the call stack and the task queue. The call stack is a data structure that is used to store the execution context of the code that is currently being executed. It is a stack of frames, with the most recently called function at the top of the stack.
+
+The task queue is a data structure that is used to store tasks that are waiting to be executed. Tasks are added to the task queue when they are created, and they are removed from the task queue and added to the call stack when they are ready to be executed.
+
+The event loop is responsible for checking the task queue and adding tasks to the call stack when they are ready to be executed. It runs continuously, and it processes tasks in the order in which they are added to the task queue.
+
+### Explain the diff Tasks vs Microtasks
+
+A **task** is any JavaScript code which is scheduled to be run by the standard mechanisms such as initially starting to run a program, an event callback being run, or an interval or timeout being fired. These all get scheduled on the **task queue**.
+
+Tasks get added to the task queue when:
+-   A new JavaScript program or subprogram is executed (such as from a console, or by running the code in a `<script>` element) directly.
+-   An event fires, adding the event's callback function to the task queue.
+-   A timeout or interval created with `setTimeout()` or `setInterval()` is reached, causing the corresponding callback to be added to the task queue.
+
+The event loop driving your code handles these tasks one after another, in the order in which they were enqueued. The oldest runnable task in the task queue will be executed during a single iteration of the event loop. After that, microtasks will be executed until the microtask queue is empty, and then the browser may choose to update rendering. Then the browser moves on to the next iteration of event loop.
+
+**There are two key differences:**
+1. Each time a task exits, the event loop checks to see if the task is returning control to other JavaScript code. If not, it runs all of the microtasks in the microtask queue. The microtask queue is, then, processed multiple times per iteration of the event loop, including after handling events and other callbacks.
+2. If a microtask adds more microtasks to the queue by calling `queueMicrotask()`, those newly-added microtasks _execute before the next task is run_. That's because the event loop will keep calling microtasks until there are none left in the queue, even if more keep getting added.
+
+### When to use Microtasks?
+
+It's important to note again that most developers won't use microtasks much, if at all. They're a highly specialized feature of modern browser-based JavaScript development, allowing you to schedule code to jump in front of other things in the long set of things waiting to happen on the user's computer. _Abusing this capability will lead to performance problems._
+
+The main reason to use microtasks is that: to ensure consistent ordering of tasks, even when results or data is available synchronously, but while simultaneously reducing the risk of user-discernible delays in operations.
+
+1. One situation in which microtasks can be used to ensure that the ordering of execution is always consistent is when promises are used in one clause of an `if...else` statement (or other conditional statement), but not in the other clause. Consider code such as this:
+
+```js
+customElement.prototype.getData = (url) => {
+  if (this.cache[url]) {
+    this.data = this.cache[url];
+    this.dispatchEvent(new Event("load"));
+  } else {
+    fetch(url).then((result) => result.arrayBuffer()).then((data) => {
+      this.cache[url] = data;
+      this.data = data;
+      this.dispatchEvent(new Event("load"));
+    });
+  }
+};
+```
+
+The problem introduced here is that by using a task in one branch of the `if...else` statement (in the case in which the image is available in the cache) but having promises involved in the `else` clause, we have a situation in which the order of operations can vary; for example, as seen below.
+
+```js
+element.addEventListener("load", () => console.log("Loaded data"));
+console.log("Fetching data…");
+element.getData();
+console.log("Data fetched");
+```
+
+Executing this code twice in a row gives the following results.
+
+When the data is not cached:
+```
+Fetching data
+Data fetched
+Loaded data
+```
+
+When the data is cached:
+```
+Fetching data
+Loaded data
+Data fetched
+```
+
+Even worse, sometimes the element's `data` property will be set and other times it won't be by the time this code finishes running.
+
+We can ensure consistent ordering of these operations by using a microtask in the `if` clause to balance the two clauses:
+```js
+customElement.prototype.getData = (url) => {
+  if (this.cache[url]) {
+    queueMicrotask(() => {
+      this.data = this.cache[url];
+      this.dispatchEvent(new Event("load"));
+    });
+  } else {
+    fetch(url).then((result) => result.arrayBuffer()).then((data) => {
+      this.cache[url] = data;
+      this.data = data;
+      this.dispatchEvent(new Event("load"));
+    });
+  }
+};
+```
+
+This balances the clauses by having both situations handle the setting of `data` and firing of the `load` event within a microtask (using `queueMicrotask()` in the `if` clause and using the promises used by `fetch()` in the `else` clause).
+
+2. You can also use microtasks to collect multiple requests from various sources into a single batch, avoiding the possible overhead involved with multiple calls to handle the same kind of work.
+
+The snippet below creates a function that batches multiple messages into an array, using a microtask to send them as a single object when the context exits.
+
+```js
+const messageQueue = [];
+
+let sendMessage = (message) => {
+  messageQueue.push(message);
+
+  if (messageQueue.length === 1) {
+    queueMicrotask(() => {
+      const json = JSON.stringify(messageQueue);
+      messageQueue.length = 0;
+      fetch("url-of-receiver", json);
+    });
+  }
+};
+```
 
 ## What are the ways to parallelize calculations?
 

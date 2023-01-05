@@ -9,21 +9,30 @@
 }
 
 .title {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	text-transform: uppercase;
+	letter-spacing: 2px;
 	font-size: 18px;
 	color: var(--ifm-color-primary);
 }
 
 .topic {
+	position: absolute;
+	transform: translateX(100%);
+	right: 0;
+	padding: 8px;
 	font-size: 16px;
-	text-align: center;
 	color: grey;
 	border: 0;
 	background: transparent;
+	cursor: pointer;
 }
 
 .question {
-	min-height: 180px;
+	min-height: 220px;
 	display: flex;
 	align-items: center;
 	font-size: 32px;

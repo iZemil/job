@@ -30,14 +30,15 @@ export const RandomQuestion = () => {
 
 	return (
 		<div className={styles.container}>
-			<h2 className={styles.title}>question</h2>
-
-			<select className={styles.topic} value={topic} onChange={handleChangeTopic}>
-				{Question.topics().map((topic) => (
-					<option key={topic}>{topic}</option>
-				))}
-				<option value={ANY_TOPIC}>Any</option>
-			</select>
+			<h2 className={styles.title}>
+				question
+				<select className={styles.topic} value={topic} onChange={handleChangeTopic}>
+					{Question.topics().map((topic) => (
+						<option key={topic}>{topic}</option>
+					))}
+					<option value={ANY_TOPIC}>All</option>
+				</select>
+			</h2>
 
 			<div className={styles.question}>
 				<Link to={Question.getLink(question)}>{question.data.question}</Link>

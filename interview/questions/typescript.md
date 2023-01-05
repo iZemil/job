@@ -143,7 +143,7 @@ There are some differences between using an `enum` and a `const` object to defin
 -   **Values:** An `enum` assigns default values to its constants, which are typically numbers starting from `0`, but you can also specify custom values for the constants if needed. A `const` object does not assign any values to its properties, and you have to specify the values of the properties explicitly.
 -   **Type compatibility:** An `enum` is a type in TypeScript, and it can be used as a type parameter, a type argument, a function return type, or a variable type. A `const` object is not a type in TypeScript, and it cannot be used in these contexts. Instead, you can use the type of the properties of a `const` object, or create an interface or a type alias to represent the structure of the object.
 
-### What is as syntax in TypeScript?
+### What is 'as' syntax in TypeScript?
 
 The `as` syntax in TypeScript is used to perform type assertions, which allow you to override the type of a value and tell the compiler that you know the type of the value more specifically. Type assertions are a way to provide additional type information to the compiler, and they can be useful when you want to narrow the type of a value or when you want to use a value in a context where the compiler cannot infer the correct type.
 
@@ -280,7 +280,7 @@ console.log(add(1, 2));  // 3
 console.log(add('Hello', ' world'));  // 'Hello world'
 ```
 
-### What is the use of the tsconfig.json file?
+### What is the use of the tsconfig.json?
 
 The tsconfig.json file is a JSON format file where you may specify several options to inform the compiler how to compile a project. The presence of this file in the directory implies that it is the TypeScript project root.
 
