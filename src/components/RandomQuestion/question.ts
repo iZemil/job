@@ -9,10 +9,13 @@ interface ITopicData {
 	file: string;
 	path: string;
 	key: string;
+	order: number;
 	data: IQuestion[];
 }
 
 const topics: ITopicData[] = require('@site/static/questions.json');
+
+topics.sort((a, b) => a.order - b.order);
 
 function random<T>(arr: T[]): T {
 	return arr[Math.floor(Math.random() * arr.length)];
@@ -101,7 +104,7 @@ export class Question {
 		const questionTo = `${data.question
 			.split(' ')
 			.join('-')
-			.replace(/[?()\.\\\/\,\~\^\'\"\`]/gi, '')}`;
+			.replace(/[?()\.\\\/\,\~\^\'\"\`\:]/gi, '')}`;
 
 		return `/interview/questions/${topicPath}#${questionTo}`.toLowerCase();
 	}

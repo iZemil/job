@@ -25,11 +25,16 @@ const to = path.resolve('static/questions.json');
 					.match(/^title: .*/gim)
 					.find((it) => it.startsWith('title:'))
 					.split(': ')[1];
+				const order = data
+					.match(/^sidebar_position: .*/gim)
+					.find((it) => it.startsWith('sidebar_position:'))
+					.split(': ')[1];
 
 				const topic = {
 					file,
 					path: file.replace('.md', ''),
 					key,
+					order: Number(order),
 					data: titles
 						.filter((it) => !it.startsWith('# '))
 						.map((it) => trimTitleSymbols(it))

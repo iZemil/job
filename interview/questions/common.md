@@ -91,6 +91,35 @@ Microservice pros: Microservice architectures are typically better organized, si
 
 Microservice cons: As you’re building a new microservice architecture, you’re likely to discover lots of cross-cutting concerns that you did not anticipate at design time. A monolithic app could establish shared magic helpers or middleware to handle such cross-cutting concerns without much effort.
 
+## What are the ways to parallelize calculations?
+
+There are several ways to parallelize calculations in JavaScript, depending on the specific requirements of the task at hand. Some of the most common approaches include:
+
+1.  Web Workers: Web Workers are a standard feature of modern web browsers that allow developers to run JavaScript code in a separate thread. This can be useful for parallelizing computationally intensive tasks, as it allows the main JavaScript thread to continue running without being blocked by the worker thread.
+2.  Async/await: The `async` and `await` keywords, introduced in ECMAScript 2017, provide a way to write asynchronous code in a synchronous style. This can make it easier to parallelize calculations by allowing multiple asynchronous operations to be executed in parallel and waited on as needed.
+3.  Promises: JavaScript promises provide a way to execute asynchronous operations and to chain them together in a more readable and concise way. Promises can be used to parallelize calculations by executing multiple asynchronous operations in parallel and waiting for all of them to complete using the `Promise.all()` function.
+4.  Map/Reduce: The `map()` and `reduce()` array methods can be used to parallelize calculations by applying a function to each element of an array in parallel and reducing the results to a single value.
+
+### What is Concurrency execution?
+
+It is the most general term, which does not say how this concurrency will be obtained - just more than one task will be solved in a certain period of time.
+
+### What is Parallel execution?
+
+Parallel execution (parallel computing) implies having more than one computing device (e.g., a processor) that will perform multiple tasks simultaneously.
+
+Parallel execution is a strict subset of competitive execution. This means that on a computer with one processor, parallel programming is impossible.
+
+### What is Multi-threaded execution?
+
+Multithreading is one way to implement competitive execution by abstracting a "worker thread". Threads "abstract" low-level details from the user and allow more than one job to run "in parallel".
+
+### What is Asynchronous execution?
+
+Asynchrony implies that an operation can be performed by someone on the side: a remote Web site, a server, or another device outside the current computing device.
+
+The main property of such operations is that the start of such an operation requires significantly less time than the main operation. This allows many asynchronous operations to be performed simultaneously, even on a device with a small number of computing devices.
+
 ## What is SOLID?
 
 SOLID is a set of five principles of object-oriented software design. These principles were first proposed by Robert C. Martin in the early 2000s and have since become a widely accepted set of best practices for designing maintainable, scalable, and flexible software systems.

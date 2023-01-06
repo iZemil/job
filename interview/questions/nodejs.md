@@ -147,11 +147,11 @@ Overall, the `spawn()` method is generally more flexible and powerful, while the
 
 In Node.js, stubs are basically the programs or functions that are used for stimulating the module or component behavior. During any test cases, stubs provide the canned answers of the functions
 
-### What is a NodeJS Buffer?
+### What is a Buffer in NodeJS?
 
 Buffer global class is used for storing the raw data in an array of integers. But it corresponds to a raw memory allocation that is located outside the V8 heap. Buffer class is used because pure JavaScript is not compatible with binary data. So, when dealing with TCP streams or the file system, it’s necessary to work with Buffers.
 
-### What is a NodeJS Stream?
+### What is a Stream in NodeJS?
 
 Stream is the collection of data similar to arrays and strings. They are objects using which you can read data from a source or write data to a destination in a continuous manner. It might not be available at once and need not to have fit in the memory. These streams are especially useful for reading and processing a large set of data.
 

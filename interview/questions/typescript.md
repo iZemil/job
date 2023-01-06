@@ -23,8 +23,20 @@ TypeScript is particularly useful for projects with a large codebase or a team o
 ### What is the typeof operator?
 
 It returns type of given value.
+```ts
+let h = "hello";
 
-### Difference void vs undefined
+let w: typeof s = "world";
+```
+
+This isn’t very useful for basic types, but combined with other type operators, you can use `typeof` to conveniently express many patterns. For an example, let’s start by looking at the predefined type `ReturnType<T>`. It takes a _function type_ and produces its return type:
+```ts
+type Predicate = (x: unknown) => boolean;
+
+type K = ReturnType<Predicate>; // K: boolean
+```
+
+### void vs undefined
 
 In TypeScript, `void` is a type that represents the absence of a value. The `void` type is used to indicate that a function does not return a value, or that a variable or expression has no value.
 
@@ -200,13 +212,13 @@ const user: SuperUser = {
 
 In this example, the `User` and `Admin` types are defined, and they represent objects with different properties. The `SuperUser` type is defined as an intersection of `User` and `Admin`, which means that it represents an object that must have both the `name` and `age` properties of the `User` type, and the `role` property of the `Admin` type.
 
-### What is abstract class and why to use it?
+### What is abstract class and its purpose?
 
 It is a class that cannot be instantiated directly, and that is intended to be used as a base class for one or more derived classes. Abstract classes are used to define the common behavior and the shared structure of a group of related classes, and they provide a way to implement inheritance and polymorphism in TypeScript.
 
 An abstract class is defined using the `abstract` keyword, and it can contain both abstract and concrete members. Abstract members are members that are declared but not implemented, and they must be implemented by the derived classes. Concrete members are members that are declared and implemented, and they can be used directly by the derived classes.
 
-### What is the ‘implement’ clause?
+### What is the 'implement' clause?
 
 It is used to specify that a class or an object implements an interface or a class. An interface is a type that defines a set of properties, methods, and events that a class or an object must have or must implement. A class is a blueprint for creating objects, and it can define the structure and the behavior of the objects it creates.
 
@@ -217,7 +229,6 @@ In TypeScript, decorators are a way to add additional behavior to classes, metho
 Decorators are typically used to add metadata or to implement cross-cutting concerns, such as logging, validation, or error handling. They can be applied to classes, methods, properties, accessors, parameters, or even local variables, and they can be defined and used in different ways.
 
 Here is an example of using a decorator in TypeScript:
-
 ```ts
 function log(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
@@ -262,7 +273,6 @@ Function overloading in TypeScript allows you to define multiple versions of a f
 To define function overloading in TypeScript, you can use the `function` keyword followed by the name of the function, and then define multiple function signatures that specify the types and numbers of the parameters. The implementation of the function can vary depending on the signature that is matched.
 
 Here is an example of function overloading in TypeScript:
-
 ```typescript
 function add(x: number, y: number): number;
 function add(x: string, y: string): string;
@@ -291,7 +301,6 @@ The `declare` keyword in TypeScript is used to tell the compiler that a given sy
 The `declare` keyword can be used to define variables, functions, classes, and other types of symbols, and it can be used in conjunction with other TypeScript features, such as interfaces and type aliases.
 
 Here is an example of using the `declare` keyword in TypeScript:
-
 ```ts
 declare const MY_CONSTANT: string;
 
@@ -309,7 +318,6 @@ Mixins are a way to reuse a set of functions or properties in multiple classes, 
 To define a mixin in TypeScript, you can create a function or a class that contains the common behavior or functionality, and then use the `mixin` helper function to apply the mixin to one or more target classes. The `mixin` helper function creates a new class that combines the target class with the mixin, and it returns the resulting class.
 
 Here is an example of using mixins in TypeScript:
-
 ```ts
 function Timestamps<T extends new(...args: any[]) => {}>(Base: T) {
   return class extends Base {
@@ -343,7 +351,6 @@ In TypeScript, a namespace is a way to organize and group related code under a s
 To declare a namespace in TypeScript, you can use the `namespace` keyword followed by the name of the namespace, and then enclose the code that you want to include in the namespace within curly braces. You can define variables, functions, classes, and other types of symbols inside the namespace, and you can use the `export` keyword to expose them to other parts of the code.
 
 Here is an example of declaring a namespace in TypeScript:
-
 ```ts
 namespace MyNamespace {
   export const MY_CONSTANT = 'Hello World';
@@ -377,7 +384,6 @@ In TypeScript, generics are a way to create flexible and reusable code that can 
 Generics allow you to write code that is generic, or not tied to a specific type, and that can work with any type or a set of types that you specify. You can use generics to create functions, classes, interfaces, or types that are more flexible and adaptable, and that can be used in a variety of contexts and scenarios.
 
 Here is an example of using generics in TypeScript:
-
 ```ts
 function identity<T>(arg: T): T {
   return arg;

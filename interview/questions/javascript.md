@@ -21,7 +21,7 @@ In JavaScript, there are six primitive types:
 6.  `Symbol` represents a unique, immutable value. Symbols are used as a way to create unique, hidden keys for object properties.
     In addition to these primitive types, JavaScript also has a number of object types, including arrays, functions, and objects. Objects are a collection of properties, each of which has a name and a value, and can represent a wide variety of data types, including strings, numbers, and other objects. Functions are a special type of object that can be invoked to perform a specific task, and arrays are objects that can store a collection of values.
 
-### What is NaN? What type? How to define NaN value?
+### What is NaN and how to define NaN value?
 
 `NaN` is a special value that represents "Not a Number". It is used to indicate that a value is not a valid number, usually as the result of an invalid mathematical operation.
 
@@ -144,20 +144,21 @@ There are a number of tools and techniques that can be used when debugging JavaS
 4.  Linting tools: Linting tools are tools that analyze the code and check for potential errors, such as syntax errors, style issues, and logical errors.
 5.  Automated tests for the code.
 
-### Explain the difference between mutable and immutable values
+### The difference: Mutable vs Immutable values
 
 Mutable can be changed or added to where immutable means something that cannot be changed or added.
 
 Primitive values in JavaScript cannot have anything added upon to them, they can only be re-assigned, and hence all primitive values in JavaScript are immutable.
 
 A few ways to create and use immutable objects in JavaScript:
-
 1.  Use the `Object.freeze()` method: The `Object.freeze()` method can be used to create an immutable object by freezing the object's state. A frozen object cannot be modified, and any attempts to modify it will be ignored. However, it is important to note that the `Object.freeze()` method only freezes the top-level properties of the object, and it does not recursively freeze the object's nested properties.
 2.  Use the `Object.seal()` method: The `Object.seal()` method can be used to create a sealed object, which is an object that cannot be modified or extended, but whose properties can be modified. A sealed object is similar to a frozen object, but it is not completely immutable.
 3.  Use a library or framework: There are several libraries and frameworks that provide tools for creating and working with immutable objects in JavaScript. For example, the `Immutable.js` library provides a set of data structures that are designed to be immutable, and it provides a set of methods for working with these data structures.
 4.  Use object copy pattern with spread operator, Object.assign, etc.
 
+:::tip
 In general, it is a good practice to use immutable values whenever possible, as they can help to make the code more predictable and easier to understand.
+:::
 
 ### What is a higher-order function?
 
@@ -196,7 +197,17 @@ obj1 = null; // weakSet obj1 will be garbage collected
 
 ### What is a callback function?
 
-Callback functions are fns that can be used as arguments (common examples: forEach, map, setTimeout)
+Callback function is a function that can be used as arguments.
+
+Here is an example of callback function:
+```js
+function cb() {
+	console.log('some cb');
+}
+
+[1, 2, 3].forEach(cb);
+setInterval(cb, 1000);
+```
 
 ### What is an arrow function and its specifics?
 
@@ -239,22 +250,21 @@ const random = () => Math.random(); // impure because different outputs
 const log = (x) => console.log(x); // impure because must return value, not void
 ```
 
-### What is a closure in JavaScript? Give an example.
+### What is a closure in JavaScript?
 
 In JavaScript, a closure is a function that has access to the variables and scope of its outer function, even after the outer function has returned. Closures are created whenever a function is defined within the scope of another function, and they allow inner functions to retain access to the variables and scope of their outer functions even after the outer functions have completed execution.
 
 Here is an example of a closure in JavaScript:
-
 ```js
-function outerFunction() {
+function outer() {
 	let x = 5;
-	function innerFunction() {
-		console.log(x); // 5
+	function inner() {
+		console.log(x);
 	}
-	return innerFunction;
+	return inner;
 }
 
-let innerFunc = outerFunction();
+let innerFunc = outer();
 innerFunc(); // logs 5
 ```
 
@@ -448,35 +458,6 @@ let sendMessage = (message) => {
 };
 ```
 
-## What are the ways to parallelize calculations?
-
-There are several ways to parallelize calculations in JavaScript, depending on the specific requirements of the task at hand. Some of the most common approaches include:
-
-1.  Web Workers: Web Workers are a standard feature of modern web browsers that allow developers to run JavaScript code in a separate thread. This can be useful for parallelizing computationally intensive tasks, as it allows the main JavaScript thread to continue running without being blocked by the worker thread.
-2.  Async/await: The `async` and `await` keywords, introduced in ECMAScript 2017, provide a way to write asynchronous code in a synchronous style. This can make it easier to parallelize calculations by allowing multiple asynchronous operations to be executed in parallel and waited on as needed.
-3.  Promises: JavaScript promises provide a way to execute asynchronous operations and to chain them together in a more readable and concise way. Promises can be used to parallelize calculations by executing multiple asynchronous operations in parallel and waiting for all of them to complete using the `Promise.all()` function.
-4.  Map/Reduce: The `map()` and `reduce()` array methods can be used to parallelize calculations by applying a function to each element of an array in parallel and reducing the results to a single value.
-
-### What is Concurrency execution?
-
-It is the most general term, which does not say how this concurrency will be obtained - just more than one task will be solved in a certain period of time.
-
-### What is Parallel execution?
-
-Parallel execution (parallel computing) implies having more than one computing device (e.g., a processor) that will perform multiple tasks simultaneously.
-
-Parallel execution is a strict subset of competitive execution. This means that on a computer with one processor, parallel programming is impossible.
-
-### What is Multi-threaded execution?
-
-Multithreading is one way to implement competitive execution by abstracting a "worker thread". Threads "abstract" low-level details from the user and allow more than one job to run "in parallel".
-
-### What is Asynchronous execution?
-
-Asynchrony implies that an operation can be performed by someone on the side: a remote Web site, a server, or another device outside the current computing device.
-
-The main property of such operations is that the start of such an operation requires significantly less time than the main operation. This allows many asynchronous operations to be performed simultaneously, even on a device with a small number of computing devices.
-
 ## What is a promise, and how is it used?
 
 Promises are a language feature that allows developers to write asynchronous code in a synchronous style. They provide a way to handle asynchronous operations in a way that is easier to read and reason about than using callback functions.
@@ -487,13 +468,22 @@ A promise is created using the `Promise` constructor, which takes a function as 
 
 ### What is promise chaining
 
-Promises can be chained together using the `then()` method, which allows developers to write sequential asynchronous code in a more readable and concise way.
+Promises can be chained together using the `then`, `catch`, `finally` methods, which allow developers to write sequential asynchronous code in a more readable and concise way.
+
+```js
+// pseudo code
+fetch('url')
+	.then(parseResult)
+	.then(saveResult)
+	.catch(logError)
+	.finally(logOperation)
+```
 
 ### How to handle promise errors?
 
 Promises have a built-in mechanism for handling errors, known as the "rejection handler". This allows developers to specify a separate callback function for handling rejected promises, rather than having to use the second argument of the `then()` method as a catch-all error handler.
 
-### What is async/await?
+### Explain async/await keywords
 
 The `async` and `await` keywords are a newer syntax introduced in ECMAScript 2017 that allow developers to write asynchronous code in a synchronous style. They are based on promises and make it easier to write asynchronous code that is easier to read and understand.
 
@@ -536,13 +526,21 @@ OOP is widely used in modern programming languages, and it is a powerful paradig
 
 ### Explain methods and properties
 
-OOP has object way of describing, so Objects have properties (like color, length, value, etc) that store states and methods (like run, read, update, etc) that can change properties of the object or other objects and execute other methods.
+OOP has an object way of describing, so Objects have properties (like color, length, value, etc.) that store states and methods (like run, read, update, etc.) that can change properties of the object or other objects and execute other methods.
 
 ### Purpose of «new» keyword?
 
 It is used to create an instance of an object.
 
-### What is the difference between a class and an object?
+```js
+function Person(name = 'Anon') {
+	this.name = name;
+}
+
+const anon = new Person();
+```
+
+### What is the diff class vs object?
 
 A class is a template or blueprint for creating objects. It defines the properties and methods that objects created from the class will have, as well as the behavior of those properties and methods.
 
@@ -559,18 +557,58 @@ In JavaScript, inheritance is implemented using prototypes. Every object in Java
 ### What is Polymorphism?
 
 Polymorphism is a fundamental concept in object-oriented programming (OOP) that refers to the ability of different objects to respond to the same method or property in different ways. In JavaScript, polymorphism can be achieved through a variety of techniques, including inheritance, method overriding, and function overloading.
+- Inheritance and method overriding allow different objects to respond to the same method in different ways at runtime. This is known as runtime polymorphism or dynamic polymorphism.
+- Function overloading allows multiple functions with the same name to be defined with different sets of arguments. This is known as compile-time polymorphism or static polymorphism.
 
-Inheritance and method overriding allow different objects to respond to the same method in different ways at runtime. This is known as runtime polymorphism or dynamic polymorphism.
+Here is an example of polymorphism:
+```ts
+abstract class Shape {
+	abstract get area(): number;
+}
 
-Function overloading allows multiple functions with the same name to be defined with different sets of arguments. This is known as compile-time polymorphism or static polymorphism.
+class Rectangle extends Shape {
+	width: number;
+	height: number;
+
+	constructor(width: number, height: number) {
+		super();
+	
+		this.width = width;
+		this.height = height;
+	}
+
+	get area() {
+		return this.width * this.height;
+	}
+}
+
+class Circle extends Shape {
+	radius: number;
+	
+	constructor(radius: number) {
+		super();
+		
+		this.radius = radius;
+	}
+
+	get area() {
+		return Math.PI * this.radius * this.radius;
+	}
+}
+
+const shapes = [new Rectangle(2, 4), new Circle(2)];
+const areas = shapes.map(shape => shape.area);
+```
 
 ### What is Encapsulation?
 
-Objects provide an interface to other code that wants to use them, but maintain their own internal state. The object's internal state is kept private, meaning that it can only be accessed by the object's own methods, not from other objects. Keeping an object's internal state private, and in general making a clear division between its public interface and its private internal state, is called encapsulation.
+Keeping an object's internal state private, and in general making a clear division between its public interface and its private internal state, is called encapsulation. The object's internal state is kept private, meaning that it can only be accessed by the object's own methods, not from other objects.
 
+:::info
 This is a useful feature because it enables the programmer to change the internal implementation of an object without having to find and update all the code that uses it: it creates a kind of firewall between this object and the rest of the system.
+:::
 
-### Explain differences between bind vs apply vs call
+### Explain the diff: bind vs apply vs call
 
 These methods apply to work with different context for given function.
 
