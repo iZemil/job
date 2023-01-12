@@ -10,45 +10,12 @@
           {
             "id": "f414b1aa8b9ae5f0",
             "type": "leaf",
-            "pinned": true,
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "getting-started.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "5cd8e264e7c025bd",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "questions/nodejs.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "3c3b1a611ca0e68e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "questions/typescript.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 285.5
   },
   "right": {
     "id": "678b9c55134a8909",
@@ -114,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "questions/typescript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "questions/typescript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "questions/typescript.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -175,17 +138,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3c3b1a611ca0e68e",
+  "active": "f414b1aa8b9ae5f0",
   "lastOpenFiles": [
-    "questions/javascript.md",
-    "questions/nodejs.md",
+    "_tasks/issues.md",
+    "questions/algorithms.md",
     "getting-started.md",
+    "questions/nodejs.md",
+    "questions/javascript.md",
     "questions/common.md",
+    "_presentation.md",
     "questions/typescript.md",
     "questions/frontend.md",
-    "_presentation.md",
-    "interview/category/questions.md",
-    "questions/_algorithms.md",
-    "resume-example.md"
+    "interview/category/questions.md"
   ]
 }

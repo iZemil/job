@@ -17,7 +17,7 @@ function HomepageHeader() {
 				<div className={styles.index__slogan}>🌈 Be a Better Javascript Developer</div>
 
 				<div className={styles.buttons}>
-					<Link className="button button--secondary button--lg" to="/interview/getting-started">
+					<Link className="button button--secondary button--lg" to="/interview">
 						📙 Interview Guide
 					</Link>
 

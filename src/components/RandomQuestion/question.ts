@@ -106,6 +106,6 @@ export class Question {
 			.join('-')
 			.replace(/[?()\.\\\/\,\~\^\'\"\`\:]/gi, '')}`;
 
-		return `/interview/questions/${topicPath}#${questionTo}`.toLowerCase();
+		return `/questions/${topicPath}#${questionTo}`.toLowerCase();
 	}
 }

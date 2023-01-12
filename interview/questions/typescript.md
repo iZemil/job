@@ -10,7 +10,6 @@ title: Typescript
 TypeScript is a programming language that is based on JavaScript, and it is designed to add optional static typing and other features to JavaScript. TypeScript is a typed superset of JavaScript, which means that any valid JavaScript code is also valid TypeScript code, and TypeScript adds additional features and syntax to the language.
 
 Benefits of using TypeScript include:
-
 -   Static typing: TypeScript adds optional static typing to JavaScript, which allows you to specify the types of variables, function arguments, and return values. This can help to catch type-related errors at compile time, rather than at runtime, and it can make the code easier to understand and debug.
 -   Improved code completion: TypeScript provides improved code completion and IntelliSense in code editors and IDEs, which can help to make the code easier to write and navigate.
 -   Improved code documentation: TypeScript allows you to add type annotations and documentation comments to the code, which can help to make the code more self-explanatory and easier to understand.

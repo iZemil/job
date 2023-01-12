@@ -34,8 +34,8 @@ const config = {
 			/** @type {import('@docusaurus/preset-classic').Options} */
 			({
 				docs: {
-					path: 'interview',
-					routeBasePath: 'interview',
+					path: './interview',
+					routeBasePath: '/',
 					sidebarPath: require.resolve('./sidebars.js'),
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
@@ -63,10 +63,14 @@ const config = {
 				},
 				items: [
 					{
-						type: 'doc',
-						docId: 'getting-started',
+						href: '/interview',
 						position: 'left',
 						label: 'Interview',
+					},
+					{
+						href: '/algorithms',
+						position: 'left',
+						label: 'Algorithms',
 					},
 					{
 						href: 'https://github.com/iZemil/job/discussions/1',

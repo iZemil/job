@@ -31,7 +31,7 @@ export const RandomQuestion = () => {
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.title}>
-				question
+				questions
 				<select className={styles.topic} value={topic} onChange={handleChangeTopic}>
 					{Question.topics().map((topic) => (
 						<option key={topic}>{topic}</option>

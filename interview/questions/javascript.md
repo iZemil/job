@@ -102,14 +102,14 @@ The arguments object is **a local variable available within all non-arrow fun
 
 `null` and `undefined` are both values that can be assigned to variables, while `undeclared` refers to a variable or property that has not yet been declared or defined. Additionally, `null` and `undefined` are values that can be compared and tested for equality, while `undeclared` is a reference error that cannot be handled or tested for.
 
-### What is the difference between const person = Person() and const person = new Person()?
+### What is the difference between Function() and new Function()?
 
 ```js
-function Person() {}
+function Funtion() {}
 
-const person = Person(); // declare variable with value of fn execution
+const fnValue = Funtion(); // declare variable with value of fn execution
 
-const person = new Person(); // declare variable with instance of Person object
+const fnObj = new Funtion(); // declare variable with instance of Funtion object
 ```
 
 ### Why is it better to leave the global scope "as is" and not touch it?
@@ -151,6 +151,7 @@ Mutable can be changed or added to where immutable means something that cannot b
 Primitive values in JavaScript cannot have anything added upon to them, they can only be re-assigned, and hence all primitive values in JavaScript are immutable.
 
 A few ways to create and use immutable objects in JavaScript:
+
 1.  Use the `Object.freeze()` method: The `Object.freeze()` method can be used to create an immutable object by freezing the object's state. A frozen object cannot be modified, and any attempts to modify it will be ignored. However, it is important to note that the `Object.freeze()` method only freezes the top-level properties of the object, and it does not recursively freeze the object's nested properties.
 2.  Use the `Object.seal()` method: The `Object.seal()` method can be used to create a sealed object, which is an object that cannot be modified or extended, but whose properties can be modified. A sealed object is similar to a frozen object, but it is not completely immutable.
 3.  Use a library or framework: There are several libraries and frameworks that provide tools for creating and working with immutable objects in JavaScript. For example, the `Immutable.js` library provides a set of data structures that are designed to be immutable, and it provides a set of methods for working with these data structures.
@@ -200,6 +201,7 @@ obj1 = null; // weakSet obj1 will be garbage collected
 Callback function is a function that can be used as arguments.
 
 Here is an example of callback function:
+
 ```js
 function cb() {
 	console.log('some cb');
@@ -255,6 +257,7 @@ const log = (x) => console.log(x); // impure because must return value, not void
 In JavaScript, a closure is a function that has access to the variables and scope of its outer function, even after the outer function has returned. Closures are created whenever a function is defined within the scope of another function, and they allow inner functions to retain access to the variables and scope of their outer functions even after the outer functions have completed execution.
 
 Here is an example of a closure in JavaScript:
+
 ```js
 function outer() {
 	let x = 5;
@@ -358,6 +361,7 @@ The event loop is responsible for checking the task queue and adding tasks to th
 A **task** is any JavaScript code which is scheduled to be run by the standard mechanisms such as initially starting to run a program, an event callback being run, or an interval or timeout being fired. These all get scheduled on the **task queue**.
 
 Tasks get added to the task queue when:
+
 -   A new JavaScript program or subprogram is executed (such as from a console, or by running the code in a `<script>` element) directly.
 -   An event fires, adding the event's callback function to the task queue.
 -   A timeout or interval created with `setTimeout()` or `setInterval()` is reached, causing the corresponding callback to be added to the task queue.
@@ -365,8 +369,9 @@ Tasks get added to the task queue when:
 The event loop driving your code handles these tasks one after another, in the order in which they were enqueued. The oldest runnable task in the task queue will be executed during a single iteration of the event loop. After that, microtasks will be executed until the microtask queue is empty, and then the browser may choose to update rendering. Then the browser moves on to the next iteration of event loop.
 
 **There are two key differences:**
+
 1. Each time a task exits, the event loop checks to see if the task is returning control to other JavaScript code. If not, it runs all of the microtasks in the microtask queue. The microtask queue is, then, processed multiple times per iteration of the event loop, including after handling events and other callbacks.
-2. If a microtask adds more microtasks to the queue by calling `queueMicrotask()`, those newly-added microtasks _execute before the next task is run_. That's because the event loop will keep calling microtasks until there are none left in the queue, even if more keep getting added.
+2. If a microtask adds more microtasks to the queue by calling `queueMicrotask()`, those newly-added microtasks *execute before the next task is run*. That's because the event loop will keep calling microtasks until there are none left in the queue, even if more keep getting added.
 
 ### When to use Microtasks?
 
@@ -378,31 +383,34 @@ The main reason to use microtasks is that: to ensure consistent ordering of task
 
 ```js
 customElement.prototype.getData = (url) => {
-  if (this.cache[url]) {
-    this.data = this.cache[url];
-    this.dispatchEvent(new Event("load"));
-  } else {
-    fetch(url).then((result) => result.arrayBuffer()).then((data) => {
-      this.cache[url] = data;
-      this.data = data;
-      this.dispatchEvent(new Event("load"));
-    });
-  }
+	if (this.cache[url]) {
+		this.data = this.cache[url];
+		this.dispatchEvent(new Event('load'));
+	} else {
+		fetch(url)
+			.then((result) => result.arrayBuffer())
+			.then((data) => {
+				this.cache[url] = data;
+				this.data = data;
+				this.dispatchEvent(new Event('load'));
+			});
+	}
 };
 ```
 
 The problem introduced here is that by using a task in one branch of the `if...else` statement (in the case in which the image is available in the cache) but having promises involved in the `else` clause, we have a situation in which the order of operations can vary; for example, as seen below.
 
 ```js
-element.addEventListener("load", () => console.log("Loaded data"));
-console.log("Fetching data…");
+element.addEventListener('load', () => console.log('Loaded data'));
+console.log('Fetching data…');
 element.getData();
-console.log("Data fetched");
+console.log('Data fetched');
 ```
 
 Executing this code twice in a row gives the following results.
 
 When the data is not cached:
+
 ```
 Fetching data
 Data fetched
@@ -410,6 +418,7 @@ Loaded data
 ```
 
 When the data is cached:
+
 ```
 Fetching data
 Loaded data
@@ -419,20 +428,23 @@ Data fetched
 Even worse, sometimes the element's `data` property will be set and other times it won't be by the time this code finishes running.
 
 We can ensure consistent ordering of these operations by using a microtask in the `if` clause to balance the two clauses:
+
 ```js
 customElement.prototype.getData = (url) => {
-  if (this.cache[url]) {
-    queueMicrotask(() => {
-      this.data = this.cache[url];
-      this.dispatchEvent(new Event("load"));
-    });
-  } else {
-    fetch(url).then((result) => result.arrayBuffer()).then((data) => {
-      this.cache[url] = data;
-      this.data = data;
-      this.dispatchEvent(new Event("load"));
-    });
-  }
+	if (this.cache[url]) {
+		queueMicrotask(() => {
+			this.data = this.cache[url];
+			this.dispatchEvent(new Event('load'));
+		});
+	} else {
+		fetch(url)
+			.then((result) => result.arrayBuffer())
+			.then((data) => {
+				this.cache[url] = data;
+				this.data = data;
+				this.dispatchEvent(new Event('load'));
+			});
+	}
 };
 ```
 
@@ -446,15 +458,15 @@ The snippet below creates a function that batches multiple messages into an arra
 const messageQueue = [];
 
 let sendMessage = (message) => {
-  messageQueue.push(message);
+	messageQueue.push(message);
 
-  if (messageQueue.length === 1) {
-    queueMicrotask(() => {
-      const json = JSON.stringify(messageQueue);
-      messageQueue.length = 0;
-      fetch("url-of-receiver", json);
-    });
-  }
+	if (messageQueue.length === 1) {
+		queueMicrotask(() => {
+			const json = JSON.stringify(messageQueue);
+			messageQueue.length = 0;
+			fetch('url-of-receiver', json);
+		});
+	}
 };
 ```
 
@@ -472,11 +484,7 @@ Promises can be chained together using the `then`, `catch`, `finally` methods, w
 
 ```js
 // pseudo code
-fetch('url')
-	.then(parseResult)
-	.then(saveResult)
-	.catch(logError)
-	.finally(logOperation)
+fetch('url').then(parseResult).then(saveResult).catch(logError).finally(logOperation);
 ```
 
 ### How to handle promise errors?
@@ -557,10 +565,12 @@ In JavaScript, inheritance is implemented using prototypes. Every object in Java
 ### What is Polymorphism?
 
 Polymorphism is a fundamental concept in object-oriented programming (OOP) that refers to the ability of different objects to respond to the same method or property in different ways. In JavaScript, polymorphism can be achieved through a variety of techniques, including inheritance, method overriding, and function overloading.
-- Inheritance and method overriding allow different objects to respond to the same method in different ways at runtime. This is known as runtime polymorphism or dynamic polymorphism.
-- Function overloading allows multiple functions with the same name to be defined with different sets of arguments. This is known as compile-time polymorphism or static polymorphism.
+
+-   Inheritance and method overriding allow different objects to respond to the same method in different ways at runtime. This is known as runtime polymorphism or dynamic polymorphism.
+-   Function overloading allows multiple functions with the same name to be defined with different sets of arguments. This is known as compile-time polymorphism or static polymorphism.
 
 Here is an example of polymorphism:
+
 ```ts
 abstract class Shape {
 	abstract get area(): number;
@@ -572,7 +582,7 @@ class Rectangle extends Shape {
 
 	constructor(width: number, height: number) {
 		super();
-	
+
 		this.width = width;
 		this.height = height;
 	}
@@ -584,10 +594,10 @@ class Rectangle extends Shape {
 
 class Circle extends Shape {
 	radius: number;
-	
+
 	constructor(radius: number) {
 		super();
-		
+
 		this.radius = radius;
 	}
 
@@ -597,7 +607,7 @@ class Circle extends Shape {
 }
 
 const shapes = [new Rectangle(2, 4), new Circle(2)];
-const areas = shapes.map(shape => shape.area);
+const areas = shapes.map((shape) => shape.area);
 ```
 
 ### What is Encapsulation?
@@ -606,6 +616,118 @@ Keeping an object's internal state private, and in general making a clear divisi
 
 :::info
 This is a useful feature because it enables the programmer to change the internal implementation of an object without having to find and update all the code that uses it: it creates a kind of firewall between this object and the rest of the system.
+:::
+
+### Explain object Prototypes
+
+Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+
+Every object in JavaScript has a built-in property, which is called its **prototype**. The prototype is itself an object, so the prototype will have its own prototype, making what's called a **prototype chain**.
+
+```js
+// the latest prototy chain item is null
+Object.getPrototypeOf(Object.getPrototypeOf({})); // null
+```
+
+Class property `prototype` includes all props and methods for the class instance:
+
+```js
+function Person(name) {
+	this.name = name;
+}
+
+const personPrototype = {
+	greet() {
+		console.log(`hello, my name is ${this.name}!`);
+	},
+};
+
+Object.assign(Person.prototype, personPrototype);
+// or
+// Person.prototype.greet = personPrototype.greet;
+
+const jack = new Person('Jack');
+jack.greet(); // hello, my name is Jack!
+```
+
+Properties that are defined directly in the object, like `name` here, are called **own properties**, and you can check whether a property is an own property using the static `Object.hasOwn()` method:
+
+```js
+const emil = new Person('Emil');
+
+console.log(Object.hasOwn(emil, 'name')); // true
+console.log(Object.hasOwn(emil, 'greet')); // false
+
+// the same with Object.hasOwnProperty method
+console.log(emil.hasOwnProperty('greet')); // false
+```
+
+Difference between class and prototype notations:
+
+```js
+class Person {
+	constructor(name) {
+		this.name = name;
+		this.say = function (text) {
+			return `${this.name} said: ${text}`;
+		};
+	}
+
+	greet() {
+		return `Hello, my name is ${this.name}!`;
+	}
+
+	static random() {
+		return Math.random();
+	}
+}
+
+function Person(name) {
+	// own properties
+	this.name = name;
+	this.say = function (text) {
+		return `${this.name} said: ${text}`;
+	};
+}
+// extend Person prototype with method:
+Person.prototype.greet = function () {
+	return `Hello, my name is ${this.name}!`;
+};
+// add static method:
+Person.random = function () {
+	return Math.random();
+};
+
+const emil = new Person('Emil');
+// iterate all properties of the instance
+for (let key in emil) {
+	if (Object.hasOwn(emil, key)) {
+		// get only own properties: name, say
+		console.log(key);
+	}
+}
+```
+
+And prototype inheritance example:
+
+```js
+function Student(name) {
+	// Call the parent constructor
+	Person.call(this, name);
+}
+// extend Student as a subclass of Person
+Object.setPrototypeOf(Student.prototype, Person.prototype);
+// inherited parent static properties
+Object.setPrototypeOf(Student, Person);
+
+// replace the parent method
+Student.prototype.greet = function () {
+	return `Hi, I'm ${this.name} and I am a student`;
+};
+```
+
+:::caution
+It is not advisable to use setPrototypeOf() instead of extends due to performance and readability reasons.
 :::
 
 ### Explain the diff: bind vs apply vs call
