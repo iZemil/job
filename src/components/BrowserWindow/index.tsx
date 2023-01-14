@@ -12,7 +12,7 @@ import styles from './styles.module.css';
 
 interface Props {
 	children: ReactNode;
-	minHeight: number;
+	minHeight?: number;
 	url?: string;
 }
 

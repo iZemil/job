@@ -3,6 +3,8 @@ sidebar_position: 1
 slug: /interview
 ---
 
+import JobFunnel from '@site/src/components/JobFunnel';
+
 # Getting Started
 
 :::info
@@ -10,6 +12,8 @@ The main goal of this guide is to get the best job offer you can.
 :::
 
 If you are looking to find a job as a JavaScript developer, there are a few steps you can follow to increase your chances of success.
+
+<JobFunnel />
 
 ## Update Resume
 

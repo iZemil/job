@@ -116,17 +116,6 @@ function Counter() {
 }
 ```
 
-### How to find the closest number in an array?
-
-```javascript
-const counts = [4, 9, 15, 6, 2];
-const goal = 5;
-
-const output = counts.reduce((prev, curr) => (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev));
-
-console.log(output);
-```
-
 ### ts: get Values of object type
 
 ## Example Tasks

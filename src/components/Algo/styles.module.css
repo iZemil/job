@@ -1,0 +1,21 @@
+.tools {
+	margin: 0 0 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.run {
+	margin-left: auto;
+}
+
+.status {
+	flex: 1;
+}
+
+.testCases {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid var(--ifm-color-emphasis-200);
+}

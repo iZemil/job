@@ -72,10 +72,17 @@ const config = {
 						position: 'left',
 						label: 'Algorithms',
 					},
+
 					{
 						href: 'https://github.com/iZemil/job/discussions/1',
 						label: 'Contribute',
 						position: 'right',
+					},
+					{
+						href: 'https://github.com/iZemil/job/',
+						position: 'right',
+						className: 'header-github-link',
+						'aria-label': 'GitHub repository',
 					},
 				],
 			},
