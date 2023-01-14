@@ -6,6 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
+	--yellow-color: #ffe70b;
 	--primary-color: #000000;
 	--ifm-color-primary: var(--primary-color);
 	--ifm-color-primary-dark: var(--primary-color);
@@ -31,7 +32,7 @@ html[data-theme='dark'] {
 	--ifm-background-color: #242424;
 	--ifm-background-surface-color: #1d1d1d;
 
-	--primary-color: #ffe70b;
+	--primary-color: var(--yellow-color);
 	--ifm-color-primary: var(--primary-color);
 	--ifm-color-primary-dark: var(--primary-color);
 	--ifm-color-primary-darker: var(--primary-color);
@@ -44,6 +45,9 @@ html[data-theme='dark'] {
 
 .footer {
 	--ifm-footer-background-color: #1d1d1d;
+}
+html .footer a:hover {
+	color: var(--yellow-color);
 }
 
 .header-github-link:before {

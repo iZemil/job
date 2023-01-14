@@ -89,17 +89,46 @@ const config = {
 			},
 			footer: {
 				style: 'dark',
-				// links: [
-				// 	{
-				// 		title: 'Docs',
-				// 		items: [
-				// 			{
-				// 				label: 'Tutorial',
-				// 				to: '/docs/intro',
-				// 			},
-				// 		],
-				// 	},
-				// ],
+				links: [
+					{
+						title: 'Questions',
+						items: [
+							{
+								label: 'Javascript',
+								to: '/questions/javascript/',
+							},
+							{
+								label: 'Typescript',
+								to: '/questions/typescript/',
+							},
+							{
+								label: 'Frontend',
+								to: '/questions/frontend/',
+							},
+							{
+								label: 'NodeJS',
+								to: '/questions/nodejs/',
+							},
+						],
+					},
+					{
+						title: 'Tech Tasks',
+						items: [
+							{
+								label: 'Easy',
+								to: '/category/easy-tasks/',
+							},
+							{
+								label: 'Medium',
+								to: '/category/medium-tasks/',
+							},
+							{
+								label: 'Hard',
+								to: '/category/hard-tasks/',
+							},
+						],
+					},
+				],
 				copyright: `Copyright © ${new Date().getFullYear()} job.js.org built by zemil 🐝`,
 			},
 			prism: {
