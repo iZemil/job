@@ -11,6 +11,7 @@ const config = {
 	tagline: 'JS Interview',
 	url: 'https://izemil.github.io',
 	baseUrl: '/',
+	trailingSlash: true,
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
 	favicon: 'img/favicon.ico',
