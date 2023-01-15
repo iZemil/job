@@ -65,7 +65,7 @@ var maxPathSum = function (root) {
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(n).
+-   Time complexity: O(n).
+-   Space complexity: O(n).
 
 </details>

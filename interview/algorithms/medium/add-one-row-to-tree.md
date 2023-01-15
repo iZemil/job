@@ -108,7 +108,7 @@ var insert = function (root, val, type) {
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(1).
+-   Time complexity: O(n).
+-   Space complexity: O(1).
 
 </details>

@@ -58,8 +58,8 @@ nope.
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(n).
+-   Time complexity: O(n).
+-   Space complexity: O(n).
 
 <details>
 <summary>Solution</summary>
@@ -93,7 +93,7 @@ var preorderTraversal = function (root) {
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(n).
+-   Time complexity: O(n).
+-   Space complexity: O(n).
 
 </details>

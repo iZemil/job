@@ -60,7 +60,7 @@ var threeSum = function (nums) {
 
 **Complexity:**
 
--   Time complexity : O(n^2).
--   Space complexity : O(1).
+-   Time complexity: O(n^2).
+-   Space complexity: O(1).
 
 </details>

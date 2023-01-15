@@ -33,7 +33,7 @@ interface ITestCase {
 const renderIO = (test: ITest) => {
 	let md = '';
 	md += `Input: ${test.input.map((arg) => JSON.stringify(arg)).join(', ')}\n`;
-	md += `Output: ${test.output}`;
+	md += `Output: ${JSON.stringify(test.output)}`;
 
 	return md;
 };

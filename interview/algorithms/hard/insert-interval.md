@@ -63,7 +63,7 @@ var insert = function (intervals, newInterval) {
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(n).
+-   Time complexity: O(n).
+-   Space complexity: O(n).
 
 </details>

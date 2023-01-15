@@ -70,8 +70,8 @@ var helper = function (res, level) {
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(n).
+-   Time complexity: O(n).
+-   Space complexity: O(n).
 
 <details>
 <summary>Solution</summary>
@@ -105,7 +105,7 @@ var helper = function (res, root, level) {
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(n).
+-   Time complexity: O(n).
+-   Space complexity: O(n).
 
 </details>

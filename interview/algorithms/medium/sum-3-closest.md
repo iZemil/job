@@ -19,8 +19,8 @@ The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 
 **Complexity:**
 
--   Time complexity : O(n^2).
--   Space complexity : O(1).
+-   Time complexity: O(n^2).
+-   Space complexity: O(1).
 
 ```javascript
 /**

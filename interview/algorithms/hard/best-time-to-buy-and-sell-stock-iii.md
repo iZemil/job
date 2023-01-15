@@ -42,8 +42,8 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(1).
+-   Time complexity: O(n).
+-   Space complexity: O(1).
 
 ```javascript
 /**

@@ -74,7 +74,7 @@ var getDp = function (i, j, dp) {
 
 **Complexity:**
 
--   Time complexity : O(m\*n).
--   Space complexity : Om\*(n).
+-   Time complexity: O(m\*n).
+-   Space complexity: Om\*(n).
 
 </details>

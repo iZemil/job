@@ -1,10 +1,9 @@
 ---
 tags: [Easy, Backtracking, 'Bit Manipulation']
+title: Binary Watch
 ---
 
-# Binary Watch
-
-## Problem
+import Algo from '@site/src/components/Algo';
 
 A binary watch has 4 LEDs on the top which represent the **hours** (**0-11**), and the 6 LEDs on the bottom represent the **minutes** (**0-59**).
 Each LED represents a zero or one, with the least significant bit on the right.
@@ -15,33 +14,32 @@ For example, the above binary watch reads "3:25".
 
 Given a non-negative integer _n_ which represents the number of LEDs that are currently on, return all possible times the watch could represent.
 
-**Example:**
-
-```
-Input: n = 1Return: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]
-```
-
 **Note:**
 
 -   The order of output does not matter.
 -   The hour must not contain a leading zero, for example "01:00" is not valid, it should be "1:00".
 -   The minute must be consist of two digits and may contain a leading zero, for example "10:2" is not valid, it should be "10:02".
 
+<Algo
+placeholder={`function main (num) {
+    return;
+}`}
+tests={[
+{ input: [1], output: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]},
+]}
+/>
+
 <details>
-<summary>Solution 1</summary>
+<summary>Solution</summary>
 
 ```javascript
-/**
- * @param {number} num
- * @return {string[]}
- */
-var readBinaryWatch = function (num) {
+function readBinaryWatch(num) {
 	var res = [];
 	helper(num, 0, 0, res, 0);
 	return res;
-};
+}
 
-var helper = function (num, hours, minute, res, index) {
+function helper(num, hours, minute, res, index) {
 	if (num < 0 || index > 10 || hours > 11 || minute > 59) {
 		return;
 	} else if (num === 0) {
@@ -53,43 +51,7 @@ var helper = function (num, hours, minute, res, index) {
 		helper(num - 1, hours, minute + Math.pow(2, index - 4), res, index + 1);
 		helper(num, hours, minute, res, index + 1);
 	}
-};
-```
-
-</details>
-
-<details>
-<summary>Solution 2</summary>
-
-```javascript
-/**
- * @param {number} num
- * @return {string[]}
- */
-var readBinaryWatch = function (num) {
-	var res = [];
-	for (var i = 0; i < 12; i++) {
-		for (var j = 0; j < 60; j++) {
-			if (numberOfDigit(i) + numberOfDigit(j) === num) {
-				res.push(i + ':' + (j < 10 ? '0' + j : j));
-			}
-		}
-	}
-	return res;
-};
-
-var numberOfDigit = function (num) {
-	var n = 0;
-	var tmp = 0;
-	for (var i = 5; i >= 0; i--) {
-		tmp = 1 << i;
-		if (num >= tmp) {
-			n++;
-			num -= tmp;
-		}
-	}
-	return n;
-};
+}
 ```
 
 </details>

@@ -80,7 +80,7 @@ var fourSum = function (nums, target) {
 
 **Complexity:**
 
--   Time complexity : O(n^3).
--   Space complexity : O(1).
+-   Time complexity: O(n^3).
+-   Space complexity: O(1).
 
 </details>

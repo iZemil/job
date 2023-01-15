@@ -54,7 +54,7 @@ var addTwoNumbers = function (l1, l2) {
 
 **Complexity:**
 
--   Time complexity : O(max(m,n)).
--   Space complexity : O(max(m,n)).
+-   Time complexity: O(max(m,n)).
+-   Space complexity: O(max(m,n)).
 
 </details>

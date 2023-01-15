@@ -63,7 +63,7 @@ var swap = function (arr, i, j) {
 
 **Complexity:**
 
--   Time complexity : O(n).
--   Space complexity : O(1).
+-   Time complexity: O(n).
+-   Space complexity: O(1).
 
 </details>
