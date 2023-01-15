@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjob=self.webpackChunkjob||[]).push([[7545],{6465:s=>{s.exports=JSON.parse('{"title":"Easy Tasks","slug":"/category/easy-tasks","permalink":"/category/easy-tasks","navigation":{"previous":{"title":"Complexity and Big O","permalink":"/algorithms/big-o-complexity"},"next":{"title":"Add Strings","permalink":"/algorithms/easy/add-strings"}}}')}}]);

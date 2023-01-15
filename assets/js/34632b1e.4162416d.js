@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjob=self.webpackChunkjob||[]).push([[7545],{6465:a=>{a.exports=JSON.parse('{"title":"Easy Tasks","slug":"/category/easy-tasks","permalink":"/category/easy-tasks","navigation":{"previous":{"title":"Algorithms","permalink":"/algorithms"},"next":{"title":"Add Binary","permalink":"/algorithms/easy/add-binary"}}}')}}]);

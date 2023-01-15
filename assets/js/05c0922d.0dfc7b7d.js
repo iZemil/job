@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjob=self.webpackChunkjob||[]).push([[3740],{9486:a=>{a.exports=JSON.parse('{"label":"Bit Manipulation","permalink":"/tags/bit-manipulation","allTagsPath":"/tags","count":1,"items":[{"id":"algorithms/easy/binary-watch","title":"Binary Watch","description":"Problem","permalink":"/algorithms/easy/binary-watch"}]}')}}]);

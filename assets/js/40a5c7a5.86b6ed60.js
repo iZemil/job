@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjob=self.webpackChunkjob||[]).push([[4068],{3944:a=>{a.exports=JSON.parse('{"label":"Backtracking","permalink":"/tags/backtracking","allTagsPath":"/tags","count":1,"items":[{"id":"algorithms/easy/binary-watch","title":"Binary Watch","description":"Problem","permalink":"/algorithms/easy/binary-watch"}]}')}}]);
