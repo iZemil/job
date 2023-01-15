@@ -41,7 +41,7 @@ const renderIO = (test: ITest) => {
 const getFnName = (code: string): string => {
 	const found = code.match(/function .+\(/gi);
 
-	if (found[0]) {
+	if (found && found[0]) {
 		return found[0].replace(/(function)|[|\(\) ]/gi, '');
 	}
 
@@ -52,9 +52,11 @@ export default function Algo(props: IProps) {
 	const { placeholder, tests } = props;
 	const [value, changeValue] = useState(placeholder);
 	const [testCases, setTestCases] = useState<ITestCase[]>([]);
+	const [error, setError] = useState('');
 
 	const handleTest = () => {
 		const curTestCases: ITestCase[] = [];
+		let err = '';
 
 		let testIndex = 0;
 		for (const test of tests) {
@@ -66,7 +68,13 @@ export default function Algo(props: IProps) {
 			executionCode += `${value};`;
 			executionCode += `return ${fn}(${args});`;
 
-			const result = new Function(executionCode)();
+			let result;
+			try {
+				result = new Function(executionCode)();
+			} catch (e) {
+				err = String(e);
+			}
+
 			const isSuccess = JSON.stringify(result) === JSON.stringify(output);
 
 			console.log(
@@ -85,16 +93,21 @@ export default function Algo(props: IProps) {
 		}
 
 		setTestCases(curTestCases);
+		setError(err);
 	};
 
-	const isSuccessAll = useMemo(() => testCases.every((it) => it.status === EStatus.SUCCESS), [testCases]);
+	const successCount = useMemo(() => testCases.filter((it) => it.status === EStatus.SUCCESS).length, [testCases]);
+	const isSuccessAll = useMemo(() => successCount === testCases.length, [successCount, testCases]);
 
 	return (
-		<BrowserWindow minHeight={400}>
+		<BrowserWindow
+			minHeight={400}
+			// url={window.location.href} TODO: maybe with share button
+		>
 			<div className={styles.tools}>
 				{testCases.length !== 0 ? (
-					<div className={clsx(styles.status, 'alert', isSuccessAll ? 'alert--success' : 'alert--danger')}>
-						Status: {isSuccessAll ? 'Success' : 'Failure'}
+					<div className={clsx(styles.status, 'alert', isSuccessAll ? 'alert--success' : 'alert--warning')}>
+						Status: {isSuccessAll ? 'Success' : `Failure (${successCount}/${testCases.length})`}
 					</div>
 				) : (
 					<div className={clsx(styles.status)}>Write your solution:</div>
@@ -108,6 +121,12 @@ export default function Algo(props: IProps) {
 			<Editor code={value} onChange={changeValue} />
 
 			<div className={styles.testCases}>
+				{error && (
+					<Admonition type="danger" title="Error">
+						{error}
+					</Admonition>
+				)}
+
 				{tests.map((test, index) => {
 					const testCase = testCases[index];
 					const status = testCase?.status;

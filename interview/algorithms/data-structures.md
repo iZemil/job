@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Data Structures
 
+:::info
+This topic is in progress
+:::
+
 A data structure is a specific way of organizing and storing data in a computer's memory, such that it can be accessed and modified efficiently. Examples of data structures include arrays, linked lists, stacks, queues, and trees.
 
 **Arrays**

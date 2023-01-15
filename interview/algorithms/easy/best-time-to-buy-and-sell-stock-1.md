@@ -34,22 +34,22 @@ tests={[
 
 **Complexity:**
 
--   Time complexity: O(n).
--   Space complexity: O(1).
+-   Time complexity: O(n)
+-   Space complexity: O(1)
 
 ```javascript
 function maxProfit(prices) {
-	const n = prices.length;
-	const minPrice = Number.MAX_SAFE_INTEGER;
+	let minPrice = Number.MAX_SAFE_INTEGER;
 	let maxProfit = 0;
 
-	for (var i = 0; i < n; i++) {
-		if (prices[i] < minPrice) {
-			minPrice = prices[i];
-		} else if (prices[i] - minPrice > maxProfit) {
-			maxProfit = prices[i] - minPrice;
+	prices.forEach((price) => {
+		if (price < minPrice) {
+			minPrice = price;
+		} else if (price - minPrice > maxProfit) {
+			maxProfit = price - minPrice;
 		}
-	}
+	});
+
 	return maxProfit;
 }
 ```

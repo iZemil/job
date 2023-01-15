@@ -1,21 +1,17 @@
 ---
 tags: [Medium, Array, 'Two Pointers']
+title: Sum of the 3 Zero
 ---
-
-# Sum 3
 
 Given an array `nums` of **n** integers, are there elements **a**, **b**, **c** in `nums` such that **a** + **b** + **c** = 0? Find all unique triplets in the array which gives the sum of zero.
 
-**Note:**
-
-The solution set must not contain duplicate triplets.
+> The solution set must not contain duplicate triplets.
 
 **Example:**
 
 ```
-Given array nums = [-1, 0, 1, 2, -1, -4],
-
-A solution set is:
+Input: nums = [-1, 0, 1, 2, -1, -4]
+Output:
 [
   [-1, 0, 1],
   [-1, -1, 2]

@@ -37,3 +37,21 @@ function collapseDigits(num) {
 ```
 
 </details>
+
+<details>
+<summary>Solution</summary>
+
+```js
+function collapseDigits(num) {
+	const result = String(num)
+		.split('')
+		.reduce((acc, cur) => acc + Number(cur), 0);
+
+	if (result < 10) {
+		return result;
+	}
+	return collapseDigits(result);
+}
+```
+
+</details>

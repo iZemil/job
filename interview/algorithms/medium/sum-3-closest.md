@@ -1,18 +1,29 @@
 ---
 tags: [Medium, Array, 'Two Pointers']
+title: Sum of the 3 Closest
 ---
 
-# Sum 3 Closest
+import Algo from '@site/src/components/Algo';
 
 Given an array `nums` of **n** integers and an integer `target`, find three integers in `nums` such that the sum is closest to `target`. Return the sum of the three integers. You may assume that each input would have exactly one solution.
 
 **Example:**
 
 ```
-Given array nums = [-1, 2, 1, -4], and target = 1.
-
-The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+Input: nums = [-1, 2, 1, -4], target = 1
+Output: 2
+Explanation: The sum that is closest to the target is 2 (-1 + 2 + 1 = 2)
 ```
+
+<Algo
+placeholder={`function main (nums, target) {
+    return;
+}`}
+tests={[
+{ input: [[-1, 2, 1, -4], 1], output: 2},
+{ input: [[-1, 20, 10, 14, 12, 13], 13], output: 21},
+]}
+/>
 
 <details>
 <summary>Solution</summary>
@@ -23,19 +34,16 @@ The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 -   Space complexity: O(1).
 
 ```javascript
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var threeSumClosest = function (nums, target) {
-	var len = nums.length;
-	var res = nums[0] + nums[1] + nums[2];
-	var sum = 0;
-	var l = 0;
-	var r = 0;
+function threeSumClosest(nums, target) {
+	let len = nums.length;
+	let res = nums[0] + nums[1] + nums[2];
+	let sum = 0;
+	let l = 0;
+	let r = 0;
+
 	nums.sort((a, b) => a - b);
-	for (var i = 0; i < len - 2; i++) {
+
+	for (let i = 0; i < len - 2; i++) {
 		if (i > 0 && nums[i] === nums[i - 1]) continue;
 		l = i + 1;
 		r = len - 1;
@@ -52,7 +60,7 @@ var threeSumClosest = function (nums, target) {
 		}
 	}
 	return res;
-};
+}
 ```
 
 </details>

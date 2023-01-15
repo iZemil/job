@@ -1,8 +1,7 @@
 ---
 tags: [Medium, 'Hash Table', Stack, Tree]
+title: Binary Tree Inorder Traversal
 ---
-
-# Binary Tree Inorder Traversal
 
 Given a binary tree, return the **inorder** traversal of its nodes' values.
 
@@ -24,7 +23,10 @@ Output: [1,3,2]
 <details>
 <summary>Solution</summary>
 
-</details> 1
+**Complexity:**
+
+-   Time complexity: O(n)
+-   Space complexity: O(n)
 
 ```javascript
 /**
@@ -34,35 +36,29 @@ Output: [1,3,2]
  *     this.left = this.right = null;
  * }
  */
-/**
- * @param {TreeNode} root
- * @return {number[]}
- */
-var inorderTraversal = function (root) {
-	var res = [];
+function inorderTraversal(root) {
+	let res = [];
 	helper(root, res);
 	return res;
-};
+}
 
-var helper = function (root, res) {
+function helper(root, res) {
 	if (!root) return;
 	if (root.left) helper(root.left, res);
 	res.push(root.val);
 	if (root.right) helper(root.right, res);
-};
+}
 ```
 
-**Explain:**
-
-nope.
-
-**Complexity:**
-
--   Time complexity: O(n).
--   Space complexity: O(n).
+</details>
 
 <details>
 <summary>Solution</summary>
+
+**Complexity:**
+
+-   Time complexity: O(n)
+-   Space complexity: O(n)
 
 ```javascript
 /**
@@ -76,10 +72,10 @@ nope.
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function (root) {
-	var stack = [];
-	var now = root;
-	var res = [];
+function inorderTraversal(root) {
+	let stack = [];
+	let now = root;
+	let res = [];
 
 	while (now || stack.length) {
 		while (now) {
@@ -92,12 +88,7 @@ var inorderTraversal = function (root) {
 	}
 
 	return res;
-};
+}
 ```
-
-**Complexity:**
-
--   Time complexity: O(n).
--   Space complexity: O(n).
 
 </details>

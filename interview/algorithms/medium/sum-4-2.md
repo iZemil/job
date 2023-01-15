@@ -1,8 +1,7 @@
 ---
 tags: [Medium, 'Hash Table', 'Binary Search']
+title: Sum of the 4 (2)
 ---
-
-# Sum 4 (ii)
 
 Given four lists A, B, C, D of integer values, compute how many tuples `(i, j, k, l)` there are such that `A[i] + B[j] + C[k] + D[l]` is zero.
 
@@ -17,8 +16,7 @@ B = [-2,-1]
 C = [-1, 2]
 D = [ 0, 2]
 
-Output:
-2
+Output: 2
 
 Explanation:
 The two tuples are:
@@ -29,40 +27,33 @@ The two tuples are:
 <details>
 <summary>Solution</summary>
 
-```javascript
-/**
- * @param {number[]} A
- * @param {number[]} B
- * @param {number[]} C
- * @param {number[]} D
- * @return {number}
- */
-var fourSumCount = function (A, B, C, D) {
-	var map = {};
-	var res = 0;
-	var key = 0;
+**Complexity:**
 
-	for (var i = 0; i < A.length; i++) {
-		for (var j = 0; j < B.length; j++) {
+-   Time complexity: O(n^2)
+-   Space complexity: O(1)
+
+```javascript
+function fourSumCount(A, B, C, D) {
+	const map = {};
+	let res = 0;
+	let key = 0;
+
+	for (let i = 0; i < A.length; i++) {
+		for (let j = 0; j < B.length; j++) {
 			key = A[i] + B[j];
 			map[key] = (map[key] || 0) + 1;
 		}
 	}
 
-	for (var i = 0; i < C.length; i++) {
-		for (var j = 0; j < D.length; j++) {
+	for (let i = 0; i < C.length; i++) {
+		for (let j = 0; j < D.length; j++) {
 			key = -(C[i] + D[j]);
 			res += map[key] || 0;
 		}
 	}
 
 	return res;
-};
+}
 ```
-
-**Complexity:**
-
--   Time complexity: O(n^2).
--   Space complexity: O(1).
 
 </details>

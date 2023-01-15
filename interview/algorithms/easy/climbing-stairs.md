@@ -28,6 +28,7 @@ placeholder={`function main (n) {
 tests={[
 { input: [2], output: 2},
 { input: [3], output: 3},
+{ input: [4], output: 5},
 { input: [13], output: 377},
 ]}
 />
@@ -43,9 +44,11 @@ tests={[
 ```javascript
 function climbStairs(n) {
 	let dp = [0, 1];
-	for (var i = 0; i < n; i++) {
+
+	for (let i = 0; i < n; i++) {
 		dp = [dp[1], dp[0] + dp[1]];
 	}
+
 	return dp[1];
 }
 ```
