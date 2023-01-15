@@ -1,8 +1,9 @@
 ---
 tags: [Easy, Math]
+title: Collapse Digits
 ---
 
-# Add Digits
+import Algo from '@site/src/components/Algo';
 
 Given a non-negative integer `num`, repeatedly add all its digits until the result has only one digit.
 
@@ -15,25 +16,24 @@ Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2.
              Since 2 has only one digit, return it.
 ```
 
-**Follow up:**
-Could you do it without any loop/recursion in O(1) runtime?
+<Algo
+placeholder={`function main (input) {
+    return;
+}`}
+tests={[
+{ input: [38], output: 2},
+{ input: [103], output: 4},
+{ input: [987], output: 6},
+]}
+/>
 
 <details>
 <summary>Solution</summary>
 
 ```javascript
-/**
- * @param {number} num
- * @return {number}
- */
-var addDigits = function (num) {
+function collapseDigits(num) {
 	return 1 + ((num - 1) % 9);
-};
+}
 ```
-
-**Complexity:**
-
--   Time complexity : O(1).
--   Space complexity : O(1).
 
 </details>

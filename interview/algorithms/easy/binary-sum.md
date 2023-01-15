@@ -1,26 +1,23 @@
 ---
 tags: [Easy, Math, String]
+title: Binary Sum
 ---
 
-# Add Binary
+import Algo from '@site/src/components/Algo';
 
 Given two binary strings, return their sum (also a binary string).
 
 The input strings are both **non-empty** and contains only characters `1` or `0`.
 
-**Example 1:**
-
-```
-Input: a = "11", b = "1"
-Output: "100"
-```
-
-**Example 2:**
-
-```
-Input: a = "1010", b = "1011"
-Output: "10101"
-```
+<Algo
+placeholder={`function main (a, b) {
+    return;
+}`}
+tests={[
+{ input: ['11', '1'], output: '100'},
+{ input: ['1010', '1011'], output: '10101'},
+]}
+/>
 
 <details>
 <summary>Solution</summary>
@@ -31,29 +28,26 @@ Output: "10101"
 -   Space complexity : O(1).
 
 ```javascript
-/**
- * @param {string} a
- * @param {string} b
- * @return {string}
- */
-var addBinary = function (a, b) {
-	var len1 = a.length;
-	var len2 = b.length;
-	var max = Math.max(len1, len2);
-	var res = '';
-	var carry = 0;
-	var val = 0;
+function sum(a, b) {
+	const len1 = a.length;
+	const len2 = b.length;
+	const max = Math.max(len1, len2);
+	let carry = 0;
+	let val = 0;
+	let res = '';
 
-	for (var i = 0; i < max; i++) {
+	for (let i = 0; i < max; i++) {
 		val = Number(a[len1 - 1 - i] || 0) + Number(b[len2 - 1 - i] || 0) + carry;
 		carry = Math.floor(val / 2);
 		res = (val % 2) + res;
 	}
 
-	if (carry) res = 1 + res;
+	if (carry) {
+		res = 1 + res;
+	}
 
 	return res;
-};
+}
 ```
 
 </details>

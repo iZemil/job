@@ -1,10 +1,9 @@
-# Add Strings
+---
+tags: [Easy, Math]
+title: Add Strings
+---
 
--   Difficulty: Easy.
--   Related Topics: Math.
--   Similar Questions: Add Two Numbers, Multiply Strings.
-
-## Problem
+import Algo from '@site/src/components/Algo';
 
 Given two non-negative integers `num1` and `num2` represented as string, return the sum of `num1` and `num2`.
 
@@ -15,21 +14,28 @@ Given two non-negative integers `num1` and `num2` represented as string, return 
 -   Both `num1` and `num2` does not contain any leading zero.
 -   You **must not use any built-in BigInteger library** or **convert the inputs to integer** directly.
 
-## Solution
+<Algo
+placeholder={`function main (num1, num2) {
+    return;
+}`}
+tests={[
+{ input: ['63', '181'], output: '244'},
+{ input: ['11', '1'], output: '12'},
+{ input: ['1010', '1011'], output: '2021'},
+]}
+/>
+
+<details>
+<summary>Solution</summary>
 
 ```javascript
-/**
- * @param {string} num1
- * @param {string} num2
- * @return {string}
- */
-var addStrings = function (num1, num2) {
-	var len1 = num1.length;
-	var len2 = num2.length;
-	var max = Math.max(len1, len2);
-	var res = Array(max);
-	var carry = 0;
-	var val = 0;
+function addStrings(num1, num2) {
+	const len1 = num1.length;
+	const len2 = num2.length;
+	const max = Math.max(len1, len2);
+	const res = Array(max);
+	let carry = 0;
+	let val = 0;
 
 	for (var i = 0; i < max; i++) {
 		val = Number(num1[len1 - 1 - i] || 0) + Number(num2[len2 - 1 - i] || 0) + carry;
@@ -38,14 +44,7 @@ var addStrings = function (num1, num2) {
 	}
 
 	return (carry || '') + res.join('');
-};
+}
 ```
 
-**Explain:**
-
-nope.
-
-**Complexity:**
-
--   Time complexity :
--   Space complexity :
+</details>

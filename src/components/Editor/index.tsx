@@ -44,6 +44,8 @@ export default function Editor(props: IProps) {
 			onValueChange={handleChange}
 			highlight={highlight}
 			padding={10}
+			insertSpaces
+			tabSize={4}
 			className={styles.editor}
 			style={theme.plain}
 		/>
