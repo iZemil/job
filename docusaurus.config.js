@@ -9,7 +9,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const config = {
 	title: 'Javascript Job',
 	tagline: 'JS Interview',
-	url: 'https://izemil.github.io',
+	url: 'https://job.js.org',
 	baseUrl: '/',
 	trailingSlash: true,
 	onBrokenLinks: 'throw',

@@ -86,8 +86,8 @@ Example below illustrates algorithm complexity and its performance characteristi
 
 1. **Array Access**
 
--   Time Complexity - O(1)
--   Space Complexity - O(1)
+-   Time Complexity: O(1)
+-   Space Complexity: O(1)
 
 ```js
 function getElement(arr, index) {
@@ -97,8 +97,8 @@ function getElement(arr, index) {
 
 2. **Linear Search**
 
--   Time Complexity - O(n)
--   Space Complexity - O(1)
+-   Time Complexity: O(n)
+-   Space Complexity: O(1)
 
 ```js
 function linearSearch(arr, target) {
@@ -113,8 +113,8 @@ function linearSearch(arr, target) {
 
 3. **Binary Search**
 
--   Time Complexity - O(log n)
--   Space Complexity - O(1)
+-   Time Complexity: O(log n)
+-   Space Complexity: O(1)
 
 ```js
 function binarySearch(arr, target) {
@@ -137,8 +137,8 @@ function binarySearch(arr, target) {
 
 4. **BubbleSort**
 
--   Time Complexity - O(n^2)
--   Space Complexity - O(1)
+-   Time Complexity: O(n^2)
+-   Space Complexity: O(1)
 
 ```js
 function bubbleSort(arr) {
@@ -157,8 +157,8 @@ function bubbleSort(arr) {
 
 5. **Quicksort**
 
--   Time Complexity - O(n log n) (average case) and O(n^2) (worst case)
--   Space Complexity - O(log n)
+-   Time Complexity: O(n log n) (average case) and O(n^2) (worst case)
+-   Space Complexity: O(log n)
 
 ```js
 function quickSort(arr, left, right) {
