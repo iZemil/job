@@ -35,13 +35,18 @@ The event loop works by continuously monitoring a queue of callback functions th
 
 This process continues until there are no more callbacks left to be executed, at which point the event loop enters a "waiting" state, waiting for new events to occur. This allows Node.js to perform non-blocking I/O operations and to handle many concurrent connections with a small number of threads.
 
-Overall, the event loop is what enables Node.js to be efficient and lightweight, making it well-suited for building scalable network applications.
+### What is Reactor Pattern?
+
+The Reactor pattern is a design pattern used in Node.js to handle asynchronous I/O operations. It is a concurrency pattern that provides a mechanism to demultiplex and dispatch service requests that are delivered to an application by one or more clients. The pattern defines a non-blocking event-driven architecture that abstracts the handling of multiple input events through the use of a central demultiplexing mechanism, such as an event loop. The event loop waits for events to occur on a set of registered handles, and then dispatches the appropriate event handlers to handle those events.
+
+An example of the Reactor pattern in Node.js would be a server application that listens for incoming connections on a specific port. The event loop, or reactor, would register a handle for the server socket and wait for incoming connections.
 
 ### List down the various timing features of NodeJS
 
 Node.js provides a Timers module which contains various functions for executing the code after a specified period of time.
 
 Below I have listed down the various functions provided by this module:
+
 -   `setTimeout/clearTimeout` – schedule code execution after a designated amount of milliseconds
 -   `setInterval/clearInterval` – execute a block of code multiple times every specified time period
 -   `setImmediate/clearImmediate` – execute code at the end of the current event loop cycle
@@ -76,6 +81,7 @@ Asynchronous code is executed in a non-blocking manner, allowing the program to 
 package.json is a file that is used to define the properties of a Node.js package. It is typically located in the root directory of a project, and it contains information such as the package's name, version, dependencies, scripts, and other metadata.
 
 The package.json file serves several purposes:
+
 -   It helps other developers understand what your package does, how it is structured, and how to use it.
 -   It allows you to specify the dependencies that your package needs in order to function. When someone installs your package, npm (the Node.js package manager) will automatically install all of the dependencies listed in package.json.
 -   It allows you to specify scripts that can be run to perform various tasks, such as testing, building, or deploying your package.
@@ -190,7 +196,18 @@ A Node.js project should have a clear and organized file and directory structure
 For advanced answer, try to discover NestJS framework architecture
 :::
 
-### How do you improve the performance of a NodeJS application?
+### How to measure the performance of an NodeJS app?
+
+There are several ways to measure the performance of a Node.js app, including:
+
+1. Profiling: using tools such as the built-in Node.js profiler or external tools like v8-profiler or node-inspector to profile the app and identify performance bottlenecks (e.g. one of the metrics [`monitorEventLoopDelay`](https://nodejs.org/api/perf_hooks.html#perf_hooks_perf_hooks_monitoreventloopdelay_options))
+2. Monitoring: using tools such as Prometheus, StatsD, or New Relic to monitor key performance metrics such as memory usage, CPU usage, and response times.
+3. Logging: using tools such as Winston or Bunyan to log key events and performance metrics in the app, which can be analyzed later to identify performance issues.
+4. Load testing: using tools such as Apache JMeter or Gatling to simulate a high number of concurrent users and measure the app's performance under load.
+5. Code analysis: using tools such as ESLint, JSHint, or JSLint to analyze the code for potential performance issues, such as memory leaks or slow loops.
+6. Tracing: using tools such as OpenTracing, Zipkin, or Dapper to trace the flow of a request through the app and identify where performance bottlenecks occur.
+
+### How do you improve the performance of an NodeJS application?
 
 There are several ways to improve the performance of a Node.js application, including optimizing the code, using caching, and using a load balancer to distribute incoming requests across multiple servers. It is also important to monitor the performance of the application and to profile it to identify any bottlenecks or inefficiencies.
 
@@ -204,7 +221,7 @@ In Node.js, the `child_process` module provides an API for creating and managing
 
 The `child_process` module provides four different methods for creating child processes:
 
-1.  `spawn()`: Launches a new process and returns a ChildProcess object, which allows you to communicate with the child process using standard input, output, and error streams.
+1.  `spawn()`: Launches a new process and returns a ChildProcess object, which allows you to communicate with the child process using standard input, output, and error **streams**.
 2.  `exec()`: Executes a command in a child process and buffers the output.
 3.  `execFile()`: Executes a command in a child process, providing the option to specify the encoding for the output.
 4.  `fork()`: Spawns a new Node.js process and returns a ChildProcess object, allowing the parent and child processes to communicate using inter-process communication (IPC).

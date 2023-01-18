@@ -24,7 +24,7 @@ Here are a few key points to consider when updating a resume:
 1. **Review your job history and accomplishments:** review your job history and think about your accomplishments and responsibilities in each role. This will help you identify any skills or experience that you can highlight on your resume.
 2. **Use a clear, easy-to-read format:** Your resume should be easy to read and understand, with a clear and organized layout. Use headings and bullet points to break up the text and make it easier to scan.
 3. **Customize your resume for each job:** It is important to tailor your resume to the specific job you are applying for.
-4. **Use keywords:** Some companies use applicant tracking systems (ATS) to filter resumes, so it is important to include relevant keywords in your resume to increase your chances of being noticed.
+4. **Use keywords:** Some companies use applicant tracking systems (ATS) to filter resumes, so it is important to include relevant keywords and clear unnecessary/waste keywords in your resume to increase your chances of being noticed.
 5. **Proofread and edit:** Make sure to proofread and edit your resume carefully to catch any spelling or grammar errors. It can also be helpful to have someone else review your resume to catch any mistakes you might have missed.
 6. **Update your education and certifications:** If you have completed any additional education or training since you last updated your resume.
 7. **Consider adding any additional skills or experience:** If you have gained any new skills or experience since you last updated your resume, consider adding this information to your resume (language skills, technical skills, or professional development courses).
@@ -62,8 +62,13 @@ There are several places and ways you can push your CV to increase your chances 
 3. **Professional networks:** Networking can be a powerful tool in finding a job. You can reach out to people in your professional network, such as former colleagues, classmates, and industry professionals, to let them know you are looking for a job and ask if they know of any openings.
 4. **Recruitment agencies:** Recruitment agencies work with companies to help fill open positions. You can contact a recruitment agency and submit your CV to be considered for job openings.
 5. **Directly contact companies:** If you are interested in working for a specific company, you can reach out to them directly to inquire about open positions or to express your interest in working with them.
+6. **Job Agencies:** In most cases job agencies have own databases of companies and open job positions. The other advantages are:
+    - assistance with job search and application process
+    - matching of job seekers with suitable employers
+    - time and cost savings
+    - temporary and contract work
 
-As the first step, start with **LinkedIn** (check guides about how to fill LinkedIn profile, set a desirable region - the first point a recruiter will look for you). Also, you can make auto following of recruiters. You will most likely be contacted within two weeks. Then find a couple of other channels besides LinkedIn.
+As the first step, start with **LinkedIn** (check guides about how to fill LinkedIn profile, set a desirable region - the first point a recruiter will look for you). Also, you can make auto following of recruiters. You will most likely be contacted within two weeks. Then find a couple of other channels besides LinkedIn. _If you have decided on the country in which you want to get a job, it makes sense to pick up a few local job boards._
 
 :::tip
 Your job profile it's the first look at you, so make it as engaging as possible. Think about it as a Promo Page.
@@ -157,6 +162,13 @@ Here are a few tips for completing a testing task in a JavaScript developer inte
 There are a few ways you can get feedback on your performance in an interview:
 
 1. **Ask the interviewer:** After your interview, you can ask the interviewer for feedback on your performance. They may be able to provide specific feedback on your strengths and areas for improvement.
-2. **Request feedback from the HR representative:** If you have been in contact with an HR representative during the interview process, you can reach out to them to request feedback on your performance.
-3. **Practice with a friend or mentor:** You can also ask a friend or mentor to simulate an interview with you and provide feedback on your performance. This can be a helpful way to get a fresh perspective and identify areas for improvement.
-4. **Review your own performance:** Finally, you can review your own performance by reflecting on the interview and considering what went well and what you could have done differently. You can also review any notes or materials you prepared for the interview to see if there are any areas where you could improve.
+2. **Practice with a friend or mentor:** You can also ask a friend or mentor to simulate an interview with you and provide feedback on your performance. This can be a helpful way to get a fresh perspective and identify areas for improvement.
+3. **Review your own performance:** Finally, you can review your own performance by reflecting on the interview and considering what went well and what you could have done differently. After each interview make notes with key points to review then and see if there are any areas where you could improve.
+
+:::tip Practice!
+
+Getting through interviews is a skill. The skill comes with experience.
+
+The goal of practice is to find your strengths and weaknesses. Work on your weaknesses 💪
+
+:::

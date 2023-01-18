@@ -38,18 +38,19 @@ tests={[
 
 **Complexity:**
 
--   Time complexity: O(n).
--   Space complexity: O(n).
+-   Time complexity: O(n)
+-   Space complexity: O(1)
 
 ```javascript
 function climbStairs(n) {
-	let dp = [0, 1];
+	let a = 0,
+		b = 1;
 
 	for (let i = 0; i < n; i++) {
-		dp = [dp[1], dp[0] + dp[1]];
+		[a, b] = [b, a + b];
 	}
 
-	return dp[1];
+	return b;
 }
 ```
 

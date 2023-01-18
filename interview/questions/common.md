@@ -91,6 +91,194 @@ Microservice pros: Microservice architectures are typically better organized, si
 
 Microservice cons: As you’re building a new microservice architecture, you’re likely to discover lots of cross-cutting concerns that you did not anticipate at design time. A monolithic app could establish shared magic helpers or middleware to handle such cross-cutting concerns without much effort.
 
+## What is OOP?
+
+Object-oriented programming (OOP) is a programming paradigm that is based on the concept of "objects", which are data structures that contain data and behavior. In OOP, the focus is on creating objects that represent real-world entities and the relationships between them, rather than on writing code to perform specific tasks.
+
+OOP is based on the idea of encapsulation, which means that an object's data and behavior are bundled together and hidden from the outside world. This allows objects to be self-contained and modular, and it makes it easier to reuse and maintain the code.
+
+OOP also introduces the concepts of inheritance and polymorphism, which allow objects to inherit characteristics and behavior from other objects, and to exhibit different behavior in different contexts.
+
+OOP is widely used in modern programming languages, and it is a powerful paradigm that can help to structure and organize the code, and to make it more modular, reusable, and maintainable.
+
+### What is Inheritance?
+
+Inheritance is a fundamental concept in object-oriented programming (OOP) that refers to the ability of a class to inherit properties and methods from another class. It allows developers to create a new class (the "subclass") that is based on an existing class (the "superclass"), and to extend or modify the behavior of the subclass as needed.
+
+Inheritance is a way to reuse code and to create a hierarchical structure for organizing related classes. It helps to reduce redundancy in code and to make it easier to maintain and modify.
+
+In JavaScript, inheritance is implemented using prototypes. Every object in JavaScript has a prototype, which is another object that it inherits properties and methods from. When an object is created, it can inherit properties and methods from its prototype, and its prototype can in turn inherit from another prototype, and so on. This creates a chain of prototypes, known as the prototype chain, that determines which properties and methods an object has access to.
+
+### What is Polymorphism?
+
+Polymorphism is a fundamental concept in object-oriented programming (OOP) that refers to the ability of different objects to respond to the same method or property in different ways. In JavaScript, polymorphism can be achieved through a variety of techniques, including inheritance, method overriding, and function overloading.
+
+-   Inheritance and method overriding allow different objects to respond to the same method in different ways at runtime. This is known as runtime polymorphism or dynamic polymorphism.
+-   Function overloading allows multiple functions with the same name to be defined with different sets of arguments. This is known as compile-time polymorphism or static polymorphism.
+
+Here is an example of polymorphism:
+
+```ts
+abstract class Shape {
+	abstract get area(): number;
+}
+
+class Rectangle extends Shape {
+	width: number;
+	height: number;
+
+	constructor(width: number, height: number) {
+		super();
+
+		this.width = width;
+		this.height = height;
+	}
+
+	get area() {
+		return this.width * this.height;
+	}
+}
+
+class Circle extends Shape {
+	radius: number;
+
+	constructor(radius: number) {
+		super();
+
+		this.radius = radius;
+	}
+
+	get area() {
+		return Math.PI * this.radius * this.radius;
+	}
+}
+
+const shapes = [new Rectangle(2, 4), new Circle(2)];
+const areas = shapes.map((shape) => shape.area);
+```
+
+### What is Encapsulation?
+
+Keeping an object's internal state private, and in general making a clear division between its public interface and its private internal state, is called encapsulation. The object's internal state is kept private, meaning that it can only be accessed by the object's own methods, not from other objects.
+
+:::info
+This is a useful feature because it enables the programmer to change the internal implementation of an object without having to find and update all the code that uses it: it creates a kind of firewall between this object and the rest of the system.
+:::
+
+### Explain object Prototypes
+
+Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+
+Every object in JavaScript has a built-in property, which is called its **prototype**. The prototype is itself an object, so the prototype will have its own prototype, making what's called a **prototype chain**.
+
+```js
+// the latest prototy chain item is null
+Object.getPrototypeOf(Object.getPrototypeOf({})); // null
+```
+
+Class property `prototype` includes all props and methods for the class instance:
+
+```js
+function Person(name) {
+	this.name = name;
+}
+
+const personPrototype = {
+	greet() {
+		console.log(`hello, my name is ${this.name}!`);
+	},
+};
+
+Object.assign(Person.prototype, personPrototype);
+// or
+// Person.prototype.greet = personPrototype.greet;
+
+const jack = new Person('Jack');
+jack.greet(); // hello, my name is Jack!
+```
+
+Properties that are defined directly in the object, like `name` here, are called **own properties**, and you can check whether a property is an own property using the static `Object.hasOwn()` method:
+
+```js
+const emil = new Person('Emil');
+
+console.log(Object.hasOwn(emil, 'name')); // true
+console.log(Object.hasOwn(emil, 'greet')); // false
+
+// the same with Object.hasOwnProperty method
+console.log(emil.hasOwnProperty('greet')); // false
+```
+
+Difference between class and prototype notations:
+
+```js
+class Person {
+	constructor(name) {
+		this.name = name;
+		this.say = function (text) {
+			return `${this.name} said: ${text}`;
+		};
+	}
+
+	greet() {
+		return `Hello, my name is ${this.name}!`;
+	}
+
+	static random() {
+		return Math.random();
+	}
+}
+
+function Person(name) {
+	// own properties
+	this.name = name;
+	this.say = function (text) {
+		return `${this.name} said: ${text}`;
+	};
+}
+// extend Person prototype with method:
+Person.prototype.greet = function () {
+	return `Hello, my name is ${this.name}!`;
+};
+// add static method:
+Person.random = function () {
+	return Math.random();
+};
+
+const emil = new Person('Emil');
+// iterate all properties of the instance
+for (let key in emil) {
+	if (Object.hasOwn(emil, key)) {
+		// get only own properties: name, say
+		console.log(key);
+	}
+}
+```
+
+And prototype inheritance example:
+
+```js
+function Student(name) {
+	// Call the parent constructor
+	Person.call(this, name);
+}
+// extend Student as a subclass of Person
+Object.setPrototypeOf(Student.prototype, Person.prototype);
+// inherited parent static properties
+Object.setPrototypeOf(Student, Person);
+
+// replace the parent method
+Student.prototype.greet = function () {
+	return `Hi, I'm ${this.name} and I am a student`;
+};
+```
+
+:::caution
+
+It is not advisable to use setPrototypeOf() instead of extends due to performance and readability reasons.
+
+:::
+
 ## What are the ways to parallelize calculations?
 
 There are several ways to parallelize calculations in JavaScript, depending on the specific requirements of the task at hand. Some of the most common approaches include:
