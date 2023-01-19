@@ -1,21 +1,18 @@
 import * as ls from 'local-storage';
 
 interface IQuestion {
-	id: number;
-	question: string;
+	id: string;
+	title: string;
 }
 
 interface ITopicData {
-	file: string;
-	path: string;
-	key: string;
-	order: number;
+	title: string;
+	dir: string;
 	data: IQuestion[];
 }
 
 const topics: ITopicData[] = require('@site/static/questions.json');
-
-topics.sort((a, b) => a.order - b.order);
+// topics.sort((a, b) => a.order - b.order);
 
 function random<T>(arr: T[]): T {
 	return arr[Math.floor(Math.random() * arr.length)];
@@ -26,71 +23,72 @@ export const ANY_TOPIC = 'any';
 export class Store {
 	public static KEY = 'questionStore';
 
-	public static getCache(): { [topicKey: string]: number[] } {
+	public static getCache(): { [topicPath: string]: string[] } {
 		return ls.get(Store.KEY) ?? {};
 	}
 
-	public static getTopicQuestions(topicKey: string) {
+	public static getTopicQuestions(topicPath: string) {
 		const cache = Store.getCache();
 
-		return cache[topicKey] ?? [];
+		return cache[topicPath] ?? [];
 	}
 
-	public static clearCache(topicKey?: string) {
-		if (topicKey) {
+	public static clearCache(topicPath?: string) {
+		if (topicPath) {
 			const cache = Store.getCache();
 
 			return ls.set(Store.KEY, {
 				...cache,
-				[topicKey]: [],
+				[topicPath]: [],
 			});
 		}
 
 		return ls.remove(Store.KEY);
 	}
 
-	public static updateCache({ topicKey, data, topicLen }: Question) {
+	public static updateCache({ topicPath, id, topicLen }: Question) {
 		const cache = Store.getCache();
-		const questionIds = Store.getTopicQuestions(topicKey);
+		const questionIds = Store.getTopicQuestions(topicPath);
 		const needRefreshCache = questionIds.length === topicLen;
 
 		if (needRefreshCache) {
-			Store.clearCache(topicKey);
+			Store.clearCache(topicPath);
 		} else {
 			ls.set(Store.KEY, {
 				...cache,
-				[topicKey]: questionIds.concat(data.id),
+				[topicPath]: questionIds.concat(id),
 			});
 		}
 	}
 }
 
 export class Question {
-	public readonly topicKey: string;
+	public readonly id: string;
+	public readonly title: string;
+
 	public readonly topicLen: number;
 	public readonly topicPath: string;
-	public readonly data: IQuestion;
 
 	public static topics() {
-		return topics.map((it) => it.key);
+		return topics.map((it) => it.title);
 	}
 
-	public static random(topicKey: string, withCache = false): Question {
-		let topic = topics.find((it) => it.key === topicKey);
-		if (!topic || topicKey === ANY_TOPIC) {
+	public static random(topicPath: string, withCache = false): Question {
+		let topic = topics.find((it) => it.dir === topicPath);
+		if (!topic || topicPath === ANY_TOPIC) {
 			topic = random(topics);
 		}
 
-		const { path, key, data } = topic;
-		const cachedQuestionIds = Store.getTopicQuestions(key);
+		const { dir, data } = topic;
+		const cachedQuestionIds = Store.getTopicQuestions(dir);
 		const restQuestions = data.filter((it) => !cachedQuestionIds.includes(it.id));
-		const randomQuestionData = random(restQuestions.length > 0 ? restQuestions : data);
+		const { id, title } = random(restQuestions.length > 0 ? restQuestions : data);
 
 		const question: Question = {
-			topicPath: path,
-			topicKey: key,
+			id,
+			title,
+			topicPath: dir,
 			topicLen: data.length,
-			data: randomQuestionData,
 		};
 
 		if (withCache) {
@@ -100,12 +98,7 @@ export class Question {
 		return question;
 	}
 
-	public static getLink({ data, topicPath }: Question): string {
-		const questionTo = `${data.question
-			.split(' ')
-			.join('-')
-			.replace(/[?()\.\\\/\,\~\^\'\"\`\:]/gi, '')}`;
-
-		return `/questions/${topicPath}#${questionTo}`.toLowerCase();
+	public static getLink({ topicPath, id }: Question): string {
+		return `/${topicPath}/${id}`;
 	}
 }

@@ -1,0 +1,3 @@
+# Explain the difference between null, undefined and undeclared
+
+`null` and `undefined` are both values that can be assigned to variables, while `undeclared` refers to a variable or property that has not yet been declared or defined. Additionally, `null` and `undefined` are values that can be compared and tested for equality, while `undeclared` is a reference error that cannot be handled or tested for.

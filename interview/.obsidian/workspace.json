@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1abcf89a1a09d41a",
+        "id": "f5847a16c5fda879",
         "type": "tabs",
         "children": [
           {
-            "id": "f414b1aa8b9ae5f0",
+            "id": "d2b63846adc3a60f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -44,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": ":::",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -138,17 +138,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f414b1aa8b9ae5f0",
+  "active": "5da853c18254e00e",
   "lastOpenFiles": [
-    "_tasks/issues.md",
-    "questions/algorithms.md",
-    "getting-started.md",
-    "questions/nodejs.md",
-    "questions/javascript.md",
-    "questions/common.md",
-    "_presentation.md",
-    "questions/typescript.md",
-    "questions/frontend.md",
-    "interview/category/questions.md"
+    "questions/_nodejs.md",
+    "questions/nodejs/nodejs-clustering.md",
+    "questions/nodejs/child-process.md",
+    "questions/_frontend.md",
+    "questions/nodejs/improve-nodejs-app-perfomance.md",
+    "questions/nodejs/nodejs-app-perfomance.md",
+    "questions/nodejs/nodejs-project-structure.md",
+    "questions/nodejs/event-emitter.md",
+    "questions/nodejs/nodejs-stream.md",
+    "questions/nodejs/nodejs-buffer.md"
   ]
 }

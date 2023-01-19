@@ -28,6 +28,7 @@
 	color: grey;
 	border: 0;
 	background: transparent;
+	text-transform: capitalize;
 	cursor: pointer;
 }
 

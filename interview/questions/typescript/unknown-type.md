@@ -1,0 +1,3 @@
+# What is `unknown` type?
+
+The `unknown` type is used to represent values that are not known or that cannot be determined at compile time, such as values that are returned from external APIs or libraries, or values that are derived from user input or runtime calculations. The `unknown` type is more restrictive than the `any` type, as it requires explicit type assertions or type guards to narrow the type of the value before it can be used or accessed.

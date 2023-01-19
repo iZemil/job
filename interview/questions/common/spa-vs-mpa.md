@@ -1,0 +1,14 @@
+# SPA vs MPA
+
+Single Page Applications (SPAs) and Multiple Page Applications (MPAs) are two different architectures for building web applications.
+
+Single Page Applications (SPAs) are web applications that are designed to work as a single page. They are built using client-side technologies such as HTML, CSS, and JavaScript, and they are loaded in the browser as a single HTML document. SPAs use a combination of client-side rendering, data binding, and AJAX (Asynchronous JavaScript and XML) to update the content and the layout of the page without reloading the page. SPAs are fast and responsive, and they offer a seamless and immersive experience to the users.
+
+Multiple Page Applications (MPAs) are web applications that are built using server-side technologies such as PHP, ASP.NET, or Java, and that are composed of multiple pages that are served by the server. MPAs use a combination of server-side rendering, templates, and server-side logic to generate and update the content and the layout of the pages. MPAs are slower and less responsive than SPAs, as they require the reloading of the page to update the content and the layout.
+
+Here are some guidelines on when to use SPAs or MPAs:
+
+-   Use SPAs when you need fast and seamless navigation: SPAs are suitable for web applications that require fast and seamless navigation, such as online stores, social networks, or collaboration tools. SPAs offer a fast and responsive experience to the users, and they allow the users to navigate and interact with the web application without reloading the page.   
+-   Use MPAs when you need complex server-side logic or data processing: MPAs are suitable for web applications that require complex server-side logic or data processing, such as enterprise applications, reporting tools, or data-intensive applications. MPAs allow you to use server-side technologies and languages to process and manipulate data, and to generate and update the content and the layout of the pages. 
+-   Use SPAs when you need to optimize the performance and the scalability of the web application: SPAs are suitable for web applications that need to optimize the performance and the scalability, as they require fewer server resources and bandwidth, and they offer a faster and more efficient experience to the users. SPAs use client-side rendering and data binding to update the content and the layout of the page, and they use AJAX to communicate with the server asynchronously, without reloading the page.
+-   Use MPAs when you need to support legacy systems or technologies: MPAs are suitable for web applications that need to support legacy systems or technologies, as they allow you to use server-side technologies and languages to integrate with the legacy systems and the APIs. MPAs allow you to use server-side rendering and templates to generate and update the content and the layout of the pages, and they allow you to use server-side logic to manipulate and process data.

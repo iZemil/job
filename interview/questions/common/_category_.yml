@@ -1,0 +1,8 @@
+position: 99
+label: Common
+collapsible: true
+collapsed: true
+className: hide-questions
+link:
+    type: doc
+    id: questions/common/intro

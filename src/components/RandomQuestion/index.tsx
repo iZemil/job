@@ -47,7 +47,7 @@ export const RandomQuestion = () => {
 			</h2>
 
 			<div className={styles.question}>
-				<Link to={Question.getLink(question)}>{question.data.question}</Link>
+				<Link to={Question.getLink(question)}>{question.title}</Link>
 			</div>
 
 			<button

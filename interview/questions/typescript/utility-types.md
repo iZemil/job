@@ -1,0 +1,15 @@
+# What utility types exist and their usage
+
+TypeScript provides a set of utility types that can be used to create and manipulate types in a more expressive and flexible way. Some of the utility types provided by TypeScript are:
+
+-   `Partial<T>`: This type creates a new type that represents the partial version of a type `T`. The partial version of a type has all the properties of the original type, but they are all optional. This type is useful for creating types that represent a subset of the properties of another type, or for creating types that can be used to partially update the properties of another type.
+-   `Readonly<T>`: This type creates a new type that represents the read-only version of a type `T`. The read-only version of a type has all the properties of the original type, but they are all read-only. This type is useful for creating types that cannot be modified, and for creating types that can only be used for reading the properties of another type.
+-   `Pick<T, K>`: This type creates a new type that represents a subset of the properties of a type `T`, selected by a set of keys `K`. This type is useful for creating types that represent a subset of the properties of another type, based on a specific set of keys.
+-   `Omit<T, K>`: This type creates a new type that represents a subset of the properties of a type `T`, excluding a set of keys `K`. This type is useful for creating types that represent a subset of the properties of another type, excluding a specific set of keys.
+-   `Record<K, T>`: This type creates a new type that represents an object with a set of keys `K` and values of type `T`. This type is useful for creating types that represent objects with a specific set of keys and values.
+-   `Exclude<T, U>`: This type creates a new type that represents the set of values that are in a type `T` but not in a type `U`. This type is useful for creating types that represent the set of values that are in one type but not in another type.
+-   `Extract<T, U>`: This type creates a new type that represents the set of values that are in a type `T` and also in a type `U`. This type is useful for creating types that represent the set of values that are in both types.
+-   `ReturnType<T>`: This type creates a new type that represents the return type of a function or a method `T`. This type is useful for creating types that represent the return type of a function or a method.
+-   `InstanceType<T>`: This type creates a new type that represents the instance type of a class or a constructor function `T`. This type is useful for creating types that represent the instance type of a class or a constructor function.  
+
+These are some of the utility types provided by TypeScript, and they can be used to create and manipulate types in a more expressive and flexible way. It is important to understand the role and the use of these utility types in TypeScript, and to use them appropriately in your code.
