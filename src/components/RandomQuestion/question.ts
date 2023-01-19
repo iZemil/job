@@ -23,40 +23,40 @@ export const ANY_TOPIC = 'any';
 export class Store {
 	public static KEY = 'questionStore';
 
-	public static getCache(): { [topicPath: string]: string[] } {
+	public static getCache(): { [topicTitle: string]: string[] } {
 		return ls.get(Store.KEY) ?? {};
 	}
 
-	public static getTopicQuestions(topicPath: string) {
+	public static getTopicQuestions(topicTitle: string) {
 		const cache = Store.getCache();
 
-		return cache[topicPath] ?? [];
+		return cache[topicTitle] ?? [];
 	}
 
-	public static clearCache(topicPath?: string) {
-		if (topicPath) {
+	public static clearCache(topicTitle?: string) {
+		if (topicTitle) {
 			const cache = Store.getCache();
 
 			return ls.set(Store.KEY, {
 				...cache,
-				[topicPath]: [],
+				[topicTitle]: [],
 			});
 		}
 
 		return ls.remove(Store.KEY);
 	}
 
-	public static updateCache({ topicPath, id, topicLen }: Question) {
+	public static updateCache({ topicTitle, id, topicLen }: Question) {
 		const cache = Store.getCache();
-		const questionIds = Store.getTopicQuestions(topicPath);
+		const questionIds = Store.getTopicQuestions(topicTitle);
 		const needRefreshCache = questionIds.length === topicLen;
 
 		if (needRefreshCache) {
-			Store.clearCache(topicPath);
+			Store.clearCache(topicTitle);
 		} else {
 			ls.set(Store.KEY, {
 				...cache,
-				[topicPath]: questionIds.concat(id),
+				[topicTitle]: questionIds.concat(id),
 			});
 		}
 	}
@@ -67,15 +67,15 @@ export class Question {
 	public readonly title: string;
 
 	public readonly topicLen: number;
-	public readonly topicPath: string;
+	public readonly topicTitle: string;
 
 	public static topics() {
 		return topics.map((it) => it.title);
 	}
 
-	public static random(topicPath: string, withCache = false): Question {
-		let topic = topics.find((it) => it.dir === topicPath);
-		if (!topic || topicPath === ANY_TOPIC) {
+	public static random(topicTitle: string, withCache = false): Question {
+		let topic = topics.find((it) => it.title === topicTitle);
+		if (!topic || topicTitle === ANY_TOPIC) {
 			topic = random(topics);
 		}
 
@@ -87,7 +87,7 @@ export class Question {
 		const question: Question = {
 			id,
 			title,
-			topicPath: dir,
+			topicTitle: dir,
 			topicLen: data.length,
 		};
 
@@ -98,7 +98,7 @@ export class Question {
 		return question;
 	}
 
-	public static getLink({ topicPath, id }: Question): string {
-		return `/${topicPath}/${id}`;
+	public static getLink({ topicTitle, id }: Question): string {
+		return `/${topicTitle}/${id}`;
 	}
 }

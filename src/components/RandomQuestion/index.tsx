@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import queryString from 'query-string';
 import { useHistory, useLocation } from '@docusaurus/router';
 
-import { Question, Store, ANY_TOPIC } from './question';
+import { Question, ANY_TOPIC } from './question';
 
 import styles from './styles.module.css';
 

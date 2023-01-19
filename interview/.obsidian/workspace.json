@@ -11,8 +11,12 @@
             "id": "d2b63846adc3a60f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "questions/typescript/what-is-typescript.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "questions/typescript/what-is-typescript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "questions/typescript/what-is-typescript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "questions/typescript/what-is-typescript.md"
+              }
             }
           }
         ],
@@ -138,10 +146,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5da853c18254e00e",
+  "active": "d2b63846adc3a60f",
   "lastOpenFiles": [
-    "questions/_nodejs.md",
     "questions/nodejs/nodejs-clustering.md",
+    "questions/_nodejs.md",
     "questions/nodejs/child-process.md",
     "questions/_frontend.md",
     "questions/nodejs/improve-nodejs-app-perfomance.md",
