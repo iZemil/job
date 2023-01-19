@@ -15,7 +15,7 @@ export const RandomQuestion = () => {
 	const location = useLocation();
 	const parsedSearch: { topic?: string } = queryString.parse(location.search);
 	const [topic, setTopic] = React.useState<string>(parsedSearch?.topic || ANY_TOPIC);
-	const [question, setQuestion] = React.useState(isBrowser ? Question.random(topic) : null);
+	const [question, setQuestion] = React.useState(Question.random(topic));
 
 	const handleClickNext = () => {
 		setQuestion(Question.random(topic, true));
@@ -49,7 +49,7 @@ export const RandomQuestion = () => {
 			</h2>
 
 			<div className={styles.question}>
-				{question && <Link to={Question.getLink(question)}>{question.title}</Link>}
+				<Link to={Question.getLink(question)}>{question.title}</Link>
 			</div>
 
 			<button

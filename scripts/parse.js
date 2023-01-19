@@ -35,7 +35,7 @@ const initQuestion = (id, title) => ({
 
 				// read topic files
 				for (const item of topicDir) {
-					const needParseItem = item.includes('intro');
+					const needParseItem = item.includes('index');
 
 					if (needParseItem) {
 						const data = await fs.readFile(path.resolve(topicPath, item), 'utf8');
