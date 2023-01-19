@@ -83,7 +83,6 @@ export class Question {
 		const cachedQuestionIds = Store.getTopicQuestions(dir);
 		const restQuestions = data.filter((it) => !cachedQuestionIds.includes(it.id));
 		const { id, title } = random(restQuestions.length > 0 ? restQuestions : data);
-
 		const question: Question = {
 			id,
 			title,
