@@ -215,7 +215,7 @@ There are several ways to improve the performance of a Node.js application, incl
 
 There are several ways to test an application, including using unit tests, integration tests, and end-to-end tests. Common testing frameworks for Node.js include Mocha, Jest, and Jasmine.
 
-### Describe child process in NodeJS
+### What is a child process in NodeJS?
 
 In Node.js, the `child_process` module provides an API for creating and managing child processes. Child processes are separate instances of the Node.js runtime that can be spawned from a parent process. They can be used to run long-running tasks or processes in parallel with the parent process, or to execute command-line utilities or other external programs.
 

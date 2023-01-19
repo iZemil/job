@@ -5,11 +5,13 @@ title: Javascript
 
 # Javascript Questions
 
-### What is JavaScript and its usage?
+### What is JavaScript?
 
 JavaScript is a programming language that is commonly used to create interactive elements on websites. It is a client-side language, which means that the code is executed by the user's web browser rather than on a server. JavaScript can be used to create a wide variety of effects and features on a website, such as drop-down menus, form validation, and interactive maps.
 
-### Tell about JS types
+JavaScript is an object-oriented programming language, which means that it uses objects and their properties and methods to represent and manipulate data. It also supports other programming paradigms, such as functional programming.
+
+### What do Javascript types exist?
 
 In JavaScript, there are **six primitive types**:
 
@@ -512,35 +514,61 @@ sequence.next().value; // 2
 
 ## What is an object?
 
-TODO:
-
-### Purpose of «new» keyword?
-
-It is used to create an instance of an object.
+In JavaScript, an object is a collection of key-value pairs that represent a single entity (where key is the name of a property or method). Objects are used to store and organize data, and to represent real-world entities in code.
 
 ```js
-function Person(name = 'Anon') {
-	this.name = name;
-}
+const person = {
+  name: "John Doe",
+  age: 30,
+  gender: "male",
+  address: {
+    street: "123 Main St",
+    city: "Anytown",
+    state: "CA",
+    zip: "12345"
+  },
+  // object method
+  say(text) {
+	  return `${this.name} said: ${text}`
+  }
+};
 
-const anon = new Person();
+person.name; // John Doe, the same with person['name'];
+person.say('hi'); // John Doe said: hi
 ```
 
-### Explain methods and properties
+### Why is the result of comparing 2 similar objects `false`?
 
-OOP has an object way of describing, so Objects have properties (like color, length, value, etc.) that store states and methods (like run, read, update, etc.) that can change properties of the object or other objects and execute other methods.
+Objects in JavaScript are also known as "reference types", which means that when you assign an object to a variable, you are not creating a copy of the object, but a reference to the object. This means that multiple variables can refer to the same object in memory, and modifying the object through one variable will affect all variables that reference the same object.
 
-### What is the diff class vs object?
+```js
+const a = {},
+	  b = {};
+a === b; // false
+```
 
-A class is a template or blueprint for creating objects. It defines the properties and methods that objects created from the class will have, as well as the behavior of those properties and methods.
-
-An object, on the other hand, is an instance of a class. It is a concrete representation of a class, with its own set of properties and methods. An object is created by calling a constructor function associated with a class, using the `new` keyword.
+In JavaScript, the result of comparing two similar objects using the `==` or `===` operator is typically `false`, because these operators compare the references to the objects, rather than the contents of the objects themselves.
 
 ### What is `this`?
 
 In JavaScript, `this` is a keyword that refers to the current context of a function or method. It is used to access and modify properties of the current context, and its value is determined by how a function or method is called.
 
 For example, in the global context, `this` refers to the global object (e.g., `window` in the browser).
+
+```js
+const obj = {
+	value: 1,
+	getObj() {
+		return this;
+	}
+}
+obj.getObj() === obj; // true
+
+function fn() {
+	return this;
+}
+fn() === this; // true; this - global context
+```
 
 ### How to use bind, apply and call?
 
@@ -551,57 +579,216 @@ These methods apply to work with different context for given function.
 -   `call` - executes the function with arguments sequence
 
 ```js
-function greet() {
-	return 'Hello, my name is ' + this.name;
+function greet(a = '', b = '') {
+	return `Hello, my name is ${this.name}${a}${b}`;
+}
+const person = { name: 'John' };
+
+// greet has global context
+greet(); // Hello, my name is undefined
+
+// bind greet fn with context of obj person
+const personGreetFn = greet.bind(person);
+personGreetFn('...'); // Hello, my name is John...
+
+greet.apply(person, [' A.', 'B.']); // Hello, my name is John A.B.
+
+greet.call(person, ' and', 'that\'s all.'); // Hello, my name is John andthat's all.
+```
+
+### Why to use `new` keyword?
+
+It is used to create an instance of an object.
+
+```js
+function Person(name) {
+	this.name = name;
 }
 
-const person = { name: 'John' }; // create a person context
+class Animal {
+	constructor(name) {
+		this.name = name;
+	}
+}
 
-console.log(greet()); // => Hello, my name is undefined
-console.log(greet.bind(person)(...args)); // => Hello, my name is John
-console.log(greet.apply(person), [...args]); // as above
-console.log(greet.call(person), ...args); // as above
+// create an instance of Persont with function constructor
+const john = new Person('John');
+
+// create an instance of Animal class
+const monkey = new Animal('money');
 ```
 
-### Why is the result of comparing two similar objects false?
+### How do object prototypes work?
 
-In JavaScript, the result of comparing two similar objects using the `==` or `===` operator is typically `false`, because these operators compare the references to the objects, rather than the contents of the objects themselves.
+Prototypes are the mechanism by which JavaScript objects inherit features from one another.
 
-### How to clone an object? And Shallow Clone vs. Deep Clone
-
-In JavaScript, a "clone" is a copy of an object or an array. There are two main types of cloning: shallow cloning and deep cloning.
-
-Shallow cloning involves creating a new object or array that contains the same values as the original object or array, but the new object or array does not contain copies of the nested objects or arrays. Instead, it contains references to the original nested objects or arrays. This means that if you modify a nested object or array in the cloned object or array, it will also be modified in the original object or array.
-
-Here is an example of shallow cloning in JavaScript:
+Every object in JavaScript has a built-in property, which is called its **prototype**. The prototype is itself an object, so the prototype will have its own prototype, making what's called a **prototype chain**.
 
 ```js
-let original = { a: 1, b: { c: 3 } };
-let clone = Object.assign({}, original); // or with spread { ...original }
-
-clone.b.c = 4; // also modifies original.b.c
+// the latest prototy chain item is null
+Object.getPrototypeOf(Object.getPrototypeOf({})); // null
 ```
 
-Deep cloning involves creating a completely new object or array that contains copies of all the nested objects and arrays, as well as the top-level object or array. This means that if you modify a nested object or array in the cloned object or array, it will not be modified in the original object or array. And example of deep cloning:
+Class property `prototype` includes all props and methods for the class instance:
 
 ```js
-let original = { a: 1, b: { c: 3 } };
-let clone = JSON.parse(JSON.stringify(original));
+function Person(name) {
+	this.name = name;
+}
 
-clone.b.c = 4; // does not modify original.b.c
+const personPrototype = {
+	greet() {
+		console.log(`hello, my name is ${this.name}!`);
+	},
+};
+
+Object.assign(Person.prototype, personPrototype);
+// or
+// Person.prototype.greet = personPrototype.greet;
+
+const jack = new Person('Jack');
+jack.greet(); // hello, my name is Jack!
 ```
 
-:::caution  
-You should be careful using this way. A better way to implement deep cloning is to use external libraries.
+Properties that are defined directly in the object, like `name` here, are called **own properties**, and you can check whether a property is an own property using the static `Object.hasOwn()` method:
+
+```js
+const emil = new Person('Emil');
+
+Object.hasOwn(emil, 'name'); // true
+Object.hasOwn(emil, 'greet'); // false
+// or
+emil.hasOwnProperty('greet'); // false
+```
+
+Difference between class and prototype notations:
+
+```js
+class Person {
+	constructor(name) {
+		this.name = name;
+		this.say = function (text) {
+			return `${this.name} said: ${text}`;
+		};
+	}
+
+	greet() {
+		return `Hello, my name is ${this.name}!`;
+	}
+
+	static random() {
+		return Math.random();
+	}
+}
+
+function Person(name) {
+	// own properties
+	this.name = name;
+	this.say = function (text) {
+		return `${this.name} said: ${text}`;
+	};
+}
+// extend Person prototype with method:
+Person.prototype.greet = function () {
+	return `Hello, my name is ${this.name}!`;
+};
+// add static method:
+Person.random = function () {
+	return Math.random();
+};
+
+const emil = new Person('Emil');
+// iterate all properties of the instance
+for (let key in emil) {
+	if (Object.hasOwn(emil, key)) {
+		// get only own properties: name, say
+		console.log(key);
+	}
+}
+```
+
+And prototype inheritance example:
+
+```js
+function Student(name) {
+	// Call the parent constructor
+	Person.call(this, name);
+}
+// extend Student as a subclass of Person
+Object.setPrototypeOf(Student.prototype, Person.prototype);
+// inherited parent static properties
+Object.setPrototypeOf(Student, Person);
+
+// replace the parent method
+Student.prototype.greet = function () {
+	return `Hi, I'm ${this.name} and I am a student`;
+};
+```
+
+:::caution
+
+It is not advisable to use setPrototypeOf() instead of extends due to performance and readability reasons.
+
 :::
 
-### What are Map and Set objects?
+### How to clone an object?
+
+In JavaScript, a "clone" is a copy of an object or an array. There are two main types of cloning: **shallow cloning** and **deep cloning**.
+
+**Shallow cloning** creates a new object or array that contains the same values as the original object or array, but the new object or array does not contain copies of the nested objects or arrays. Instead, _it contains references to the original nested objects or arrays_. This means that if you modify a nested object or array in the cloned object or array, it will also be modified in the original object or array.
+
+An example of shallow cloning:
+
+```js
+const original = {
+	a: 1,
+	b: { c: 3 }
+};
+const clone = Object.assign({}, original);
+// const clone = { ...original }; // the same with spread;
+clone.b.c = 4; // also modifies original.b.c
+
+const arr = [{}, {}];
+const arrClone = [...arr];
+arr[0] === arrClone[0]; // the same reference to index 0
+```
+
+**Deep cloning** creates a completely new object or array that contains copies of all the nested objects and arrays, as well as the top-level object or array. This means that **if you modify a nested object or array in the cloned object or array, it will not be modified in the original object or array**.
+
+An example of deep cloning:
+
+```js
+const original = {
+	a: 1,
+	b: { c: 3 }
+};
+const clone = JSON.parse(JSON.stringify(original));
+clone.b.c = 4; // does not modify original.b.c
+
+const arr = [{}, {}];
+const arrClone = JSON.parse(JSON.stringify(arr));
+arr[0] !== arrClone[0]; // different object references
+```
+
+:::caution
+
+You should be careful using this way, because it can cause to lose data such as functions, Date, Infinity and other values. A better way to implement deep cloning is to use external libraries (for example, `lodash.cloneDeep`, or other recursive way of deep cloning libs).
+
+:::
+
+### What are `Map` and `Set` objects?
 
 `Map` is a collection of keyed values.
 `Set` is a collection of unique values.
+
 Iteration over `Map` and `Set` is always in the insertion order, so we can’t say that these collections are unordered, but we can’t reorder elements or directly get an element by its number.
 
-### What are WeakMap and WeakSet objects?
+```js
+const map = new Map([['key', 1], ['key2', 'value']]);
+const set = new Set([1, 2, 2, 3]);
+```
+
+### What are `WeakMap` and `WeakSet` objects?
 
 `WeakMap` is `Map` like collection that allows only objects as keys and removes them together with associated value once they become inaccessible by other means.
 
@@ -621,34 +808,54 @@ const weakSet = new WeakSet(obj1);
 obj1 = null; // weakSet obj1 will be garbage collected
 ```
 
-### Explain Proxy object and its use cases
+### What is the `Proxy` object used for?
 
-The Proxy object in JavaScript is a special kind of object that acts as an intermediary between the original object and the code that accesses or modifies it. It allows developers to intercept and modify the behavior of property access, assignment, and method calls, as well as to define custom behavior for various operations.
+The Proxy object in JavaScript is a special kind of object that acts as an intermediary between the original object and the code that accesses or modifies it.
+
+It allows developers to intercept and modify the behavior of property access, assignment, and method calls, as well as to define custom behavior for various operations.
 
 Proxies are often used to add functionality to an existing object, such as logging, caching, or validation, without modifying the object itself. They can also be used to create abstractions or to implement design patterns, such as the decorator pattern or the observer pattern.
 
 Here is an example of using a Proxy to log property accesses:
 
 ```js
-let obj = { a: 1, b: 2 };
-let proxy = new Proxy(obj, {
+const obj = {
+	a: 1,
+	b: 2
+};
+const proxy = new Proxy(obj, {
 	get(target, prop) {
 		console.log(`Accessing property ${prop}`);
 		return target[prop];
 	},
 });
 
-console.log(proxy.a); // logs "Accessing property a"
-console.log(proxy.b); // logs "Accessing property b"
+proxy.a; // logs "Accessing property a"
+proxy.b; // logs "Accessing property b"
 ```
 
 ## What is a Promise?
 
-Promises are a language feature that allows developers to write asynchronous code in a synchronous style. They provide a way to handle asynchronous operations in a way that is easier to read and reason about than using callback functions.
+Promises are a language feature that allows developers to write asynchronous code in a synchronous style. They provide a way to handle asynchronous operations in a way that is easier to read.
 
-### How to create promises?
+```js
+function delayedFn(ms) {
+	return new Promise((resolve, reject) => {
+		console.log('Running a promise with status: pending')
+	
+		if (ms < 1000) {
+			reject('Too little time - It must be more than 1000 ms!');
+		} else {
+			setTimeout(() => resolve(ms), ms);
+		}
+	});
+}
 
-A promise is created using the `Promise` constructor, which takes a function as an argument. This function is known as the "executor function", and it is responsible for starting the asynchronous operation and either resolving or rejecting the promise based on the outcome.
+delayedFn(900)
+	.then((ms) => console.log(`Promise with status: fulfilled; after: ${ms} ms!`))
+	.catch(err => console.error('Promise with status: rejected and error', err))
+	.finally(() => console.log('Always works!'))
+```
 
 ### What is promise chaining
 
@@ -656,20 +863,196 @@ Promises can be chained together using the `then`, `catch`, `finally` methods, w
 
 ```js
 // pseudo code
-fetch('url').then(parseResult).then(saveResult).catch(logError).finally(logOperation);
+fetch('https://google.com')
+	.then(parseResult)
+	.then(saveResult)
+	.then(someOtherOperation)
+	.catch(logError)
+	.finally(logOperation);
+```
+
+### Explain `async` and`await` keywords
+
+The `async` and `await` keywords are a newer syntax introduced in ECMAScript 2017 that allow developers to write asynchronous code in a synchronous style. They are based on promises and make it easier to write asynchronous code that is easier to read and understand.
+
+```js
+const returnNum = (num) => num;
+
+async function asyncSum(a, b) {
+	const result1 = await returnNum(a);
+	const result2 = await returnNum(b);
+
+	return result1 + result2;
+}
+
+asyncSum(1, 2); // Promise with result 3
 ```
 
 ### How to handle promise errors?
 
-Promises have a built-in mechanism for handling errors, known as the "rejection handler". This allows developers to specify a separate callback function for handling rejected promises, rather than having to use the second argument of the `then()` method as a catch-all error handler.
+Promises have a built-in mechanism for handling errors, known as the `rejection handler`. This allows developers to specify a separate callback function for handling rejected promises, rather than having to use the second argument of the `then()` method as a catch-all error handler.
 
-### Explain async/await keywords
+```js
+// promise way with .catch method
+function delayedFn(ms) {
+	return new Promise((resolve, reject) => {
+		console.log('Running a promise with status: pending')
+	
+		if (ms < 1000) {
+			reject('Too little time - It must be more than 1000 ms!');
+		} else {
+			setTimeout(() => resolve(ms), ms);
+		}
+	});
+}
 
-The `async` and `await` keywords are a newer syntax introduced in ECMAScript 2017 that allow developers to write asynchronous code in a synchronous style. They are based on promises and make it easier to write asynchronous code that is easier to read and understand.
+delayedFn(900)
+	.then((ms) => console.log(`Promise with status: fulfilled; after: ${ms} ms!`))
+	.catch(err => console.error('Promise with status: rejected and error', err))
+	.finally(() => console.log('Always works!'))
 
-### Tell about promise common pitfalls
+// try catch way:
+async function handleDelayedFn(ms) {
+	try {
+		const result = await delayedFn(ms);
+		
+		console.log(`Promise with status: fulfilled; after: ${ms} ms!`);
+	} catch(err) {
+		console.error('Promise with status: rejected and error', err);
+	} finally {
+		console.log('Always works!');
+	}
+}
+handleDelayedFn(900);
+```
 
-There are some common pitfalls that developers can encounter when working with promises, such as forgetting to handle rejected promises or accidentally creating infinite loops with chained promises. Understanding these pitfalls can help developers write more robust and maintainable code.
+### How to handle multiple asynchronous requests?
+
+There are several ways to handle multiple asynchronous requests in JavaScript:
+
+1. **Callback functions**: it can be a simple way to handle multiple requests, but it can become unwieldy if there are a large number of requests or if the requests are nested.
+```js
+function delayedFn(ms, callback) {
+	console.log('Start');
+	if (ms < 1000) {
+		callback('Too little time - It must be more than 1000 ms!');
+	} else {
+		setTimeout(() => {
+			console.log('Finish');
+			callback(null, ms);
+		}, ms);
+	}
+};
+
+delayedFn(900, (err, ms) => {
+	if (err) {
+		console.error('Error', err);
+	} else {
+		delayedFn(ms, (err, ms) => {
+			if (err) {
+				console.error('Error', err);
+			} else {
+				// try to do third nested callback
+			}
+		});
+	}
+});
+```
+2. **Promises**: they allow developers to chain together asynchronous operations in a more readable and concise way, and they provide a built-in mechanism for handling errors.
+```js
+function delayedFn(ms) {
+	return new Promise((resolve, reject) => {
+		console.log('Start')
+	
+		if (ms < 1000) {
+			reject('Too little time - It must be more than 1000 ms!');
+		} else {
+			setTimeout(() => {
+				console.log('Finish');
+				resolve(ms);
+			}, ms);
+		}
+	});
+}
+
+delayedFn(900)
+	.then(ms => delayedFn(ms))
+	.catch(err => console.error(err))
+```
+3. **Async/await**: The `async` and `await` keywords, introduced in ECMAScript 2017, provide a way to write asynchronous code in a synchronous style. This can make it easier to handle multiple asynchronous requests in a more readable and intuitive way.
+```js
+(async function() {
+	const ms = 900;
+	
+	try {
+		const result1 = await delayedFn(ms);
+		const result2 = await delayedFn(result1);
+	} catch(err) {
+		console.error(err);
+	}
+})()
+```
+4. **Parallel execution**: If multiple requests can be made in parallel and the order of their completion does not matter:
+ - `Promise.all()` function can be used to execute a group of promises in parallel and wait for all of them to complete. If one of them fullfills with error it will be a error:
+	```js
+(async function() {
+	try {
+		const [result1, result2] = await Promise.all([
+			delayedFn(900),
+			delayedFn(1000),
+		]);
+
+		console.log(`result1: ${result1.status} and result2: ${result2.status}`);
+	} catch(err) {
+		console.error(err);
+	}
+})()
+```
+- `Promise.allSettled()` - similiar with `Promise.all()` but returns all results and all errors:
+```js
+(async function() {
+	const [result1, result2] = await Promise.allSettled([
+		delayedFn(900),
+		delayedFn(1000),
+	]);
+
+	console.log(`result1: ${result1.status} and result2: ${result2.status}`);
+})()
+```
+- `Promise.race()`: fulfills when any of the promises fulfills; **rejects when any of the promises rejects**. It returns one promise.
+```js
+(async function() {
+	try {
+		const quickest = await Promise.race([
+			delayedFn(900),
+			delayedFn(1000),
+		]);
+
+		console.log(`quickest value: ${quickest}`);
+	} catch(err) {
+		console.error(err);
+	}
+})()
+```
+- `Promise.any()`: fulfills when any of the promises fulfills; **rejects when all of the promises reject**. It returns one promise.
+```js
+(async function() {
+	try {
+		const quickest = await Promise.any([
+			delayedFn(900),
+			delayedFn(1000),
+		]);
+
+		console.log(`rquickest value: ${quickest}`);
+	} catch(err) {
+		console.error(err);
+	}
+})()
+```
+
+### What are promise common pitfalls?
+
+There are some common pitfalls that developers can encounter when working with promises, such as _forgetting to handle rejected promises_ or accidentally _creating infinite loops with chained promises_. Understanding these pitfalls can help developers write more robust and maintainable code.
 
 ### What do you know about AJAX?
 
@@ -679,17 +1062,8 @@ AJAX is implemented using a combination of JavaScript and XML (although other fo
 
 **Here are some key points about AJAX:**
 
--   AJAX allows web pages to make requests to a server asynchronously, without needing to refresh the page. This can make web pages more responsive and interactive.
--   AJAX uses the XMLHttpRequest (XHR) object to send and receive data from a server. The XHR object is supported by most modern browsers.
--   AJAX can be used to request and receive data from a server in a variety of formats, including XML, HTML, JSON, and plain text.
--   AJAX can be used to update only a part of a web page, rather than needing to refresh the entire page. This can make web pages feel more responsive and improve the user experience.
--   AJAX is often used in conjunction with modern JavaScript frameworks, such as AngularJS, React, and Vue.js, to build interactive web applications.
-
-### How to handle multiple asynchronous requests?
-
-There are several ways to handle multiple asynchronous requests in JavaScript, depending on the specific requirements of the task at hand. Here are a few options:
-
-1.  Callback functions: One option is to use callback functions to handle the results of individual asynchronous requests. This can be a simple way to handle multiple requests, but it can become unwieldy if there are a large number of requests or if the requests are nested.
-2.  Promises: Another option is to use JavaScript promises to handle multiple asynchronous requests. Promises allow developers to chain together asynchronous operations in a more readable and concise way, and they provide a built-in mechanism for handling errors.
-3.  Async/await: The `async` and `await` keywords, introduced in ECMAScript 2017, provide a way to write asynchronous code in a synchronous style. This can make it easier to handle multiple asynchronous requests in a more readable and intuitive way.
-4.  Parallel execution: If multiple requests can be made in parallel and the order of their completion does not matter, the `Promise.all()` function can be used to execute a group of promises in parallel and wait for all of them to complete.
+- AJAX allows web pages to make requests to a server asynchronously, without needing to refresh the page. This can make web pages more responsive and interactive.
+- AJAX uses the XMLHttpRequest (XHR) object to send and receive data from a server. The XHR object is supported by most modern browsers.
+- AJAX can be used to request and receive data from a server in a variety of formats, including XML, HTML, JSON, and plain text.
+- AJAX can be used to update only a part of a web page, rather than needing to refresh the entire page. This can make web pages feel more responsive and improve the user experience.
+- AJAX is often used in conjunction with modern JavaScript frameworks, such as AngularJS, React, and Vue.js, to build interactive web applications.

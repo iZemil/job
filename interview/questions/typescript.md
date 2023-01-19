@@ -10,13 +10,15 @@ title: Typescript
 TypeScript is a programming language that is based on JavaScript, and it is designed to add optional static typing and other features to JavaScript. TypeScript is a typed superset of JavaScript, which means that any valid JavaScript code is also valid TypeScript code, and TypeScript adds additional features and syntax to the language.
 
 Benefits of using TypeScript include:
--   Static typing: TypeScript adds optional static typing to JavaScript, which allows you to specify the types of variables, function arguments, and return values. This can help to catch type-related errors at compile time, rather than at runtime, and it can make the code easier to understand and debug.
--   Improved code completion: TypeScript provides improved code completion and IntelliSense in code editors and IDEs, which can help to make the code easier to write and navigate.
--   Improved code documentation: TypeScript allows you to add type annotations and documentation comments to the code, which can help to make the code more self-explanatory and easier to understand.
--   Improved code refactoring: TypeScript's static typing and improved code completion and IntelliSense can make it easier to refactor and modify the code, as it can help to catch errors and provide suggestions for alternatives.
+- Static typing: TypeScript adds optional static typing to JavaScript, which allows you to specify the types of variables, function arguments, and return values. This can help to catch type-related errors at compile time, rather than at runtime, and it can make the code easier to understand and debug.
+- Improved code completion: TypeScript provides improved code completion and IntelliSense in code editors and IDEs, which can help to make the code easier to write and navigate.
+- Improved code documentation: TypeScript allows you to add type annotations and documentation comments to the code, which can help to make the code more self-explanatory and easier to understand.
+- Improved code refactoring: TypeScript's static typing and improved code completion and IntelliSense can make it easier to refactor and modify the code, as it can help to catch errors and provide suggestions for alternatives.
 
 :::info
+
 TypeScript is particularly useful for projects with a large codebase or a team of developers. It can help to improve the quality and reliability of the code, and to make it easier to understand and maintain.
+
 :::
 
 ### What is the typeof operator?
@@ -35,17 +37,21 @@ type Predicate = (x: unknown) => boolean;
 type K = ReturnType<Predicate>; // K: boolean
 ```
 
-### void vs undefined
+### What is `any` type?
+
+...
+
+### `void` vs `undefined`
 
 In TypeScript, `void` is a type that represents the absence of a value. The `void` type is used to indicate that a function does not return a value, or that a variable or expression has no value.
 
 On the other hand, `undefined` is a value that represents the absence of a value or a variable that has not been assigned a value. In JavaScript and TypeScript, `undefined` is a primitive value that represents the absence of a value or a variable that has not been assigned a value.
 
-### What is an unknown type?
+### What is `unknown` type?
 
 The `unknown` type is used to represent values that are not known or that cannot be determined at compile time, such as values that are returned from external APIs or libraries, or values that are derived from user input or runtime calculations. The `unknown` type is more restrictive than the `any` type, as it requires explicit type assertions or type guards to narrow the type of the value before it can be used or accessed.
 
-### Why to use never?
+### Why and how to use `never`?
 
 The `never` type is used to represent values that are never expected to occur or that are not intended to be used, such as the result of a function that always throws an exception or an infinite loop that never returns. The `never` type is a useful way to express the absence of a value or the impossibility of a scenario, and it can help to prevent errors and improve code quality by indicating that a value or a function is not intended to be used or accessed.
 
@@ -123,6 +129,14 @@ interface Point {
 
 const point: Point = { x: 1, y: 2 };
 ```
+
+### What is abstract class and its purpose?
+
+#TODO: diff with interface
+
+It is a class that cannot be instantiated directly, and that is intended to be used as a base class for one or more derived classes. Abstract classes are used to define the common behavior and the shared structure of a group of related classes, and they provide a way to implement inheritance and polymorphism in TypeScript.
+
+An abstract class is defined using the `abstract` keyword, and it can contain both abstract and concrete members. Abstract members are members that are declared but not implemented, and they must be implemented by the derived classes. Concrete members are members that are declared and implemented, and they can be used directly by the derived classes.
 
 ### What is enum and why to use?
 
@@ -211,17 +225,11 @@ const user: SuperUser = {
 
 In this example, the `User` and `Admin` types are defined, and they represent objects with different properties. The `SuperUser` type is defined as an intersection of `User` and `Admin`, which means that it represents an object that must have both the `name` and `age` properties of the `User` type, and the `role` property of the `Admin` type.
 
-### What is abstract class and its purpose?
-
-It is a class that cannot be instantiated directly, and that is intended to be used as a base class for one or more derived classes. Abstract classes are used to define the common behavior and the shared structure of a group of related classes, and they provide a way to implement inheritance and polymorphism in TypeScript.
-
-An abstract class is defined using the `abstract` keyword, and it can contain both abstract and concrete members. Abstract members are members that are declared but not implemented, and they must be implemented by the derived classes. Concrete members are members that are declared and implemented, and they can be used directly by the derived classes.
-
 ### What is the 'implement' clause?
 
 It is used to specify that a class or an object implements an interface or a class. An interface is a type that defines a set of properties, methods, and events that a class or an object must have or must implement. A class is a blueprint for creating objects, and it can define the structure and the behavior of the objects it creates.
 
-### What are Decorators?
+### What is a decorator?
 
 In TypeScript, decorators are a way to add additional behavior to classes, methods, properties, and other elements of the code. Decorators are functions that are invoked with a special syntax, and they can be used to modify or extend the behavior of the decorated element in various ways.
 

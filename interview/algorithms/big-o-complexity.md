@@ -84,10 +84,9 @@ Example below illustrates algorithm complexity and its performance characteristi
 
 ## Code Examples
 
-1. **Array Access**
+Try to define time/space complexities.
 
--   Time Complexity: O(1)
--   Space Complexity: O(1)
+1. **Array Access**
 
 ```js
 function getElement(arr, index) {
@@ -95,10 +94,17 @@ function getElement(arr, index) {
 }
 ```
 
-2. **Linear Search**
+<details>
+<summary>Solution</summary>
 
--   Time Complexity: O(n)
+**Complexity:**
+
+-   Time Complexity: O(1)
 -   Space Complexity: O(1)
+
+</details>
+
+2. **Linear Search**
 
 ```js
 function linearSearch(arr, target) {
@@ -111,10 +117,17 @@ function linearSearch(arr, target) {
 }
 ```
 
-3. **Binary Search**
+<details>
+<summary>Solution</summary>
 
--   Time Complexity: O(log n)
+**Complexity:**
+
+-   Time Complexity: O(n)
 -   Space Complexity: O(1)
+
+</details>
+
+3. **Binary Search**
 
 ```js
 function binarySearch(arr, target) {
@@ -135,10 +148,17 @@ function binarySearch(arr, target) {
 }
 ```
 
-4. **BubbleSort**
+<details>
+<summary>Solution</summary>
 
--   Time Complexity: O(n^2)
+**Complexity:**
+
+-   Time Complexity: O(log n)
 -   Space Complexity: O(1)
+
+</details>
+
+4. **BubbleSort**
 
 ```js
 function bubbleSort(arr) {
@@ -155,10 +175,17 @@ function bubbleSort(arr) {
 }
 ```
 
-5. **Quicksort**
+<details>
+<summary>Solution</summary>
 
--   Time Complexity: O(n log n) (average case) and O(n^2) (worst case)
--   Space Complexity: O(log n)
+**Complexity:**
+
+-   Time Complexity: O(n^2)
+-   Space Complexity: O(1)
+
+</details>
+
+5. **Quicksort**
 
 ```js
 function quickSort(arr, left, right) {
@@ -176,10 +203,17 @@ function quickSort(arr, left, right) {
 }
 ```
 
-6. **Merge Sort**
+<details>
+<summary>Solution</summary>
 
--   Time Complexity: O(n log n)
--   Space Complexity: O(n)
+**Complexity:**
+
+-   Time Complexity: O(n log n) (average case) and O(n^2) (worst case)
+-   Space Complexity: O(log n)
+
+</details>
+
+6. **Merge Sort**
 
 ```js
 function mergeSort(arr) {
@@ -208,3 +242,128 @@ function merge(left, right) {
 	return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 ```
+
+<details>
+<summary>Solution</summary>
+
+**Complexity:**
+
+-   Time Complexity: O(n log n)
+-   Space Complexity: O(n)
+
+</details>
+
+7. **Example code**
+
+```js
+function fn(int, n) {
+	if (n <= 0) {
+		return 1;
+	}
+
+	return 1 + fn(n - 1);
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+**Complexity:**
+
+-   Time Complexity: O(n)
+-   Space Complexity: O(n)
+
+</details>
+
+7. **Example code**
+
+```js
+function fn(int1) {
+	if (int1 <= 0) {
+		return 1;
+	}
+
+	return 1 + fn(int1 - 5);
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+**Complexity:**
+
+-   Time Complexity: O(n)
+-   Space Complexity: O(n)
+
+</details>
+
+7. **Example code**
+
+```js
+function fn(int1) {
+	if (int1 <= 0) {
+		return 1;
+	}
+
+	return 1 + fn(int1 / 5);
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+**Complexity:**
+
+-   Time Complexity: O(log(n))
+-   Space Complexity: O(n)
+
+</details>
+
+7. **Example code**
+
+```js
+function fn(int1, int2, int3) {
+	if (int1 <= 0) {
+		console.log('1');
+	} else {
+		fn(int1 - 1, int2 + 1, int3);
+		fn(int1 - 1, int2, int3 + 1);
+	}
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+**Complexity:**
+
+-   Time Complexity: O(2^n)
+-   Space Complexity: O(n)
+
+</details>
+
+7. **Example code**
+
+```js
+function fn(int1) {
+	for (i = 0; i < int1; i += 2) {
+		console.log(i);
+	}
+
+	if (int1 <= 0) {
+		return 1;
+	} else {
+		return 1 + fn(int1 - 5);
+	}
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+**Complexity:**
+
+-   Time Complexity: O(n^2)
+-   Space Complexity: O(n)
+
+</details>

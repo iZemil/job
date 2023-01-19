@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import queryString from 'query-string';
@@ -27,6 +27,12 @@ export const RandomQuestion = () => {
 			search: `topic=${value}`,
 		});
 	};
+
+	useEffect(() => {
+		if (topic !== ANY_TOPIC) {
+			setQuestion(Question.random(topic, false));
+		}
+	}, [topic]);
 
 	return (
 		<div className={styles.container}>
