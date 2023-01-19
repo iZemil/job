@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "f5847a16c5fda879",
+        "id": "248497d8a4cd67a3",
         "type": "tabs",
         "children": [
           {
-            "id": "d2b63846adc3a60f",
+            "id": "b8e4d1b515ad0b74",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "questions/typescript/what-is-typescript.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "questions/typescript/what-is-typescript.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "questions/typescript/what-is-typescript.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "questions/typescript/what-is-typescript.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -146,8 +138,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d2b63846adc3a60f",
+  "active": "b8e4d1b515ad0b74",
   "lastOpenFiles": [
+    "questions/typescript/what-is-typescript.md",
     "questions/nodejs/nodejs-clustering.md",
     "questions/_nodejs.md",
     "questions/nodejs/child-process.md",
@@ -156,7 +149,6 @@
     "questions/nodejs/nodejs-app-perfomance.md",
     "questions/nodejs/nodejs-project-structure.md",
     "questions/nodejs/event-emitter.md",
-    "questions/nodejs/nodejs-stream.md",
-    "questions/nodejs/nodejs-buffer.md"
+    "questions/nodejs/nodejs-stream.md"
   ]
 }
