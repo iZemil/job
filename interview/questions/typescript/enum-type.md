@@ -1,4 +1,4 @@
-# What is enum and why to use?
+# What is `enum` and why to use?
 
 `enum` is a way to define a set of related values that can be used to represent a specific set of choices or options. An `enum` is a named group of constants, and it allows you to create a set of named values that can be used to represent a specific set of choices or options.
 

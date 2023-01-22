@@ -1,4 +1,4 @@
-# What is Namespace and how to declare it?
+# What is `namespace` and how to declare it?
 
 In TypeScript, a namespace is a way to organize and group related code under a single name. Namespaces allow you to define and expose a set of variables, functions, classes, and other types of symbols, and to prevent naming conflicts and collisions with other code.
 
@@ -20,10 +20,11 @@ namespace MyNamespace {
   }
 }
 
-console.log(MyNamespace.MY_CONSTANT);  // 'Hello World'
-console.log(MyNamespace.myFunction(1, 2));  // 3
+MyNamespace.MY_CONSTANT;  // 'Hello World'
+MyNamespace.myFunction(1, 2);  // 3
 
 const obj = new MyNamespace.MyClass();
+
 obj.method1();  // logs: 'Method 1 called'
 ```
 
