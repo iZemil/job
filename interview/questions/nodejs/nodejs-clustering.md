@@ -1,4 +1,4 @@
-# How to create a clustering in NodeJS?
+# Why/How to create a nodejs cluster?
 
 Clustering in Node.js refers to the ability to create a group of child processes that can share server ports and work together to handle incoming requests. Clustering is a way to improve the performance and scalability of a Node.js application, by taking advantage of multiple CPU cores and distributing the workload across multiple processes.
 

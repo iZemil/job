@@ -7,3 +7,12 @@ In the context of Node.js, the REPL provides a way to try out Node.js code snipp
 When you start the REPL, you will see a command prompt, where you can enter Node.js code snippets. When you press Enter, the REPL will evaluate the code snippet and print the result to the console. You can then enter more code snippets and see the results immediately.
 
 The REPL is a useful tool for experimenting with Node.js code and testing out small code snippets. It is also a good way to learn the Node.js API and explore the various built-in objects and functions that are available.
+
+```bash
+$ node
+> 10 + 20
+30
+> 10 + ( 20 * 30 ) - 40
+570
+>
+```

@@ -4,16 +4,22 @@ The `EventEmitter` class is a built-in class in Node.js that allows objects to e
 
 Here is an example of how to use the `EventEmitter` class in Node.js:
 
-```js
+```js ee.js
 const EventEmitter = require('events');
 
 class MyEmitter extends EventEmitter {}
 
-const myEmitter = new MyEmitter();
+const ee = new MyEmitter();
 
-myEmitter.on('start', (start, end) => {
-	console.log(`started from ${start} to ${end}`);
-});
-
-myEmitter.emit('start', 1, 100);
+ee.on('ping', () => console.log('pong'));
+ee.on('start', (start, end) => console.log(`started from ${start} to ${end}`));
+ee.emit('start', 1, 100);
 ```
+
+Try to experiment with the file into REPL with command: `node -i -e "$(< ./ee.js)"` (the command starts input-output loop with injected file).
+
+-   **.emit()** - this method in event emitter is to emit an event in module
+-   **.on()** - this method is to listen to data on a registered event in node.js
+-   **.once()** - it listen to data on a registered event only once.
+-   **.addListener()** - it checks if the listener is registered for an event.
+-   **.removeListener()** - it removes the listener for an event.
