@@ -9,5 +9,5 @@ React creates a virtual DOM. When the state changes in a component, it first run
 - It is easy to know how a component is rendered, you just need to look at the render function.
 - JSX makes it easy to read the code of your components. It is also really easy to see the layout, or how components are plugged/combined.
 - You can render React on the server side. This improves SEO and performance.
-- It is easy to test.
+- Easy to write unit and integration tests with tools such as Jest.
 - You can use React with any framework you wish as it is only a view layer.

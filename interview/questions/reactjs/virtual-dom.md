@@ -8,3 +8,7 @@
 ## Is the Shadow DOM the same as the Virtual DOM?
 
 No, they are different. The Shadow DOM is a browser technology designed primarily for scoping variables and CSS in web components. The virtual DOM is a concept implemented by libraries in JavaScript on top of browser APIs.
+
+## What is reconciliation?
+
+When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM. This process is called _reconciliation_.

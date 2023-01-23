@@ -106,6 +106,10 @@ const config = {
 								to: '/questions/frontend/',
 							},
 							{
+								label: 'ReactJS',
+								to: '/questions/reactjs/',
+							},
+							{
 								label: 'NodeJS',
 								to: '/questions/nodejs/',
 							},
