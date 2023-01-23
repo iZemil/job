@@ -4,18 +4,73 @@
     "type": "split",
     "children": [
       {
-        "id": "248497d8a4cd67a3",
+        "id": "8ed391ee02c06aa6",
         "type": "tabs",
         "children": [
           {
-            "id": "b8e4d1b515ad0b74",
+            "id": "81399e2e8a9c42b5",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "questions/reactjs/temp.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "a3aa346695a34b86",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "questions/reactjs/presentational-vs-container-components.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1b68dde36b05c76c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "questions/reactjs/jsx.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "96a73f0acc122205",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "questions/reactjs/reactjs-lifecycle.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "360947646596cfcb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "questions/reactjs/react-hooks.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -44,7 +99,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "<a href",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,6 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "questions/reactjs/reactjs-lifecycle.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +153,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "questions/reactjs/reactjs-lifecycle.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +175,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "questions/reactjs/reactjs-lifecycle.md"
+              }
             }
           }
         ],
@@ -126,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 421.5
+    "width": 438.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -138,17 +197,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b8e4d1b515ad0b74",
+  "active": "96a73f0acc122205",
   "lastOpenFiles": [
-    "questions/typescript/what-is-typescript.md",
-    "questions/nodejs/nodejs-clustering.md",
-    "questions/_nodejs.md",
-    "questions/nodejs/child-process.md",
-    "questions/_frontend.md",
-    "questions/nodejs/improve-nodejs-app-perfomance.md",
-    "questions/nodejs/nodejs-app-perfomance.md",
-    "questions/nodejs/nodejs-project-structure.md",
-    "questions/nodejs/event-emitter.md",
-    "questions/nodejs/nodejs-stream.md"
+    "questions/reactjs/higher-order-component.md",
+    "questions/reactjs/state-vs-props.md",
+    "questions/reactjs/key-prop.md",
+    "questions/reactjs/synthetic-event.md",
+    "questions/reactjs/jsx.md",
+    "questions/reactjs/what-is-reactjs.md",
+    "questions/reactjs/virtual-dom.md",
+    "questions/reactjs/presentational-vs-container-components.md",
+    "questions/reactjs/temp.md",
+    "questions/reactjs/use-effect-hook.md"
   ]
 }
