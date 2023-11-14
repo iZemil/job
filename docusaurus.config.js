@@ -146,7 +146,7 @@ const config = {
 		{
 			tagName: 'script',
 			attributes: {
-				async: true,
+				async: 'true',
 				src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6539612495903206',
 				crossorigin: 'anonymous',
 			},
