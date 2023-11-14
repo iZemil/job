@@ -142,6 +142,17 @@ const config = {
 			metadata: [{ property: 'og:image', content: 'https://job.js.org/img/logo.png' }],
 		}),
 	themes: ['@docusaurus/theme-live-codeblock'],
+	headTags: [
+		{
+			tagName: 'script',
+			attributes: {
+				async: true,
+				src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6539612495903206',
+				crossorigin: 'anonymous',
+			},
+		},
+	],
+	scripts: [],
 };
 
 // docs: https://docusaurus.io/docs
