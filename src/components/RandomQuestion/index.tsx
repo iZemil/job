@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import queryString from 'query-string';
 import { useHistory, useLocation } from '@docusaurus/router';
+import clsx from 'clsx';
+import queryString from 'query-string';
+import React, { useEffect } from 'react';
 
-import { Question, ANY_TOPIC } from './question';
+import { ANY_TOPIC, Question } from './question';
 
-import styles from './styles.module.css';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import styles from './styles.module.css';
 
 export const RandomQuestion = () => {
 	const isBrowser = useIsBrowser();
@@ -43,7 +43,7 @@ export const RandomQuestion = () => {
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.title}>
-				questions
+				Question Topic
 				<select className={styles.topic} value={topic} onChange={handleChangeTopic}>
 					{Question.topics().map((topic) => (
 						<option key={topic}>{topic}</option>
@@ -52,8 +52,20 @@ export const RandomQuestion = () => {
 				</select>
 			</h2>
 
+			{question && topic === ANY_TOPIC && (
+				<Link className={styles.topicLink} to={Question.getTopicLink(question)}>
+					#{Question.extractTopicType(question)}
+				</Link>
+			)}
+
 			<div className={styles.question}>
-				{question && <Link to={Question.getLink(question)}>{question.title}</Link>}
+				{question && <h3>{question.title}</h3>}
+
+				{question && (
+					<Link target="blank" to={Question.getLink(question)}>
+						See answer
+					</Link>
+				)}
 			</div>
 
 			<button

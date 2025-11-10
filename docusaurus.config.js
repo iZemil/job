@@ -66,7 +66,12 @@ const config = {
 					{
 						href: '/interview',
 						position: 'left',
-						label: 'Interview',
+						label: 'Docs',
+					},
+					{
+						href: '/questions',
+						position: 'left',
+						label: 'Questions',
 					},
 					{
 						href: '/algorithms',

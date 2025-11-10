@@ -101,4 +101,15 @@ export class Question {
 	public static getLink({ topicTitle, id }: Question): string {
 		return `/${topicTitle}/${id}`;
 	}
+
+	public static extractTopicType(q: Question): string {
+		const { topicTitle } = q;
+		const [, topicType] = topicTitle.split('/');
+
+		return topicType;
+	}
+
+	public static getTopicLink(q: Question): string {
+		return `/${q.topicTitle}`;
+	}
 }
