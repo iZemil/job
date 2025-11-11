@@ -60,3 +60,12 @@
 .nextButton {
 	width: fit-content;
 }
+
+.bookmark {
+	color: var(--ifm-color-gray-600);
+	cursor: pointer;
+}
+
+.bookmarkActive {
+	color: var(--ifm-color-warning);
+}
