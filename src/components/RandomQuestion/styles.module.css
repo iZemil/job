@@ -57,15 +57,32 @@
 	color: #858585;
 }
 
-.nextButton {
-	width: fit-content;
+.bookmarkBtn {
+	position: absolute;
 }
 
-.bookmark {
+.bookmarkIcon {
 	color: var(--ifm-color-gray-600);
-	cursor: pointer;
 }
 
 .bookmarkActive {
 	color: var(--ifm-color-warning);
+}
+
+.actionBar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	justify-content: space-between;
+}
+
+.actionBar button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.seeAnswerBtn {
+	font-weight: 400;
 }
