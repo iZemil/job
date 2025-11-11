@@ -16,6 +16,8 @@ export const RandomQuestion = () => {
 	const parsedSearch: { topic?: string } = queryString.parse(location.search);
 	const [topic, setTopic] = React.useState<string>(parsedSearch?.topic || TOPIC_SELECT.ANY);
 	const [question, setQuestion] = React.useState<Question>();
+	const [isFavorite, setIsFavorite] = React.useState<boolean>(false);
+	const [favoritesCount, setFavoritesCount] = React.useState<number>(Store.getFavorites().length);
 
 	useEffect(() => {
 		setQuestion(Question.random(topic));
@@ -35,6 +37,12 @@ export const RandomQuestion = () => {
 	};
 
 	useEffect(() => {
+		if (topic === TOPIC_SELECT.FAVORITE && favoritesCount === 0) {
+			setTopic(TOPIC_SELECT.ANY);
+		}
+	}, [favoritesCount]);
+
+	useEffect(() => {
 		if (topic !== TOPIC_SELECT.ANY) {
 			setQuestion(Question.random(topic, false));
 		}
@@ -42,10 +50,15 @@ export const RandomQuestion = () => {
 
 	const handleBookmark = (question: Question) => {
 		Question.handleBookmark(question);
+		// Update local reactive states so UI reflects the change immediately
+		setIsFavorite(Question.isFavorite(question));
+		setFavoritesCount(Store.getFavorites().length);
 	};
 
-	const isFavorite = Question.isFavorite(question);
-	const favorites = Store.getFavorites();
+	// Keep isFavorite in sync when the question itself changes
+	useEffect(() => {
+		setIsFavorite(Question.isFavorite(question));
+	}, [question]);
 
 	return (
 		<div className={styles.container}>
@@ -53,18 +66,12 @@ export const RandomQuestion = () => {
 				Questions
 				<select className={styles.topic} value={topic} onChange={handleChangeTopic}>
 					<option value={TOPIC_SELECT.ANY}>All</option>
-					{favorites.length && <option value={TOPIC_SELECT.FAVORITE}>Favorites</option>}
+					{favoritesCount > 0 && <option value={TOPIC_SELECT.FAVORITE}>Favorites</option>}
 					{Question.topics().map((topic) => (
 						<option key={topic}>{topic}</option>
 					))}
 				</select>
 			</h2>
-
-			{question && topic === TOPIC_SELECT.ANY && (
-				<Link className={styles.topicLink} to={Question.getTopicLink(question)}>
-					#{Question.extractTopicType(question)}
-				</Link>
-			)}
 
 			<div className={styles.question}>
 				{question && (
@@ -95,11 +102,11 @@ export const RandomQuestion = () => {
 					</h3>
 				)}
 
-				{/* {question && (
-					<Link target="blank" to={Question.getLink(question)}>
-						See answer
+				{question && (
+					<Link className={styles.topicLink} to={Question.getTopicLink(question)}>
+						#{Question.extractTopicType(question)}
 					</Link>
-				)} */}
+				)}
 			</div>
 
 			<div className={styles.actionBar}>

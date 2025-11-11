@@ -35,6 +35,7 @@
 .topicLink {
 	font-size: 14px;
 	font-style: italic;
+	font-weight: 400;
 	color: #858585;
 }
 
@@ -53,7 +54,6 @@
 }
 
 .question a {
-	text-decoration: underline;
 	color: #858585;
 }
 

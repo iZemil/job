@@ -27,6 +27,7 @@ export class Store {
 	public static KEY = 'questionStore';
 
 	public static FAVORITES = 'favorites';
+	public static FAVORITES_INDEX = 'favoritesIndex';
 
 	public static getCache(): { [topicTitle: string]: string[] } {
 		return ls.get(Store.KEY) ?? {};
@@ -71,6 +72,15 @@ export class Store {
 
 		return favorites || [];
 	}
+
+	public static getFavoritesIndex(): number {
+		const index = ls.get<number>(Store.FAVORITES_INDEX);
+		return typeof index === 'number' && index >= 0 ? index : 0;
+	}
+
+	public static setFavoritesIndex(index: number) {
+		ls.set(Store.FAVORITES_INDEX, index);
+	}
 }
 
 export class Question {
@@ -93,21 +103,50 @@ export class Question {
 		};
 	}
 
+	public static fromId(id: string): Question | undefined {
+		for (const t of topics) {
+			const q = t.data.find((dq) => dq.id === id);
+			if (q) {
+				return Question.fromRaw(q, t);
+			}
+		}
+		return undefined;
+	}
+
+	public static nextFavorite() {
+		const ids = Store.getFavorites();
+
+		let nextQuestion: Question | undefined;
+
+		if (ids.length > 0) {
+			// Cycle deterministically through favorite questions
+			let idx = Store.getFavoritesIndex();
+			if (idx >= ids.length) {
+				idx = 0;
+			}
+
+			// Find next existing favorite question (skip any stale ids)
+			let attempts = 0;
+			while (attempts < ids.length) {
+				const id = ids[idx];
+				const q = Question.fromId(id);
+				idx = (idx + 1) % ids.length;
+				attempts += 1;
+				if (q) {
+					nextQuestion = q;
+					break;
+				}
+			}
+
+			Store.setFavoritesIndex(idx);
+		}
+
+		return nextQuestion ?? Question.random(TOPIC_SELECT.ANY, true);
+	}
+
 	public static random(topicTitle: string, withCache = false): Question {
 		if (topicTitle === TOPIC_SELECT.FAVORITE) {
-			const ids = Store.getFavorites();
-			const questionsByIds: Question[] = [];
-			// TODO: refactor
-			topics.forEach((t) => {
-				t.data.forEach((q) => {
-					if (ids.includes(q.id)) {
-						questionsByIds.push(Question.fromRaw(q, t));
-					}
-				});
-			});
-
-			// TODO: добавить очередь, а не рандом
-			return random(questionsByIds);
+			return this.nextFavorite();
 		}
 
 		let topic = topics.find((it) => it.title === topicTitle);
