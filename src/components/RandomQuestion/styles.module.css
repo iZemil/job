@@ -35,6 +35,7 @@
 .topicLink {
 	font-size: 14px;
 	font-style: italic;
+	font-weight: 400;
 	color: #858585;
 }
 
@@ -53,10 +54,35 @@
 }
 
 .question a {
-	text-decoration: underline;
 	color: #858585;
 }
 
-.nextButton {
-	width: fit-content;
+.bookmarkBtn {
+	position: absolute;
+}
+
+.bookmarkIcon {
+	color: var(--ifm-color-gray-600);
+}
+
+.bookmarkActive {
+	color: var(--ifm-color-warning);
+}
+
+.actionBar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	justify-content: space-between;
+}
+
+.actionBar button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.seeAnswerBtn {
+	font-weight: 400;
 }
