@@ -61,11 +61,11 @@
 	position: absolute;
 }
 
-.bookmarkIcon {
+.bookmarkBtn svg {
 	color: var(--ifm-color-gray-600);
 }
 
-.bookmarkActive {
+.bookmarkBtnActive svg {
 	color: var(--ifm-color-warning) !important;
 }
 

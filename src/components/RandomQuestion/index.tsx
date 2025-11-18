@@ -78,7 +78,11 @@ export const RandomQuestion = () => {
 					<h3>
 						{question.title}
 						<button
-							className={clsx('button button--sm', styles.bookmarkBtn)}
+							className={clsx(
+								'button button--sm',
+								styles.bookmarkBtn,
+								isFavorite ? styles.bookmarkBtnActive : ''
+							)}
 							onClick={() => handleBookmark(question)}
 						>
 							<svg
@@ -87,9 +91,6 @@ export const RandomQuestion = () => {
 								viewBox="0 0 24 24"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
-								className={clsx(styles.bookmarkIcon, {
-									[styles.bookmarkActive]: isFavorite,
-								})}
 							>
 								<path
 									fillRule="evenodd"
