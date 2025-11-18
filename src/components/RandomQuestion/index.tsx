@@ -30,6 +30,8 @@ export const RandomQuestion = () => {
 	const handleChangeTopic = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const { value } = e.target;
 
+		const selected = value.toLowerCase();
+
 		setTopic(value);
 		history.push({
 			search: `topic=${value}`,
